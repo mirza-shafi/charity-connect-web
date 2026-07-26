@@ -223,14 +223,21 @@ export function CheckoutForm({
           <i className="fa-solid fa-location-dot" /> Billing Address
         </h3>
         <div className="pt-form-group">
-          <input
-            type="text"
-            className="pt-form-input"
-            placeholder="Country *"
+          <select
+            className="pt-form-select"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
             required
-          />
+          >
+            <option value="" disabled>
+              Country *
+            </option>
+            {COUNTRIES.map(([code, name]) => (
+              <option key={code} value={code}>
+                {name}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="pt-form-group">
           <input
