@@ -76,3 +76,26 @@ export interface HeroSlide {
   active: boolean;
   created_at: string;
 }
+
+export interface GalleryPhoto {
+  id: string;
+  image_key: string;
+  category: string;
+  alt_text: string | null;
+  created_at: string;
+}
+
+export type DonationFrequency = "one_time" | "monthly";
+
+export interface Donation {
+  id: string;
+  campaign_id: string | null;
+  donor_name: string;
+  donor_email: string;
+  amount_cents: number;
+  currency: string;
+  frequency: DonationFrequency;
+  status: "pending" | "completed" | "failed";
+  is_fee: boolean;
+  created_at: string;
+}

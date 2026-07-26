@@ -1,3 +1,5 @@
+import { BasketDrawer } from "@/components/site/basket-drawer";
+import { BasketProvider } from "@/components/site/basket-context";
 import { SiteFooter } from "@/components/site/footer";
 import { SiteHeader } from "@/components/site/header";
 import { ThemeInit } from "@/components/site/theme-init";
@@ -14,17 +16,20 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
 
   return (
     <ToastProvider>
-      <div className="pt-root">
-        <ThemeInit />
-        <SiteHeader
-          campaigns={campaigns.slice(0, 6)}
-          events={events.slice(0, 6)}
-          posts={posts.slice(0, 6)}
-        />
-        <main className="pt-app-content">{children}</main>
-        <SiteFooter />
-        <WhatsappButton />
-      </div>
+      <BasketProvider>
+        <div className="pt-root">
+          <ThemeInit />
+          <SiteHeader
+            campaigns={campaigns.slice(0, 6)}
+            events={events.slice(0, 6)}
+            posts={posts.slice(0, 6)}
+          />
+          <main className="pt-app-content">{children}</main>
+          <SiteFooter />
+          <WhatsappButton />
+          <BasketDrawer />
+        </div>
+      </BasketProvider>
     </ToastProvider>
   );
 }

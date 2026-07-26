@@ -2,12 +2,17 @@ import Link from "next/link";
 
 import { CampaignCarousel } from "@/components/site/campaign-carousel";
 import { HeroSlider } from "@/components/site/hero-slider";
-import { getCampaigns, getHeroSlides } from "@/lib/data";
+import { PhotoGallery } from "@/components/site/photo-gallery";
+import { getCampaigns, getGalleryPhotos, getHeroSlides } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const [campaigns, heroSlides] = await Promise.all([getCampaigns(), getHeroSlides()]);
+  const [campaigns, heroSlides, galleryPhotos] = await Promise.all([
+    getCampaigns(),
+    getHeroSlides(),
+    getGalleryPhotos(),
+  ]);
   const featured = campaigns.slice(0, 9);
   const totalRaised = campaigns.reduce((sum, c) => sum + c.raised, 0);
 
@@ -46,6 +51,8 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      <PhotoGallery photos={galleryPhotos} />
 
       {/* Mission */}
       <section

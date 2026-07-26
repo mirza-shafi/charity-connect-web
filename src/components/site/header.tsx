@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { useBasket } from "@/components/site/basket-context";
 import { NavMegaMenu } from "@/components/site/nav-mega-menu";
 import { formatDate } from "@/lib/format";
 import type { Campaign, EventItem, BlogPost } from "@/lib/types";
@@ -26,6 +27,8 @@ export function SiteHeader({
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { items, openBasket } = useBasket();
+  const basketCount = items.reduce((sum, i) => sum + i.quantity, 0);
 
   // Only the homepage has a full-screen hero directly under the header, so
   // the see-through "overlay" look only makes sense there and only before
@@ -111,9 +114,14 @@ export function SiteHeader({
             <i className="fa-solid fa-sun pt-icon-sun" />
           </button>
 
-          <Link href="/campaigns" className="pt-btn pt-btn-accent pt-btn-sm pt-header-desktop-only">
+          <Link href="/donate" className="pt-btn pt-btn-accent pt-btn-sm pt-header-desktop-only">
             Donate Now
           </Link>
+
+          <button type="button" className="pt-cart-btn" onClick={openBasket} aria-label="Open basket">
+            <i className="fa-solid fa-cart-shopping" />
+            {basketCount > 0 && <span className="pt-cart-badge">{basketCount}</span>}
+          </button>
 
           <button
             type="button"

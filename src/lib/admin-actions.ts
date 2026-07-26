@@ -341,6 +341,43 @@ export async function deleteHeroSlide(id: string): Promise<void> {
   revalidatePath("/");
 }
 
+// ---------- Gallery photos ----------
+
+export async function createGalleryPhoto(
+  _prevState: ActionState,
+  formData: FormData
+): Promise<ActionState> {
+  const token = await requireToken();
+  const image_key = String(formData.get("image_key") ?? "").trim();
+  const category = String(formData.get("category") ?? "").trim();
+  const alt_text = String(formData.get("alt_text") ?? "").trim() || undefined;
+
+  if (!image_key || !category) {
+    return { status: "error", message: "Please upload an image and choose a category." };
+  }
+
+  try {
+    await apiFetch("/api/v1/gallery-photos", {
+      method: "POST",
+      token,
+      body: { image_key, category, alt_text },
+    });
+  } catch (error) {
+    return fail(error);
+  }
+
+  revalidatePath("/admin/gallery");
+  revalidatePath("/");
+  return { status: "success", message: "Photo added." };
+}
+
+export async function deleteGalleryPhoto(id: string): Promise<void> {
+  const token = await requireToken();
+  await apiFetch(`/api/v1/gallery-photos/${id}`, { method: "DELETE", token });
+  revalidatePath("/admin/gallery");
+  revalidatePath("/");
+}
+
 // ---------- Volunteers ----------
 
 export async function setVolunteerStatus(

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 
+import { DonationCard } from "@/components/site/donation-card";
 import { getCampaign } from "@/lib/data";
 
 export default async function CampaignDetailPage({
@@ -71,12 +72,7 @@ export default async function CampaignDetailPage({
               <span>Goal: ${campaign.goal.toLocaleString()}</span>
             </div>
 
-            <button type="button" className="pt-btn pt-btn-primary pt-btn-pill pt-btn-full" disabled>
-              <i className="fa-solid fa-heart" /> Donate — Coming Soon
-            </button>
-            <p style={{ fontSize: "0.75rem", color: "var(--pt-text-light)", marginTop: 10 }}>
-              Online payments are launching in the next phase of the build.
-            </p>
+            <DonationCard campaign={campaign} variant="compact" />
           </div>
         </div>
       </div>
