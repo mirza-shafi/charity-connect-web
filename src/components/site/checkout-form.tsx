@@ -69,13 +69,13 @@ export function CheckoutForm({
           billing_details: {
             name: donorName.trim(),
             email: donorEmail.trim(),
-            phone: donorPhone.trim() || undefined,
+            phone: donorPhone.trim(),
             address: {
               country: country.trim(),
               line1: addressLine1.trim(),
-              line2: addressLine2.trim() || undefined,
+              line2: addressLine2.trim(),
               city: city.trim(),
-              state: county.trim() || undefined,
+              state: county.trim(),
               postal_code: postcode.trim(),
             },
           },
