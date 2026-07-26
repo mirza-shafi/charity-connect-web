@@ -1,0 +1,130 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+
+import { NavMegaMenu } from "@/components/site/nav-mega-menu";
+import { formatDate } from "@/lib/format";
+import type { Campaign, EventItem, BlogPost } from "@/lib/types";
+
+const PLAIN_LINKS = [
+  { href: "/volunteer", label: "Volunteer" },
+  { href: "/zakat", label: "Zakat Calculator" },
+  { href: "/contact", label: "Contact" },
+];
+
+export function SiteHeader({
+  campaigns,
+  events,
+  posts,
+}: {
+  campaigns: Campaign[];
+  events: EventItem[];
+  posts: BlogPost[];
+}) {
+  const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Only the homepage has a full-screen hero directly under the header, so
+  // the see-through "overlay" look only makes sense there and only before
+  // the visitor scrolls past it.
+  const isOverlay = pathname === "/" && !scrolled;
+
+  useEffect(() => {
+    if (pathname !== "/") return;
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [pathname]);
+
+  const toggleTheme = () => {
+    const next = document.body.classList.toggle("dark-mode");
+    localStorage.setItem("charity_connect_theme", next ? "dark" : "light");
+  };
+
+  return (
+    <header className={`pt-header${isOverlay ? " pt-header-overlay" : ""}`}>
+      <div className="pt-header-container">
+        <Link href="/" className="pt-logo">
+          <i className="fa-solid fa-hand-holding-heart" />
+          <span>CharityConnect</span>
+        </Link>
+
+        <nav>
+          <ul className={`pt-nav-menu${mobileOpen ? " pt-nav-open" : ""}`}>
+            <NavMegaMenu
+              label="Campaigns"
+              href="/campaigns"
+              active={pathname === "/campaigns"}
+              viewAllHref="/campaigns"
+              viewAllLabel="View All Campaigns"
+              items={campaigns.map((c) => ({ href: `/campaigns/${c.slug}`, title: c.title, subtitle: c.category }))}
+            />
+
+            <NavMegaMenu
+              label="Events"
+              href="/events"
+              active={pathname === "/events"}
+              viewAllHref="/events"
+              viewAllLabel="View All Events"
+              items={events.map((e) => ({
+                href: `/events/${e.slug}`,
+                title: e.title,
+                subtitle: formatDate(e.date, { month: "short", day: "numeric", year: "numeric" }),
+              }))}
+            />
+
+            <NavMegaMenu
+              label="News"
+              href="/blog"
+              active={pathname === "/blog"}
+              viewAllHref="/blog"
+              viewAllLabel="View All News"
+              items={posts.map((p) => ({ href: `/blog/${p.slug}`, title: p.title, subtitle: p.category }))}
+            />
+
+            {PLAIN_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`pt-nav-link${pathname === link.href ? " active" : ""}`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="pt-header-actions">
+          <button
+            type="button"
+            className="pt-theme-toggle pt-header-desktop-only"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+          >
+            <i className="fa-solid fa-moon pt-icon-moon" />
+            <i className="fa-solid fa-sun pt-icon-sun" />
+          </button>
+
+          <Link href="/campaigns" className="pt-btn pt-btn-accent pt-btn-sm pt-header-desktop-only">
+            Donate Now
+          </Link>
+
+          <button
+            type="button"
+            className="pt-mobile-toggle"
+            aria-label="Toggle menu"
+            onClick={() => setMobileOpen((o) => !o)}
+          >
+            <i className={`fa-solid ${mobileOpen ? "fa-xmark" : "fa-bars"}`} />
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+}
