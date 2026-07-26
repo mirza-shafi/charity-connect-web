@@ -1069,7 +1069,10 @@ body.dark-mode .pt-card-badge { color: #fff; }
   padding-bottom: 200px;
 }
 
-.pt-hero-slide-headline {
+/* .pt-hero-slide-content prefix is deliberate: ".pt-root h1" (class+element,
+   specificity 0,1,1) would otherwise beat a bare ".pt-hero-slide-headline"
+   (0,1,0) and force the dark base heading color over this white hero text. */
+.pt-hero-slide-content .pt-hero-slide-headline {
   color: #fff;
   font-family: var(--pt-font-display);
   font-size: 3.2rem;
