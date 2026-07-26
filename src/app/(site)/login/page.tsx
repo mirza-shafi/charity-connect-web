@@ -7,7 +7,7 @@ export default function LoginPage() {
     <section className="pt-section" style={{ display: "flex", justifyContent: "center" }}>
       <div style={{ width: "100%", maxWidth: 440 }}>
         <h1 className="pt-section-title" style={{ marginBottom: 0 }}>Account Access</h1>
-        <p className="pt-section-subtitle">Sign in to manage your donations, or create a new account.</p>
+        <p className="pt-section-subtitle">Sign in to manage your donations.</p>
         <div
           style={{
             background: "var(--pt-card-bg)",

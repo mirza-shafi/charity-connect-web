@@ -449,7 +449,16 @@ body.dark-mode .pt-theme-toggle i.pt-icon-moon { display: inline; }
 .pt-btn-pill { border-radius: var(--pt-radius-full); }
 
 .pt-card-cta-row { display: flex; gap: 10px; }
-.pt-card-cta-row .pt-btn { flex: 1; }
+.pt-card-cta-row .pt-btn { flex: 1; white-space: nowrap; }
+
+@media (max-width: 480px) {
+  .pt-card-cta-row { gap: 8px; }
+  .pt-card-cta-row .pt-btn {
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    gap: 4px;
+  }
+}
 
 .pt-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
 
