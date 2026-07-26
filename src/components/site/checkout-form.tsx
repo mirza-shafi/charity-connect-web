@@ -9,6 +9,32 @@ import { confirmBasketCheckout } from "@/lib/donation-actions";
 import { formatDollars } from "@/lib/basket-totals";
 import type { BasketItem } from "@/lib/basket-store";
 
+// Stripe requires a 2-letter ISO 3166-1 alpha-2 country code, not a free-text
+// name — a plain text input here would fail on confirmSetup for any country
+// name Stripe doesn't recognize verbatim.
+const COUNTRIES = [
+  ["US", "United States"],
+  ["GB", "United Kingdom"],
+  ["BD", "Bangladesh"],
+  ["CA", "Canada"],
+  ["AU", "Australia"],
+  ["IN", "India"],
+  ["PK", "Pakistan"],
+  ["AE", "United Arab Emirates"],
+  ["SA", "Saudi Arabia"],
+  ["MY", "Malaysia"],
+  ["SG", "Singapore"],
+  ["DE", "Germany"],
+  ["FR", "France"],
+  ["NL", "Netherlands"],
+  ["IE", "Ireland"],
+  ["ZA", "South Africa"],
+  ["NG", "Nigeria"],
+  ["KE", "Kenya"],
+  ["EG", "Egypt"],
+  ["TR", "Turkey"],
+] as const;
+
 export function CheckoutForm({
   customerId,
   items,
