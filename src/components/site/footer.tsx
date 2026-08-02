@@ -28,24 +28,24 @@ export function SiteFooter() {
         <div className="pt-footer-grid">
           <div className="pt-footer-col">
             <Link href="/" className="pt-logo" style={{ marginBottom: 20 }}>
-              <Image src="/logo.jpg" alt="CharityConnect logo" width={38} height={38} className="pt-logo-img" />
-              <span>CharityConnect</span>
+              <Image src="/logo.jpg" alt="AICT Global Charity logo" width={38} height={38} className="pt-logo-img" />
+              <span>AICT Global Charity</span>
             </Link>
             <p style={{ marginBottom: 20, fontSize: "0.9rem" }}>
               We are dedicated to building sustainable, self-sufficient communities. Your small
               contribution drives monumental local progress.
             </p>
             <div className="pt-social-links">
-              <a href="#" className="pt-social-btn" aria-label="Facebook">
+              <a href="https://www.facebook.com/aictglobal/" target="_blank" rel="noopener noreferrer" className="pt-social-btn" aria-label="Facebook">
                 <i className="fa-brands fa-facebook-f" />
               </a>
-              <a href="#" className="pt-social-btn" aria-label="Twitter">
+              <a href="https://x.com/aictglobal" target="_blank" rel="noopener noreferrer" className="pt-social-btn" aria-label="Twitter">
                 <i className="fa-brands fa-x-twitter" />
               </a>
-              <a href="#" className="pt-social-btn" aria-label="Instagram">
+              <a href="https://www.instagram.com/aictglobal/" target="_blank" rel="noopener noreferrer" className="pt-social-btn" aria-label="Instagram">
                 <i className="fa-brands fa-instagram" />
               </a>
-              <a href="#" className="pt-social-btn" aria-label="YouTube">
+              <a href="https://www.youtube.com/@aictglobal2885" target="_blank" rel="noopener noreferrer" className="pt-social-btn" aria-label="YouTube">
                 <i className="fa-brands fa-youtube" />
               </a>
             </div>
@@ -71,11 +71,11 @@ export function SiteFooter() {
               </li>
               <li style={{ marginBottom: 12, display: "flex", alignItems: "center", gap: 10 }}>
                 <i className="fa-solid fa-phone" style={{ color: "var(--pt-accent)" }} />
-                <span>+880 1938-820835</span>
+                <span>+880 1841-180037</span>
               </li>
               <li style={{ marginBottom: 12, display: "flex", alignItems: "center", gap: 10 }}>
                 <i className="fa-solid fa-envelope" style={{ color: "var(--pt-accent)" }} />
-                <span>contact@charityconnect.org</span>
+                <span>connect@aictglobal.org</span>
               </li>
             </ul>
           </div>
@@ -103,7 +103,7 @@ export function SiteFooter() {
 
         <div className="pt-footer-bottom">
           <p>
-            &copy; {new Date().getFullYear()} Charity Connect. Created for social impact. All rights reserved.
+            &copy; {new Date().getFullYear()} AICT Global Charity. Created for social impact. All rights reserved.
             {" · "}
             Made by NexaForce Solutions
           </p>

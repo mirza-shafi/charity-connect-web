@@ -33,7 +33,7 @@ export function AdminSidebar() {
     <aside className="hidden w-64 shrink-0 flex-col border-r bg-sidebar px-4 py-6 md:flex">
       <Link href="/admin" className="mb-8 flex items-center gap-2 px-2 text-lg font-bold text-primary">
         <HandHeart className="h-6 w-6" />
-        Charity Connect
+        AICT Global Charity
       </Link>
 
       <nav className="flex flex-col gap-1">

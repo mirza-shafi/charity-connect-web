@@ -56,8 +56,8 @@ export function SiteHeader({
     <header className={`pt-header${isOverlay ? " pt-header-overlay" : ""}`}>
       <div className="pt-header-container">
         <Link href="/" className="pt-logo">
-          <Image src="/logo.jpg" alt="CharityConnect logo" width={38} height={38} className="pt-logo-img" priority />
-          <span>CharityConnect</span>
+          <Image src="/logo.jpg" alt="AICT Global Charity logo" width={38} height={38} className="pt-logo-img" priority />
+          <span>AICT Global Charity</span>
         </Link>
 
         <nav>

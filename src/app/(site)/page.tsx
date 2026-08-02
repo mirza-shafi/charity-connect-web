@@ -66,7 +66,7 @@ export default async function Home() {
                 Our Vision, Mission &amp; Goals
               </h2>
               <p style={{ marginBottom: 20, color: "var(--pt-text-muted)" }}>
-                Founded in 2020, Charity Connect aims to remove structural wealth inequities and
+                Founded in 2020, AICT Global Charity aims to remove structural wealth inequities and
                 logistics bottlenecks in social aid delivery. We believe that direct, transparent
                 fundraising changes the dynamic of giving.
               </p>

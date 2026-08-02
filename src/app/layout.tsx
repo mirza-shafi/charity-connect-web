@@ -16,9 +16,9 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Charity Connect",
+  title: "AICT Global Charity",
   description:
-    "Charity Connect — donate to active campaigns, calculate your Zakat, join events, and volunteer with us.",
+    "AICT Global Charity — donate to active campaigns, calculate your Zakat, join events, and volunteer with us.",
 };
 
 export default function RootLayout({

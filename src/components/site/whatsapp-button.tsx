@@ -1,7 +1,7 @@
 import { env } from "@/lib/env";
 
 const DEFAULT_MESSAGE =
-  "Assalamu Alaikum, I have a question about Charity Connect.";
+  "Assalamu Alaikum, I have a question about AICT Global Charity.";
 
 export function WhatsappButton() {
   const href = `https://wa.me/${env.whatsappNumber}?text=${encodeURIComponent(

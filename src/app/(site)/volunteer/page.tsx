@@ -1,7 +1,7 @@
 import { VolunteerForm } from "@/components/site/volunteer-form";
 import { getCampaigns } from "@/lib/data";
 
-export const metadata = { title: "Volunteer | Charity Connect" };
+export const metadata = { title: "Volunteer | AICT Global Charity" };
 export const dynamic = "force-dynamic";
 
 const POSITIONS = [

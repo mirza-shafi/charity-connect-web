@@ -5,11 +5,11 @@ import { useState } from "react";
 const FAQS = [
   {
     q: "Where do my donations go?",
-    a: "At Charity Connect, 95% of all incoming donations go directly to project execution, including equipment purchases, local contractor payments, and community raw material supplies. The remaining 5% goes toward merchant transaction fees and basic maintenance of this platform. We publish full financial records quarterly.",
+    a: "At AICT Global Charity, 95% of all incoming donations go directly to project execution, including equipment purchases, local contractor payments, and community raw material supplies. The remaining 5% goes toward merchant transaction fees and basic maintenance of this platform. We publish full financial records quarterly.",
   },
   {
     q: "Are donations tax-deductible?",
-    a: "Yes! Charity Connect is a registered 501(c)(3) organization. Every donation you make generates a digital tax receipt automatically, which you can download from your Profile dashboard at any time to claim tax write-offs.",
+    a: "Yes! AICT Global Charity is a registered 501(c)(3) organization. Every donation you make generates a digital tax receipt automatically, which you can download from your Profile dashboard at any time to claim tax write-offs.",
   },
   {
     q: "How can I set up monthly recurring giving?",

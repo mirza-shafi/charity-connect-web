@@ -1,7 +1,7 @@
 import { ZakatCalculator } from "@/components/site/zakat-calculator";
 import { getZakatSetting } from "@/lib/data";
 
-export const metadata = { title: "Zakat Calculator | Charity Connect" };
+export const metadata = { title: "Zakat Calculator | AICT Global Charity" };
 export const dynamic = "force-dynamic";
 
 export default async function ZakatPage() {

@@ -1,7 +1,7 @@
 import { ContactForm } from "@/components/site/contact-form";
 import { FaqAccordion } from "@/components/site/faq-accordion";
 
-export const metadata = { title: "Contact | Charity Connect" };
+export const metadata = { title: "Contact | AICT Global Charity" };
 
 export default function ContactPage() {
   return (
@@ -66,7 +66,7 @@ export default function ContactPage() {
                     <i className="fa-solid fa-phone" style={{ color: "var(--pt-accent)", marginRight: 6 }} /> Call Us
                   </h4>
                   <p style={{ fontSize: "0.85rem", color: "var(--pt-text-muted)" }}>
-                    +880 1938-820835<br />Mon-Fri, 9AM - 5PM
+                    +880 1841-180037<br />Mon-Fri, 9AM - 5PM
                   </p>
                 </div>
                 <div>
@@ -74,7 +74,9 @@ export default function ContactPage() {
                     <i className="fa-solid fa-envelope" style={{ color: "var(--pt-accent)", marginRight: 6 }} /> Email Us
                   </h4>
                   <p style={{ fontSize: "0.85rem", color: "var(--pt-text-muted)" }}>
-                    contact@charityconnect.org<br />Average reply: 24 hours
+                    connect@aictglobal.org<br />Average reply: 24 hours
+                    <br />
+                    <span style={{ fontSize: "0.8rem" }}>Organization: aictglobalbd@gmail.com</span>
                   </p>
                 </div>
               </div>

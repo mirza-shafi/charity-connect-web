@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getCampaigns, getDonationsByIds } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Thank You | Charity Connect" };
+export const metadata = { title: "Thank You | AICT Global Charity" };
 
 function formatDollars(cents: number) {
   return `$${(cents / 100).toFixed(2)}`;
