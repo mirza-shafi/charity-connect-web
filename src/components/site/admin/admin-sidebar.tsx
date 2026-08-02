@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -32,7 +33,7 @@ export function AdminSidebar() {
   return (
     <aside className="hidden w-56 shrink-0 flex-col border-r bg-sidebar px-3 py-5 md:flex">
       <Link href="/admin" className="mb-6 flex items-center gap-2 px-2 text-sm font-bold text-primary">
-        <HandHeart className="h-5 w-5" />
+        <Image src="/logo.jpg" alt="AICT Global Charity" width={28} height={28} className="h-7 w-7 rounded-lg object-cover" priority />
         AICT Global Charity
       </Link>
 
