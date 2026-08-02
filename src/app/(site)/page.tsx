@@ -14,10 +14,9 @@ export default async function Home() {
     getGalleryPhotos(),
   ]);
   const featured = campaigns.slice(0, 9);
-  const totalRaised = campaigns.reduce((sum, c) => sum + c.raised, 0);
+  const totalRaisedCents = Math.round(campaigns.reduce((sum, c) => sum + c.raised, 0) * 100);
 
   const stats = [
-    { value: `$${totalRaised.toLocaleString()}`, label: "Total Funds Raised" },
     { value: "120+", label: "Global Donors Force" },
     { value: "45+", label: "Completed Projects" },
     { value: "9,200+", label: "Families Impacted" },
@@ -25,7 +24,7 @@ export default async function Home() {
 
   return (
     <>
-      <HeroSlider slides={heroSlides} stats={stats} />
+      <HeroSlider slides={heroSlides} totalRaisedCents={totalRaisedCents} stats={stats} />
 
       {/* Featured campaigns */}
       <section className="pt-section">
