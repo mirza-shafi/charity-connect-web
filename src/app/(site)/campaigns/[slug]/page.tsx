@@ -23,28 +23,24 @@ export default async function CampaignDetailPage({
         </span>
         <h1 style={{ fontSize: "2.5rem", marginTop: 16, marginBottom: 0 }}>{campaign.title}</h1>
 
-        <div
-          style={{
-            marginTop: 24,
-            aspectRatio: "16/9",
-            width: "100%",
-            borderRadius: "var(--pt-radius-lg)",
-            overflow: "hidden",
-            backgroundColor: "var(--pt-border-light)",
-          }}
-        >
-          {campaign.image_key ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={campaign.image_key}
-              alt={campaign.title}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
-          ) : null}
-        </div>
-
-        <div className="pt-grid" style={{ marginTop: 32, gridTemplateColumns: "1fr 320px", gap: 32 }}>
-          <p style={{ color: "var(--pt-text-muted)", whiteSpace: "pre-line" }}>{campaign.description}</p>
+        <div className="pt-grid pt-campaign-hero-grid" style={{ marginTop: 24, gap: 24, alignItems: "stretch" }}>
+          <div
+            style={{
+              borderRadius: "var(--pt-radius-lg)",
+              overflow: "hidden",
+              backgroundColor: "var(--pt-border-light)",
+              minHeight: 320,
+            }}
+          >
+            {campaign.image_key ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={campaign.image_key}
+                alt={campaign.title}
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
+            ) : null}
+          </div>
 
           <div
             id="donate"
@@ -52,7 +48,7 @@ export default async function CampaignDetailPage({
               background: "var(--pt-card-bg)",
               border: "1px solid var(--pt-border)",
               borderRadius: "var(--pt-radius-lg)",
-              padding: 24,
+              padding: 20,
               boxShadow: "var(--pt-shadow-sm)",
               height: "fit-content",
               scrollMarginTop: "calc(var(--pt-header-height) + 16px)",
@@ -67,7 +63,7 @@ export default async function CampaignDetailPage({
             </div>
             <div
               className="pt-progress-labels"
-              style={{ marginTop: 6, marginBottom: 20, fontWeight: 500, fontSize: "0.8rem", color: "var(--pt-text-light)" }}
+              style={{ marginTop: 6, marginBottom: 16, fontWeight: 500, fontSize: "0.8rem", color: "var(--pt-text-light)" }}
             >
               <span>Goal: ${campaign.goal.toLocaleString()}</span>
             </div>
@@ -75,6 +71,10 @@ export default async function CampaignDetailPage({
             <DonationCard campaign={campaign} variant="compact" />
           </div>
         </div>
+
+        <p style={{ color: "var(--pt-text-muted)", whiteSpace: "pre-line", marginTop: 32 }}>
+          {campaign.description}
+        </p>
       </div>
     </section>
   );

@@ -198,6 +198,7 @@ body.dark-mode {
 .pt-grid-2 { grid-template-columns: repeat(2, 1fr); }
 .pt-grid-3 { grid-template-columns: repeat(3, 1fr); }
 .pt-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.pt-campaign-hero-grid { grid-template-columns: 1fr 380px; }
 
 @media (max-width: 1024px) {
   .pt-grid-4 { grid-template-columns: repeat(2, 1fr); }
@@ -205,7 +206,7 @@ body.dark-mode {
 @media (max-width: 768px) {
   .pt-section { padding: 50px 0; }
   .pt-section-title { font-size: 2rem; }
-  .pt-grid-3, .pt-grid-2, .pt-grid-4 { grid-template-columns: 1fr; }
+  .pt-grid-3, .pt-grid-2, .pt-grid-4, .pt-campaign-hero-grid { grid-template-columns: 1fr; }
 }
 
 /* ---------- Header ---------- */
