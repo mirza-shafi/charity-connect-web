@@ -8,7 +8,3 @@ export function computeBasketTotals(items: BasketItem[], coverFee: boolean) {
   const feeCents = coverFee ? Math.round(subtotalCents * FEE_PERCENT) + FEE_FIXED_CENTS : 0;
   return { subtotalCents, feeCents, totalCents: subtotalCents + feeCents };
 }
-
-export function formatDollars(cents: number) {
-  return `$${(cents / 100).toFixed(2)}`;
-}

@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { useBasket } from "@/components/site/basket-context";
+import { useCurrency } from "@/components/site/currency-context";
 import { confirmBasketCheckout } from "@/lib/donation-actions";
-import { formatDollars } from "@/lib/basket-totals";
 import type { BasketItem } from "@/lib/basket-store";
 
 // Stripe requires a 2-letter ISO 3166-1 alpha-2 country code, not a free-text
@@ -50,6 +50,7 @@ export function CheckoutForm({
   const elements = useElements();
   const router = useRouter();
   const { clear } = useBasket();
+  const { currency, format } = useCurrency();
 
   const [donorName, setDonorName] = useState("");
   const [donorEmail, setDonorEmail] = useState("");
@@ -330,12 +331,13 @@ export function CheckoutForm({
           "Processing…"
         ) : (
           <>
-            <i className="fa-solid fa-lock" /> Donate {formatDollars(totalCents)}
+            <i className="fa-solid fa-lock" /> Donate {format(totalCents)}
           </>
         )}
       </button>
       <p style={{ textAlign: "center", fontSize: "0.75rem", color: "var(--pt-text-light)" }}>
         <i className="fa-solid fa-lock" /> Your payment is secure and processed by Stripe.
+        {currency !== "USD" && " Your card will be charged the USD equivalent."}
       </p>
     </form>
   );

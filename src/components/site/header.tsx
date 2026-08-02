@@ -1,11 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { useBasket } from "@/components/site/basket-context";
+import { useCurrency } from "@/components/site/currency-context";
 import { NavMegaMenu } from "@/components/site/nav-mega-menu";
+import { CURRENCIES, type CurrencyCode } from "@/lib/currency";
 import { formatDate } from "@/lib/format";
 import type { Campaign, EventItem, BlogPost } from "@/lib/types";
 
@@ -28,6 +31,7 @@ export function SiteHeader({
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { items, openBasket } = useBasket();
+  const { currency, setCurrency } = useCurrency();
   const basketCount = items.reduce((sum, i) => sum + i.quantity, 0);
 
   // Only the homepage has a full-screen hero directly under the header, so
@@ -52,7 +56,7 @@ export function SiteHeader({
     <header className={`pt-header${isOverlay ? " pt-header-overlay" : ""}`}>
       <div className="pt-header-container">
         <Link href="/" className="pt-logo">
-          <i className="fa-solid fa-hand-holding-heart" />
+          <Image src="/logo.jpg" alt="CharityConnect logo" width={38} height={38} className="pt-logo-img" priority />
           <span>CharityConnect</span>
         </Link>
 
@@ -104,6 +108,19 @@ export function SiteHeader({
         </nav>
 
         <div className="pt-header-actions">
+          <select
+            className="pt-currency-select pt-header-desktop-only"
+            value={currency}
+            onChange={(e) => setCurrency(e.target.value as CurrencyCode)}
+            aria-label="Select display currency"
+          >
+            {Object.values(CURRENCIES).map((c) => (
+              <option key={c.code} value={c.code}>
+                {c.code}
+              </option>
+            ))}
+          </select>
+
           <button
             type="button"
             className="pt-theme-toggle pt-header-desktop-only"

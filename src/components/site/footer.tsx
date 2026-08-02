@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 import { useToast } from "@/components/site/toast-provider";
@@ -27,7 +28,7 @@ export function SiteFooter() {
         <div className="pt-footer-grid">
           <div className="pt-footer-col">
             <Link href="/" className="pt-logo" style={{ marginBottom: 20 }}>
-              <i className="fa-solid fa-hand-holding-heart" />
+              <Image src="/logo.jpg" alt="CharityConnect logo" width={38} height={38} className="pt-logo-img" />
               <span>CharityConnect</span>
             </Link>
             <p style={{ marginBottom: 20, fontSize: "0.9rem" }}>
@@ -101,7 +102,11 @@ export function SiteFooter() {
         </div>
 
         <div className="pt-footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Charity Connect. Created for social impact. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Charity Connect. Created for social impact. All rights reserved.
+            {" · "}
+            Made by NexaForce Solutions
+          </p>
           <div style={{ display: "flex", gap: 20 }}>
             <a href="#" style={{ color: "var(--pt-text-light)", fontSize: "0.8rem" }}>Privacy Policy</a>
             <a href="#" style={{ color: "var(--pt-text-light)", fontSize: "0.8rem" }}>Terms of Service</a>

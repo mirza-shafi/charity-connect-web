@@ -71,13 +71,26 @@
 }
 
 body.dark-mode {
-  --pt-bg-h: 222;
-  --pt-bg-s: 47%;
-  --pt-bg-l: 10%;
+  --pt-bg-h: 229;
+  --pt-bg-s: 60%;
+  --pt-bg-l: 8%;
   --pt-bg: hsl(var(--pt-bg-h), var(--pt-bg-s), var(--pt-bg-l));
 
-  --pt-card-bg: hsl(var(--pt-bg-h), var(--pt-bg-s), 14%);
+  --pt-card-bg: hsl(var(--pt-bg-h), var(--pt-bg-s), 13%);
   --pt-card-hover-bg: hsl(var(--pt-bg-h), var(--pt-bg-s), 16%);
+
+  /* Primary swaps from teal to pink/magenta for dark mode. Every derived
+     var has to be redeclared here too (not just the -h/-s/-l primitives):
+     --pt-primary's `hsl(var(--pt-primary-h), ...)` is resolved once where
+     it's declared (:root) and that resolved color is what inherits down,
+     so overriding the primitives alone doesn't reach it. */
+  --pt-primary-h: 328;
+  --pt-primary-s: 82%;
+  --pt-primary-l: 62%;
+  --pt-primary: hsl(var(--pt-primary-h), var(--pt-primary-s), var(--pt-primary-l));
+  --pt-primary-light: hsl(var(--pt-primary-h), var(--pt-primary-s), calc(var(--pt-primary-l) + 10%));
+  --pt-primary-dark: hsl(var(--pt-primary-h), var(--pt-primary-s), calc(var(--pt-primary-l) - 8%));
+  --pt-primary-alpha: hsla(var(--pt-primary-h), var(--pt-primary-s), var(--pt-primary-l), 0.16);
 
   --pt-text-h: 210;
   --pt-text-s: 40%;
@@ -86,15 +99,15 @@ body.dark-mode {
   --pt-text-muted: hsl(var(--pt-text-h), 20%, 70%);
   --pt-text-light: hsl(var(--pt-text-h), 15%, 45%);
 
-  --pt-border: hsl(var(--pt-bg-h), 30%, 20%);
-  --pt-border-light: hsl(var(--pt-bg-h), 30%, 16%);
+  --pt-border: hsl(var(--pt-bg-h), 35%, 20%);
+  --pt-border-light: hsl(var(--pt-bg-h), 35%, 16%);
 
   --pt-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
   --pt-shadow-md: 0 8px 20px rgba(0, 0, 0, 0.35);
   --pt-shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.5);
 
-  --pt-glass-bg: rgba(15, 23, 42, 0.65);
-  --pt-glass-border: rgba(255, 255, 255, 0.08);
+  --pt-glass-bg: rgba(15, 16, 46, 0.65);
+  --pt-glass-border: rgba(244, 114, 182, 0.14);
 }
 
 /* ---------- Base ---------- */
@@ -232,6 +245,7 @@ body.dark-mode {
    this override. Chaining ".pt-header.pt-header-overlay" (0,3,0) beats it. */
 .pt-header.pt-header-overlay .pt-logo,
 .pt-header.pt-header-overlay .pt-theme-toggle,
+.pt-header.pt-header-overlay .pt-currency-select,
 .pt-header.pt-header-overlay .pt-mobile-toggle {
   color: #fff;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
@@ -277,6 +291,14 @@ body.dark-mode {
 }
 
 .pt-logo i { font-size: 1.8rem; color: var(--pt-accent); }
+
+.pt-logo-img {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--pt-radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
 
 .pt-nav-menu {
   display: flex;
@@ -338,6 +360,21 @@ body.dark-mode {
 }
 
 .pt-theme-toggle:hover { background: var(--pt-primary-alpha); color: var(--pt-accent); }
+
+.pt-currency-select {
+  background: none;
+  border: 1.5px solid var(--pt-border);
+  color: var(--pt-text);
+  font-family: var(--pt-font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: var(--pt-radius-full);
+  transition: border-color var(--pt-transition-fast), color var(--pt-transition-fast);
+}
+
+.pt-currency-select:hover, .pt-currency-select:focus { border-color: var(--pt-primary); color: var(--pt-primary); outline: none; }
 
 /* Which icon shows is driven purely by CSS (not React state) so the
    server-rendered markup never has to guess the visitor's saved theme —
@@ -430,6 +467,7 @@ body.dark-mode .pt-theme-toggle i.pt-icon-moon { display: inline; }
 
 .pt-btn-primary { background: var(--pt-primary); color: #fff; }
 .pt-btn-primary:hover { background: var(--pt-primary-light); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(15, 118, 110, 0.2); }
+body.dark-mode .pt-btn-primary:hover { box-shadow: 0 4px 14px hsla(var(--pt-primary-h), var(--pt-primary-s), var(--pt-primary-l), 0.35); }
 
 .pt-btn-accent { background: var(--pt-accent); color: #fff; }
 .pt-btn-accent:hover { background: var(--pt-accent-hover); transform: translateY(-2px); box-shadow: var(--pt-shadow-accent); }

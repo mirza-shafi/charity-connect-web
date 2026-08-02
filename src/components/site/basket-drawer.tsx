@@ -3,14 +3,16 @@
 import { useRouter } from "next/navigation";
 
 import { useBasket } from "@/components/site/basket-context";
+import { useCurrency } from "@/components/site/currency-context";
 import { useToast } from "@/components/site/toast-provider";
-import { computeBasketTotals, formatDollars } from "@/lib/basket-totals";
+import { computeBasketTotals } from "@/lib/basket-totals";
 
 const FEE_FIXED_CENTS = 30;
 
 export function BasketDrawer() {
   const { items, isOpen, coverFee, setCoverFee, removeItem, setQuantity, closeBasket } =
     useBasket();
+  const { currency, format } = useCurrency();
   const showToast = useToast();
   const router = useRouter();
 
@@ -52,7 +54,7 @@ export function BasketDrawer() {
                 <div className="pt-basket-item-info">
                   <div className="pt-basket-item-title">{item.campaignTitle}</div>
                   <div className="pt-basket-item-sub">
-                    {formatDollars(item.unitAmountCents)}
+                    {format(item.unitAmountCents)}
                     {item.frequency === "monthly" ? "/mo" : ""} · {item.frequency === "monthly" ? "Monthly" : "One-time"}
                   </div>
                   <div className="pt-basket-item-row">
@@ -75,7 +77,7 @@ export function BasketDrawer() {
                         <i className="fa-solid fa-plus" />
                       </button>
                     </div>
-                    <strong>{formatDollars(item.unitAmountCents * item.quantity)}</strong>
+                    <strong>{format(item.unitAmountCents * item.quantity)}</strong>
                   </div>
                 </div>
                 <button
@@ -104,15 +106,21 @@ export function BasketDrawer() {
                 style={{ marginTop: 3 }}
               />
               <span>
-                Cover the card processing fee ({formatDollars(feeCents || FEE_FIXED_CENTS)}) so
+                Cover the card processing fee ({format(feeCents || FEE_FIXED_CENTS)}) so
                 100% of my donation reaches those in need
               </span>
             </label>
 
             <div className="pt-basket-total-row">
               <span>Total</span>
-              <span>{formatDollars(totalCents)}</span>
+              <span>{format(totalCents)}</span>
             </div>
+
+            {currency !== "USD" && (
+              <p style={{ fontSize: "0.75rem", color: "var(--pt-text-light)", marginTop: -8, marginBottom: 12 }}>
+                Amounts shown in {currency}. Your card will be charged the USD equivalent.
+              </p>
+            )}
 
             <button
               type="button"
@@ -122,7 +130,7 @@ export function BasketDrawer() {
                 router.push("/checkout");
               }}
             >
-              <i className="fa-solid fa-lock" /> Proceed to Checkout — {formatDollars(totalCents)}
+              <i className="fa-solid fa-lock" /> Proceed to Checkout — {format(totalCents)}
             </button>
           </div>
         )}

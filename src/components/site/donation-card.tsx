@@ -3,16 +3,14 @@
 import { useState } from "react";
 
 import { useBasket } from "@/components/site/basket-context";
+import { useCurrency } from "@/components/site/currency-context";
+import { CURRENCIES } from "@/lib/currency";
 import type { Campaign, DonationFrequency } from "@/lib/types";
 
 const PRESETS: Record<DonationFrequency, number[]> = {
   one_time: [2500, 5000, 10000, 25000],
   monthly: [500, 1000, 2500, 5000],
 };
-
-function formatDollars(cents: number) {
-  return `$${(cents / 100).toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
-}
 
 export function DonationCard({
   campaign,
@@ -22,12 +20,17 @@ export function DonationCard({
   variant?: "full" | "compact";
 }) {
   const { addItem } = useBasket();
+  const { currency, format } = useCurrency();
   const [frequency, setFrequency] = useState<DonationFrequency>("one_time");
   const [selected, setSelected] = useState<number>(PRESETS.one_time[1]);
   const [customAmount, setCustomAmount] = useState("");
 
   const presets = PRESETS[frequency];
-  const customCents = customAmount ? Math.round(parseFloat(customAmount) * 100) : 0;
+  // Basket amounts are always stored as USD cents (that's what Stripe actually
+  // charges), so a typed amount in a non-USD currency has to be converted back.
+  const customCents = customAmount
+    ? Math.round((parseFloat(customAmount) / CURRENCIES[currency].rateFromUsd) * 100)
+    : 0;
   const activeCents = customCents > 0 ? customCents : selected;
 
   const switchFrequency = (next: DonationFrequency) => {
@@ -79,13 +82,13 @@ export function DonationCard({
               setCustomAmount("");
             }}
           >
-            {formatDollars(cents)}
+            {format(cents)}
           </button>
         ))}
       </div>
 
       <div className="pt-donate-custom-wrap">
-        <span className="pt-currency-prefix">$</span>
+        <span className="pt-currency-prefix">{CURRENCIES[currency].symbol}</span>
         <input
           type="number"
           min={1}
@@ -101,7 +104,7 @@ export function DonationCard({
         disabled={!activeCents}
         onClick={handleAdd}
       >
-        <i className="fa-solid fa-cart-plus" /> Add to Basket — {formatDollars(activeCents)}
+        <i className="fa-solid fa-cart-plus" /> Add to Basket — {format(activeCents)}
         {frequency === "monthly" ? "/mo" : ""}
       </button>
     </>
