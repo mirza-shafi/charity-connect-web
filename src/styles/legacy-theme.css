@@ -280,6 +280,8 @@ body.dark-mode {
   margin: 0 auto;
 }
 
+.pt-header .pt-logo { margin-left: 16px; }
+
 .pt-logo {
   display: flex;
   align-items: center;
