@@ -30,13 +30,13 @@ export function AdminSidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden w-64 shrink-0 flex-col border-r bg-sidebar px-4 py-6 md:flex">
-      <Link href="/admin" className="mb-8 flex items-center gap-2 px-2 text-lg font-bold text-primary">
-        <HandHeart className="h-6 w-6" />
+    <aside className="hidden w-56 shrink-0 flex-col border-r bg-sidebar px-3 py-5 md:flex">
+      <Link href="/admin" className="mb-6 flex items-center gap-2 px-2 text-sm font-bold text-primary">
+        <HandHeart className="h-5 w-5" />
         AICT Global Charity
       </Link>
 
-      <nav className="flex flex-col gap-1">
+      <nav className="flex flex-col gap-0.5">
         {ADMIN_NAV.map((item) => {
           const active = item.href === "/admin" ? pathname === "/admin" : pathname?.startsWith(item.href);
           const Icon = item.icon;
@@ -44,7 +44,7 @@ export function AdminSidebar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${
+              className={`flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm font-medium transition-colors ${
                 active
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"

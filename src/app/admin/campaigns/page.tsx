@@ -15,13 +15,13 @@ export default async function AdminCampaignsPage() {
   const campaigns = await getAdminCampaigns(token);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Campaigns</h1>
+        <h1 className="text-xl font-bold">Campaigns</h1>
         <CampaignFormDialog trigger={<Button className="rounded-full">+ New Campaign</Button>} />
       </div>
 
-      <Card className="rounded-2xl p-0">
+      <Card className="p-0">
         <Table>
           <TableHeader>
             <TableRow>

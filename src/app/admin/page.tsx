@@ -27,27 +27,27 @@ export default async function AdminOverviewPage() {
   ];
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-bold">Overview</h1>
+    <div className="space-y-5">
+      <h1 className="text-xl font-bold">Overview</h1>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((s) => (
-          <Card key={s.label} className="rounded-2xl">
-            <CardContent className="flex items-center gap-4 pt-6">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent text-primary">
-                <s.icon className="h-5 w-5" />
+          <Card key={s.label} size="sm">
+            <CardContent className="flex items-center gap-3">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent text-primary">
+                <s.icon className="h-4 w-4" />
               </div>
               <div>
                 <p className="text-xs font-medium text-muted-foreground">{s.label}</p>
-                <p className="text-2xl font-bold">{s.value}</p>
+                <p className="text-lg font-bold">{s.value}</p>
               </div>
             </CardContent>
           </Card>
         ))}
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
-        <Card className="rounded-2xl">
+      <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">
+        <Card size="sm">
           <CardHeader>
             <CardTitle>Campaign Funding Progress</CardTitle>
           </CardHeader>
@@ -60,7 +60,7 @@ export default async function AdminOverviewPage() {
           </CardContent>
         </Card>
 
-        <Card className="rounded-2xl">
+        <Card size="sm">
           <CardHeader>
             <CardTitle>Campaigns by Category</CardTitle>
           </CardHeader>

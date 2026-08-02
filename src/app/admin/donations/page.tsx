@@ -23,15 +23,15 @@ export default async function AdminDonationsPage() {
     id ? (campaigns.find((c) => c.id === id)?.title ?? "Deleted campaign") : "Processing fee";
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <div>
-        <h1 className="text-2xl font-bold">Donations</h1>
+        <h1 className="text-xl font-bold">Donations</h1>
         <p className="text-sm text-muted-foreground">
           All donations captured through Stripe Checkout, including recurring monthly renewals.
         </p>
       </div>
 
-      <Card className="rounded-2xl p-0">
+      <Card className="p-0">
         <Table>
           <TableHeader>
             <TableRow>

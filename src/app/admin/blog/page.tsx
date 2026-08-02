@@ -15,13 +15,13 @@ export default async function AdminBlogPage() {
   const [posts, campaigns] = await Promise.all([getAdminBlogPosts(token), getCampaigns()]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">News &amp; Blog</h1>
+        <h1 className="text-xl font-bold">News &amp; Blog</h1>
         <BlogFormDialog campaigns={campaigns} trigger={<Button className="rounded-full">+ Create Post</Button>} />
       </div>
 
-      <Card className="rounded-2xl p-0">
+      <Card className="p-0">
         <Table>
           <TableHeader>
             <TableRow>

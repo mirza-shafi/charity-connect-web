@@ -13,13 +13,13 @@ export default async function AdminEventsPage() {
   const events = await getEvents();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Events</h1>
+        <h1 className="text-xl font-bold">Events</h1>
         <EventFormDialog trigger={<Button className="rounded-full">+ Add Event</Button>} />
       </div>
 
-      <Card className="rounded-2xl p-0">
+      <Card className="p-0">
         <Table>
           <TableHeader>
             <TableRow>

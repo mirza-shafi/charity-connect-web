@@ -82,7 +82,7 @@
      kept until brand colors are supplied. */
   --meter-fill: #2a78d6;
   --meter-track: #cde2fb;
-  --radius: 0.875rem;
+  --radius: 0.625rem;
   --sidebar: #ffffff;
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: #2f6feb;

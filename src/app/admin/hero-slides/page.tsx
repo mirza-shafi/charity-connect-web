@@ -15,10 +15,10 @@ export default async function AdminHeroSlidesPage() {
   const slides = await getAdminHeroSlides(token);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold">Homepage Hero Slides</h1>
+          <h1 className="text-xl font-bold">Homepage Hero Slides</h1>
           <p className="text-sm text-muted-foreground">
             These images and headlines rotate on the homepage hero banner, in display-order.
           </p>
@@ -26,7 +26,7 @@ export default async function AdminHeroSlidesPage() {
         <HeroSlideFormDialog trigger={<Button className="rounded-full">+ Add Slide</Button>} />
       </div>
 
-      <Card className="rounded-2xl p-0">
+      <Card className="p-0">
         <Table>
           <TableHeader>
             <TableRow>

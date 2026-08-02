@@ -19,10 +19,10 @@ export default async function AdminVolunteersPage() {
   const volunteers = await getVolunteers(token);
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-bold">Volunteer Applications</h1>
+    <div className="space-y-5">
+      <h1 className="text-xl font-bold">Volunteer Applications</h1>
 
-      <Card className="rounded-2xl p-0">
+      <Card className="p-0">
         <Table>
           <TableHeader>
             <TableRow>

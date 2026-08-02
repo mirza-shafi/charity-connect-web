@@ -14,10 +14,10 @@ export default async function AdminGalleryPage() {
   const photos = await getAdminGalleryPhotos(token);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold">Photo Gallery</h1>
+          <h1 className="text-xl font-bold">Photo Gallery</h1>
           <p className="text-sm text-muted-foreground">
             Photos shown in the &ldquo;Making a Difference&rdquo; gallery on the homepage, grouped
             by initiative.
@@ -27,13 +27,13 @@ export default async function AdminGalleryPage() {
       </div>
 
       {photos.length === 0 ? (
-        <Card className="rounded-2xl p-10 text-center text-muted-foreground">
+        <Card className="p-10 text-center text-muted-foreground">
           No photos yet — add the first one for the homepage gallery.
         </Card>
       ) : (
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {photos.map((photo) => (
-            <Card key={photo.id} className="overflow-hidden rounded-2xl p-0">
+            <Card key={photo.id} className="overflow-hidden p-0">
               {/* eslint-disable-next-line @next/next/no-img-element -- arbitrary/dynamic storage host */}
               <img
                 src={photo.image_key}

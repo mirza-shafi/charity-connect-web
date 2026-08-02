@@ -16,7 +16,7 @@ export function CampaignFundingMeters({ campaigns }: { campaigns: Campaign[] }) 
     .sort((a, b) => b.pct - a.pct);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       {rows.map((c) => (
         <div key={c.id} title={`$${c.raised.toLocaleString()} raised of $${c.goal.toLocaleString()} goal`}>
           <div className="mb-1 flex items-baseline justify-between gap-4 text-sm">

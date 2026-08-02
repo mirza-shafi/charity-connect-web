@@ -9,10 +9,10 @@ export function AdminTopbar({ user }: { user: User }) {
   const initial = user.name.charAt(0).toUpperCase();
 
   return (
-    <header className="flex items-center justify-between border-b bg-card px-6 py-4">
-      <div className="flex items-center gap-3">
-        <Avatar>
-          <AvatarFallback className="bg-accent text-accent-foreground font-semibold">
+    <header className="flex items-center justify-between border-b bg-card px-5 py-3">
+      <div className="flex items-center gap-2.5">
+        <Avatar className="h-8 w-8">
+          <AvatarFallback className="bg-accent text-accent-foreground text-sm font-semibold">
             {initial}
           </AvatarFallback>
         </Avatar>

@@ -8,9 +8,9 @@ export default async function AdminZakatPage() {
   const setting = await getZakatSetting();
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-bold">Zakat Settings</h1>
-      <Card className="max-w-md rounded-2xl">
+    <div className="space-y-5">
+      <h1 className="text-xl font-bold">Zakat Settings</h1>
+      <Card className="max-w-md">
         <CardContent>
           <ZakatSettingsForm currentNisab={setting.nisab_value} />
         </CardContent>
