@@ -3,17 +3,21 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
+import { useCurrency } from "@/components/site/currency-context";
 import type { HeroSlide } from "@/lib/types";
 
 const AUTOPLAY_MS = 6000;
 
 export function HeroSlider({
   slides,
+  totalRaisedCents,
   stats,
 }: {
   slides: HeroSlide[];
+  totalRaisedCents: number;
   stats: { value: string; label: string }[];
 }) {
+  const { format } = useCurrency();
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -51,6 +55,10 @@ export function HeroSlider({
 
       <div className="pt-container pt-hero-bottom">
         <div className="pt-hero-stats">
+          <div className="pt-hero-stats-item">
+            <div className="pt-hero-stats-value">{format(totalRaisedCents)}</div>
+            <div className="pt-hero-stats-label">Total Funds Raised</div>
+          </div>
           {stats.map((stat) => (
             <div key={stat.label} className="pt-hero-stats-item">
               <div className="pt-hero-stats-value">{stat.value}</div>

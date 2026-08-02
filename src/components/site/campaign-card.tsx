@@ -1,10 +1,9 @@
 import Link from "next/link";
 
+import { CampaignProgress } from "@/components/site/campaign-progress";
 import type { Campaign } from "@/lib/types";
 
 export function CampaignCard({ campaign }: { campaign: Campaign }) {
-  const pct = Math.min(100, Math.round((campaign.raised / campaign.goal) * 100));
-
   return (
     <div className="pt-card">
       <div className="pt-card-img-wrapper">
@@ -18,19 +17,7 @@ export function CampaignCard({ campaign }: { campaign: Campaign }) {
         <h3 className="pt-card-title">{campaign.title}</h3>
         <p className="pt-card-description">{campaign.description}</p>
         <div className="pt-progress-container">
-          <div className="pt-progress-labels">
-            <span>Raised: ${campaign.raised.toLocaleString()}</span>
-            <span>{pct}%</span>
-          </div>
-          <div className="pt-progress-bar-bg">
-            <div className="pt-progress-bar-fill" style={{ width: `${pct}%` }} />
-          </div>
-          <div
-            className="pt-progress-labels"
-            style={{ marginTop: 6, fontWeight: 500, fontSize: "0.8rem", color: "var(--pt-text-light)" }}
-          >
-            <span>Goal: ${campaign.goal.toLocaleString()}</span>
-          </div>
+          <CampaignProgress raised={campaign.raised} goal={campaign.goal} />
         </div>
       </div>
       <div className="pt-card-footer pt-card-cta-row">

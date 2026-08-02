@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 
+import { CampaignProgress } from "@/components/site/campaign-progress";
 import { DonationCard } from "@/components/site/donation-card";
 import { getCampaign } from "@/lib/data";
 
@@ -12,8 +13,6 @@ export default async function CampaignDetailPage({
   const campaign = await getCampaign(slug);
 
   if (!campaign) notFound();
-
-  const pct = Math.min(100, Math.round((campaign.raised / campaign.goal) * 100));
 
   return (
     <section className="pt-section">
@@ -54,19 +53,7 @@ export default async function CampaignDetailPage({
               scrollMarginTop: "calc(var(--pt-header-height) + 16px)",
             }}
           >
-            <div className="pt-progress-labels">
-              <span>Raised: ${campaign.raised.toLocaleString()}</span>
-              <span>{pct}%</span>
-            </div>
-            <div className="pt-progress-bar-bg">
-              <div className="pt-progress-bar-fill" style={{ width: `${pct}%` }} />
-            </div>
-            <div
-              className="pt-progress-labels"
-              style={{ marginTop: 6, marginBottom: 16, fontWeight: 500, fontSize: "0.8rem", color: "var(--pt-text-light)" }}
-            >
-              <span>Goal: ${campaign.goal.toLocaleString()}</span>
-            </div>
+            <CampaignProgress raised={campaign.raised} goal={campaign.goal} goalMarginBottom={16} />
 
             <DonationCard campaign={campaign} variant="compact" />
           </div>
