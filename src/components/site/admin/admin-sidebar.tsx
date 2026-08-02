@@ -15,6 +15,8 @@ import {
   Users,
 } from "lucide-react";
 
+import { useAdminSidebar } from "@/components/site/admin/admin-sidebar-context";
+
 export const ADMIN_NAV = [
   { href: "/admin", label: "Overview", icon: LayoutGrid },
   { href: "/admin/hero-slides", label: "Hero Slides", icon: GalleryHorizontal },
@@ -29,11 +31,19 @@ export const ADMIN_NAV = [
 
 export function AdminSidebar() {
   const pathname = usePathname();
+  const { collapsed } = useAdminSidebar();
 
   return (
-    <aside className="hidden w-56 shrink-0 flex-col border-r bg-sidebar px-3 py-5 md:flex">
-      <Link href="/admin" className="mb-6 flex items-center gap-2 px-2 text-sm font-bold text-primary">
-        <Image src="/logo.jpg" alt="AICT Global Charity" width={28} height={28} className="h-7 w-7 rounded-lg object-cover" priority />
+    <aside
+      className={`hidden shrink-0 flex-col overflow-hidden border-r bg-sidebar py-5 transition-[width,padding] duration-200 md:flex ${
+        collapsed ? "w-0 border-r-0 px-0" : "w-56 px-3"
+      }`}
+    >
+      <Link
+        href="/admin"
+        className="mb-6 flex items-center gap-2 px-2 text-sm font-bold whitespace-nowrap text-primary"
+      >
+        <Image src="/logo.jpg" alt="AICT Global Charity" width={28} height={28} className="h-7 w-7 shrink-0 rounded-lg object-cover" priority />
         AICT Global Charity
       </Link>
 
@@ -45,13 +55,13 @@ export function AdminSidebar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm font-medium transition-colors ${
+              className={`flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
                 active
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
               }`}
             >
-              <Icon className="h-4 w-4" />
+              <Icon className="h-4 w-4 shrink-0" />
               {item.label}
             </Link>
           );
