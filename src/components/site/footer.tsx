@@ -10,8 +10,9 @@ const QUICK_LINKS = [
   { href: "/campaigns", label: "Appeals" },
   { href: "/events", label: "Community Events" },
   { href: "/blog", label: "News" },
-  { href: "#", label: "Privacy Policy" },
-  { href: "#", label: "Terms & Conditions" },
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms & Conditions" },
+  { href: "/refund-policy", label: "Refund Policy" },
 ];
 
 const GET_INVOLVED_LINKS = [
@@ -149,8 +150,9 @@ export function SiteFooter() {
         <div className="pt-container">
           <p>&copy; {new Date().getFullYear()} AICT Global Bangladesh. All rights reserved.</p>
           <div className="pt-footer-legal">
-            <Link href="#">Privacy Policy</Link>
-            <Link href="#">Terms &amp; Conditions</Link>
+            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Link href="/terms">Terms &amp; Conditions</Link>
+            <Link href="/refund-policy">Refund Policy</Link>
           </div>
         </div>
       </div>
