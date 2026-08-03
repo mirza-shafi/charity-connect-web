@@ -9,7 +9,6 @@ const QUICK_LINKS = [
   { href: "/", label: "Home" },
   { href: "/campaigns", label: "Appeals" },
   { href: "/events", label: "Community Events" },
-  { href: "/blog", label: "News" },
   { href: "/privacy-policy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms & Conditions" },
   { href: "/refund-policy", label: "Refund Policy" },
@@ -49,8 +48,8 @@ export function SiteFooter() {
               <Image
                 src="/logo-white.png"
                 alt="AICT Global Bangladesh logo"
-                width={92}
-                height={92}
+                width={112}
+                height={112}
               />
             </Link>
             <p style={{ marginBottom: 10, fontSize: "0.85rem", lineHeight: 1.5 }}>

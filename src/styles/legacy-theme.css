@@ -790,12 +790,27 @@ body.dark-mode .pt-card-badge { color: #fff; }
 .pt-social-btn {
   width: 34px; height: 34px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: #fff;
+  color: var(--pt-text);
   display: flex; align-items: center; justify-content: center;
   transition: all var(--pt-transition-fast);
 }
 .pt-social-btn:hover { background: var(--pt-footer-accent); transform: translateY(-3px); }
+
+/* Each platform's own brand color, on the white badge above — overridden
+   back to white on hover so the icon stays legible against the solid
+   accent-colored hover background. */
+.pt-social-btn .fa-facebook-f { color: #1877f2; }
+.pt-social-btn .fa-x-twitter { color: #000; }
+.pt-social-btn .fa-instagram { color: #e1306c; }
+.pt-social-btn .fa-youtube { color: #ff0000; }
+
+.pt-social-btn:hover .fa-facebook-f,
+.pt-social-btn:hover .fa-x-twitter,
+.pt-social-btn:hover .fa-instagram,
+.pt-social-btn:hover .fa-youtube {
+  color: #fff;
+}
 
 .pt-newsletter-form { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
 .pt-newsletter-input {
