@@ -12,6 +12,7 @@ export const dynamic = "force-dynamic";
 export default async function AdminGalleryPage() {
   const token = (await getAccessToken())!;
   const photos = await getAdminGalleryPhotos(token);
+  const existingCategories = Array.from(new Set(photos.map((p) => p.category))).sort();
 
   return (
     <div className="space-y-5">
@@ -23,7 +24,10 @@ export default async function AdminGalleryPage() {
             by initiative.
           </p>
         </div>
-        <GalleryFormDialog trigger={<Button className="rounded-full">+ Add Photo</Button>} />
+        <GalleryFormDialog
+          existingCategories={existingCategories}
+          trigger={<Button className="rounded-full">+ Add Photo</Button>}
+        />
       </div>
 
       {photos.length === 0 ? (

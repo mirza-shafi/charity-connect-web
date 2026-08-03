@@ -19,6 +19,10 @@ export function PhotoGallery({ photos: allPhotos }: { photos: GalleryPhoto[] }) 
 
   if (allPhotos.length === 0) return null;
 
+  // Tabs reflect whichever categories actually have photos right now — new
+  // categories created in the admin panel show up here automatically.
+  const categories = Array.from(new Set(allPhotos.map((p) => p.category))).sort();
+
   return (
     <section className="pt-section" style={{ background: "var(--pt-border-light)" }}>
       <div className="pt-container">
@@ -39,7 +43,7 @@ export function PhotoGallery({ photos: allPhotos }: { photos: GalleryPhoto[] }) 
           >
             All Initiatives
           </button>
-          {GALLERY_CATEGORIES.map((c) => (
+          {categories.map((c) => (
             <button
               key={c}
               type="button"
