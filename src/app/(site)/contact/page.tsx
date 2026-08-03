@@ -1,7 +1,7 @@
 import { ContactForm } from "@/components/site/contact-form";
 import { FaqAccordion } from "@/components/site/faq-accordion";
 
-export const metadata = { title: "Contact | AICT Global Charity" };
+export const metadata = { title: "Contact | AICT Global Bangladesh" };
 
 export default function ContactPage() {
   return (

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans, Roboto_Slab } from "next/font/google";
 import "./globals.css";
 import "@/styles/legacy-theme.css";
 
@@ -15,10 +15,16 @@ const plusJakarta = Plus_Jakarta_Sans({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+const robotoSlab = Roboto_Slab({
+  variable: "--font-roboto-slab",
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+});
+
 export const metadata: Metadata = {
-  title: "AICT Global Charity",
+  title: "AICT Global Bangladesh",
   description:
-    "AICT Global Charity — donate to active campaigns, calculate your Zakat, join events, and volunteer with us.",
+    "AICT Global Bangladesh — donate to active campaigns, calculate your Zakat, join events, and volunteer with us.",
 };
 
 export default function RootLayout({
@@ -27,7 +33,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${plusJakarta.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${outfit.variable} ${plusJakarta.variable} ${robotoSlab.variable} h-full antialiased`}
+    >
       <head>
         <link
           rel="stylesheet"

@@ -1,5 +1,5 @@
 /* ============================================================
-   Charity Connect — public site theme, ported from the
+   AICT Global Bangladesh — public site theme, ported from the
    charity-connect prototype (theme.css + main.css + components.css).
    All custom properties are prefixed --pt- (prototype) so they never
    collide with the shadcn/ui tokens (--primary, --border, --radius-*
@@ -7,17 +7,19 @@
    ============================================================ */
 
 :root {
-  --pt-primary-h: 165;
-  --pt-primary-s: 78%;
-  --pt-primary-l: 28%;
+  /* Brand blue, matched to the AICT Global logo mark / org site (≈ #2D7BC2). */
+  --pt-primary-h: 209;
+  --pt-primary-s: 62%;
+  --pt-primary-l: 47%;
   --pt-primary: hsl(var(--pt-primary-h), var(--pt-primary-s), var(--pt-primary-l));
   --pt-primary-light: hsl(var(--pt-primary-h), var(--pt-primary-s), calc(var(--pt-primary-l) + 10%));
   --pt-primary-dark: hsl(var(--pt-primary-h), var(--pt-primary-s), calc(var(--pt-primary-l) - 8%));
   --pt-primary-alpha: hsla(var(--pt-primary-h), var(--pt-primary-s), var(--pt-primary-l), 0.1);
 
-  --pt-accent-h: 35;
-  --pt-accent-s: 92%;
-  --pt-accent-l: 50%;
+  /* Brand magenta, matched to the logo's world-map mark (≈ #aa5ea4). */
+  --pt-accent-h: 305;
+  --pt-accent-s: 31%;
+  --pt-accent-l: 52%;
   --pt-accent: hsl(var(--pt-accent-h), var(--pt-accent-s), var(--pt-accent-l));
   --pt-accent-hover: hsl(var(--pt-accent-h), var(--pt-accent-s), calc(var(--pt-accent-l) - 8%));
   --pt-accent-alpha: hsla(var(--pt-accent-h), var(--pt-accent-s), var(--pt-accent-l), 0.15);
@@ -59,7 +61,7 @@
 
   --pt-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
   --pt-shadow-md: 0 8px 16px rgba(0, 0, 0, 0.06);
-  --pt-shadow-lg: 0 16px 36px rgba(15, 118, 110, 0.08);
+  --pt-shadow-lg: 0 16px 36px rgba(45, 123, 194, 0.1);
   --pt-shadow-accent: 0 8px 24px hsla(var(--pt-accent-h), var(--pt-accent-s), var(--pt-accent-l), 0.25);
 
   --pt-glass-bg: rgba(255, 255, 255, 0.7);
@@ -79,18 +81,28 @@ body.dark-mode {
   --pt-card-bg: hsl(var(--pt-bg-h), var(--pt-bg-s), 13%);
   --pt-card-hover-bg: hsl(var(--pt-bg-h), var(--pt-bg-s), 16%);
 
-  /* Primary swaps from teal to pink/magenta for dark mode. Every derived
-     var has to be redeclared here too (not just the -h/-s/-l primitives):
-     --pt-primary's `hsl(var(--pt-primary-h), ...)` is resolved once where
-     it's declared (:root) and that resolved color is what inherits down,
-     so overriding the primitives alone doesn't reach it. */
-  --pt-primary-h: 328;
-  --pt-primary-s: 82%;
+  /* Primary swaps from blue to the logo's magenta for dark mode (reads
+     better against a near-black background than the light-mode blue would),
+     and accent swaps the other way to blue — same two brand hues as light
+     mode, just inverted emphasis. Every derived var has to be redeclared
+     here too (not just the -h/-s/-l primitives): --pt-primary's
+     `hsl(var(--pt-primary-h), ...)` is resolved once where it's declared
+     (:root) and that resolved color is what inherits down, so overriding
+     the primitives alone doesn't reach it. */
+  --pt-primary-h: 305;
+  --pt-primary-s: 60%;
   --pt-primary-l: 62%;
   --pt-primary: hsl(var(--pt-primary-h), var(--pt-primary-s), var(--pt-primary-l));
   --pt-primary-light: hsl(var(--pt-primary-h), var(--pt-primary-s), calc(var(--pt-primary-l) + 10%));
   --pt-primary-dark: hsl(var(--pt-primary-h), var(--pt-primary-s), calc(var(--pt-primary-l) - 8%));
   --pt-primary-alpha: hsla(var(--pt-primary-h), var(--pt-primary-s), var(--pt-primary-l), 0.16);
+
+  --pt-accent-h: 209;
+  --pt-accent-s: 70%;
+  --pt-accent-l: 58%;
+  --pt-accent: hsl(var(--pt-accent-h), var(--pt-accent-s), var(--pt-accent-l));
+  --pt-accent-hover: hsl(var(--pt-accent-h), var(--pt-accent-s), calc(var(--pt-accent-l) - 8%));
+  --pt-accent-alpha: hsla(var(--pt-accent-h), var(--pt-accent-s), var(--pt-accent-l), 0.18);
 
   --pt-text-h: 210;
   --pt-text-s: 40%;
@@ -143,6 +155,29 @@ body.dark-mode {
 
 .pt-root a:not(.pt-btn):hover {
   color: var(--pt-primary-light);
+}
+
+/* Same specificity fix as documented above: the floating donate button is
+   an <a> outside .pt-btn, so ".pt-root a:not(.pt-btn)" (0,2,1) would
+   otherwise beat its own white text back to the primary link color. */
+.pt-root a.pt-floating-donate,
+.pt-root a.pt-floating-donate:hover {
+  color: #fff;
+}
+
+/* Same fix again for every anchor inside the new full-bleed footer — its
+   text is deliberately white/translucent-white, not the primary link blue. */
+.pt-root .pt-footer-links-dot a,
+.pt-root .pt-footer-contact a {
+  color: var(--pt-footer-text);
+}
+.pt-root .pt-footer-legal a {
+  color: var(--pt-footer-text-muted);
+}
+.pt-root .pt-footer-links-dot a:hover,
+.pt-root .pt-footer-contact a:hover,
+.pt-root .pt-footer-legal a:hover {
+  color: #fff;
 }
 
 .pt-app-content {
@@ -379,6 +414,56 @@ body.dark-mode {
 
 .pt-currency-select:hover, .pt-currency-select:focus { border-color: var(--pt-primary); color: var(--pt-primary); outline: none; }
 
+/* ---------- Currency picker (custom dropdown) ---------- */
+.pt-currency-picker { position: relative; }
+
+.pt-currency-trigger { display: inline-flex; align-items: center; gap: 7px; }
+.pt-currency-caret { font-size: 0.6rem; transition: transform var(--pt-transition-fast); }
+.pt-currency-caret.open { transform: rotate(180deg); }
+
+.pt-currency-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  background: var(--pt-card-bg);
+  border: 1px solid var(--pt-border);
+  border-radius: var(--pt-radius-md);
+  box-shadow: var(--pt-shadow-lg);
+  min-width: 280px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 8px;
+  z-index: 200;
+}
+
+.pt-currency-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  background: none;
+  border-radius: var(--pt-radius-sm);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--pt-font-body);
+  transition: background var(--pt-transition-fast);
+}
+.pt-currency-item:hover { background: var(--pt-border-light); }
+.pt-currency-item.active { background: var(--pt-accent); }
+
+.pt-currency-item-symbol { width: 36px; flex-shrink: 0; font-weight: 700; color: var(--pt-text); }
+.pt-currency-item-code { width: 46px; flex-shrink: 0; font-weight: 700; color: var(--pt-text); }
+.pt-currency-item-name { flex: 1; color: var(--pt-text-muted); font-size: 0.85rem; }
+.pt-currency-item-check { color: #fff; margin-left: auto; flex-shrink: 0; }
+
+.pt-currency-item.active .pt-currency-item-symbol,
+.pt-currency-item.active .pt-currency-item-code {
+  color: #fff;
+}
+.pt-currency-item.active .pt-currency-item-name { color: rgba(255, 255, 255, 0.85); }
+
 /* Which icon shows is driven purely by CSS (not React state) so the
    server-rendered markup never has to guess the visitor's saved theme —
    avoids a hydration mismatch between server and client. The icon reflects
@@ -469,7 +554,7 @@ body.dark-mode .pt-theme-toggle i.pt-icon-moon { display: inline; }
 }
 
 .pt-btn-primary { background: var(--pt-primary); color: #fff; }
-.pt-btn-primary:hover { background: var(--pt-primary-light); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(15, 118, 110, 0.2); }
+.pt-btn-primary:hover { background: var(--pt-primary-light); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(45, 123, 194, 0.25); }
 body.dark-mode .pt-btn-primary:hover { box-shadow: 0 4px 14px hsla(var(--pt-primary-h), var(--pt-primary-s), var(--pt-primary-l), 0.35); }
 
 .pt-btn-accent { background: var(--pt-accent); color: #fff; }
@@ -644,51 +729,141 @@ body.dark-mode .pt-card-badge { color: #fff; }
 .pt-toast-close { background: none; border: none; cursor: pointer; color: var(--pt-text-light); font-size: 1rem; }
 .pt-toast-close:hover { color: var(--pt-text); }
 
-/* ---------- Footer ---------- */
+/* ---------- Footer ----------
+   Full-bleed brand-blue footer, modeled directly on aictglobal.org's real
+   footer (captured via a headless-browser render — it's a Vite/React SPA
+   that doesn't expose markup to a plain fetch). Colors here are deliberately
+   NOT the theme-swapping --pt-primary/--pt-accent vars: the reference site's
+   footer is always blue/magenta regardless of anything else, so the footer
+   uses its own fixed --pt-footer-* primitives that don't flip in dark mode. */
 .pt-footer {
-  background: var(--pt-card-bg);
-  border-top: 1px solid var(--pt-border);
-  padding: 60px 0 30px 0;
-  color: var(--pt-text-muted);
+  --pt-footer-bg: hsl(209, 62%, 47%);
+  --pt-footer-bg-dark: hsl(209, 62%, 37%);
+  --pt-footer-accent: hsl(305, 31%, 52%);
+  --pt-footer-accent-hover: hsl(305, 31%, 44%);
+  --pt-footer-text: rgba(255, 255, 255, 0.85);
+  --pt-footer-text-muted: rgba(255, 255, 255, 0.65);
+  --pt-footer-border: rgba(255, 255, 255, 0.18);
+
+  background: var(--pt-footer-bg);
+  color: var(--pt-footer-text);
   font-size: 0.9rem;
   margin-top: auto;
 }
 
-.pt-footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
-.pt-footer-col h4 { font-size: 1.1rem; color: var(--pt-text); margin-bottom: 20px; }
-.pt-footer-links { list-style: none; }
-.pt-footer-links li { margin-bottom: 12px; }
-.pt-footer-links a { color: var(--pt-text-muted); }
-.pt-footer-links a:hover { color: var(--pt-primary); padding-left: 4px; }
+.pt-footer-main { padding: 36px 0 28px; }
 
-.pt-social-links { display: flex; gap: 12px; margin-top: 16px; }
+.pt-footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr repeat(4, 1fr);
+  gap: 28px;
+}
+
+.pt-footer-col h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.pt-footer-links-dot { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.pt-footer-links-dot a {
+  color: var(--pt-footer-text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color var(--pt-transition-fast);
+}
+.pt-footer-links-dot a::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pt-footer-accent);
+  flex-shrink: 0;
+  transition: transform var(--pt-transition-fast);
+}
+.pt-footer-links-dot a:hover { color: #fff; }
+.pt-footer-links-dot a:hover::before { transform: scale(1.3); }
+
+.pt-footer-contact { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 10px; }
+.pt-footer-contact li { display: flex; align-items: flex-start; gap: 10px; }
+.pt-footer-contact i { color: var(--pt-footer-accent); margin-top: 3px; }
+.pt-footer-contact a { color: var(--pt-footer-text); transition: color var(--pt-transition-fast); }
+.pt-footer-contact a:hover { color: #fff; }
+
+.pt-social-links { display: flex; gap: 10px; margin-top: 10px; }
 .pt-social-btn {
-  width: 36px; height: 36px;
-  border-radius: var(--pt-radius-full);
-  background: var(--pt-border-light);
-  color: var(--pt-text);
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
   display: flex; align-items: center; justify-content: center;
   transition: all var(--pt-transition-fast);
 }
-.pt-social-btn:hover { background: var(--pt-primary); color: #fff; transform: translateY(-3px); }
+.pt-social-btn:hover { background: var(--pt-footer-accent); transform: translateY(-3px); }
 
-.pt-newsletter-form { display: flex; gap: 8px; margin-top: 12px; }
+.pt-newsletter-form { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
 .pt-newsletter-input {
-  flex-grow: 1; padding: 10px 14px;
-  border: 1px solid var(--pt-border);
-  background: var(--pt-bg);
-  color: var(--pt-text);
+  padding: 11px 14px;
+  border: 1px solid var(--pt-footer-border);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
   border-radius: var(--pt-radius-md);
   font-size: 0.85rem;
 }
-.pt-newsletter-input:focus { outline: none; border-color: var(--pt-primary); }
+.pt-newsletter-input::placeholder { color: var(--pt-footer-text-muted); }
+.pt-newsletter-input:focus { outline: none; border-color: var(--pt-footer-accent); }
+.pt-newsletter-submit {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--pt-footer-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--pt-radius-md);
+  padding: 11px 16px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background var(--pt-transition-fast);
+}
+.pt-newsletter-submit:hover { background: var(--pt-footer-accent-hover); }
 
-.pt-footer-bottom { border-top: 1px solid var(--pt-border); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+.pt-footer-subbar {
+  border-top: 1px solid var(--pt-footer-border);
+  padding: 12px 0;
+}
+.pt-footer-subbar .pt-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.pt-footer-credit { color: var(--pt-footer-text-muted); font-size: 0.85rem; }
+.pt-footer-payments { display: flex; flex-wrap: wrap; gap: 8px; }
+.pt-footer-payments i {
+  width: 34px; height: 24px;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--pt-footer-bg-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+}
 
-@media (max-width: 900px) { .pt-footer-grid { grid-template-columns: repeat(2, 1fr); } }
+.pt-footer-bottom {
+  background: var(--pt-footer-bg-dark);
+  padding: 12px 0;
+}
+.pt-footer-bottom .pt-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.pt-footer-bottom p { color: var(--pt-footer-text-muted); font-size: 0.8rem; }
+.pt-footer-legal { display: flex; gap: 24px; }
+.pt-footer-legal a { color: var(--pt-footer-text-muted); font-size: 0.8rem; transition: color var(--pt-transition-fast); }
+.pt-footer-legal a:hover { color: #fff; }
+
+@media (max-width: 1024px) { .pt-footer-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) {
   .pt-footer-grid { grid-template-columns: 1fr; }
-  .pt-footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .pt-footer-bottom .pt-container { flex-direction: column; text-align: center; }
 }
 
 /* ---------- Event cards ---------- */
@@ -956,6 +1131,16 @@ body.dark-mode .pt-card-badge { color: #fff; }
 .zakat-donate-btn.active { background: linear-gradient(135deg, var(--pt-accent) 0%, #d97706 100%); color: #fff; box-shadow: 0 4px 16px rgba(245,158,11,.3); }
 .zakat-donate-btn.active:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(245,158,11,.4); }
 .zakat-donate-btn.disabled { background: var(--pt-border); color: var(--pt-text-muted); cursor: not-allowed; opacity: .6; }
+
+/* .zakat-donate-btn can render as an <a> (active/linked state) — ".pt-root
+   a:not(.pt-btn)" (0,2,1) would otherwise beat ".zakat-donate-btn.active"
+   (0,2,0) and force the white text back to the primary link color. Same bug
+   as documented above for .pt-logo/.pt-nav-link; ".pt-root a.zakat-donate-btn"
+   (0,3,1) settles it regardless of source order. */
+.pt-root a.zakat-donate-btn.active,
+.pt-root a.zakat-donate-btn.active:hover {
+  color: #fff;
+}
 
 .zakat-edu-section { padding: 0 0 80px; }
 .zakat-edu-title { text-align: center; margin-bottom: 40px; }
@@ -1258,6 +1443,77 @@ body.dark-mode .pt-card-badge { color: #fff; }
   }
 }
 .pt-tab-btn.active { color: #fff; background: var(--pt-primary); }
+
+/* ---------- Quick donate bar (its own section, below the hero) ---------- */
+.pt-quickdonate-wrap {
+  position: relative;
+  z-index: 20;
+  padding: 48px 0;
+  background: var(--pt-border-light);
+  border-bottom: 1px solid var(--pt-border);
+}
+
+.pt-quickdonate-bar {
+  background: var(--pt-card-bg);
+  border-radius: var(--pt-radius-lg);
+  box-shadow: var(--pt-shadow-lg);
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.pt-quickdonate-label {
+  font-family: var(--font-roboto-slab), serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--pt-text);
+  white-space: nowrap;
+}
+
+.pt-quickdonate-freq { flex: 0 0 auto; width: auto; min-width: 180px; }
+.pt-quickdonate-freq .pt-freq-btn { flex-shrink: 0; padding: 8px 12px; font-size: 0.8rem; white-space: nowrap; }
+.pt-quickdonate-freq .pt-freq-btn.active { background: var(--pt-accent); }
+
+.pt-quickdonate-select {
+  padding: 9px 12px;
+  border: 1.5px solid var(--pt-border);
+  background: var(--pt-bg);
+  color: var(--pt-text);
+  border-radius: var(--pt-radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-width: 130px;
+  max-width: 170px;
+  cursor: pointer;
+}
+.pt-quickdonate-select:focus { outline: none; border-color: var(--pt-primary); }
+
+.pt-quickdonate-amounts { display: flex; gap: 6px; flex-wrap: wrap; }
+.pt-quickdonate-amounts .pt-amount-btn { white-space: nowrap; padding: 9px 10px; font-size: 0.85rem; }
+.pt-quickdonate-amounts .pt-amount-btn.active { background: var(--pt-accent); border-color: var(--pt-accent); }
+
+.pt-quickdonate-custom { width: 90px; flex: 0 0 auto; }
+.pt-quickdonate-custom input { padding: 9px 10px 9px 24px; font-size: 0.85rem; }
+.pt-quickdonate-custom .pt-currency-prefix { left: 10px; font-size: 0.85rem; }
+
+.pt-quickdonate-add { flex-shrink: 0; white-space: nowrap; padding: 10px 18px; }
+
+@media (max-width: 1200px) {
+  .pt-quickdonate-bar { justify-content: center; }
+}
+
+@media (max-width: 640px) {
+  .pt-quickdonate-wrap { padding: 32px 0; }
+  .pt-quickdonate-bar { padding: 18px; justify-content: stretch; }
+  .pt-quickdonate-label { width: 100%; text-align: center; }
+  .pt-quickdonate-freq { width: 100%; min-width: 0; }
+  .pt-quickdonate-select { flex: 1 1 100%; }
+  .pt-quickdonate-amounts { flex: 1 1 100%; justify-content: center; }
+  .pt-quickdonate-custom { flex: 1 1 auto; }
+  .pt-quickdonate-add { flex: 1 1 100%; justify-content: center; }
+}
 
 /* ---------- Donation cards ---------- */
 .pt-donate-card {

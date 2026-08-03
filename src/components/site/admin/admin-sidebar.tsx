@@ -43,8 +43,8 @@ export function AdminSidebar() {
         href="/admin"
         className="mb-6 flex items-center gap-2 px-2 text-sm font-bold whitespace-nowrap text-primary"
       >
-        <Image src="/logo.jpg" alt="AICT Global Charity" width={28} height={28} className="h-7 w-7 shrink-0 rounded-lg object-cover" priority />
-        AICT Global Charity
+        <Image src="/logo.jpg" alt="AICT Global Bangladesh" width={28} height={28} className="h-7 w-7 shrink-0 rounded-lg object-cover" priority />
+        AICT Global Bangladesh
       </Link>
 
       <nav className="flex flex-col gap-0.5">

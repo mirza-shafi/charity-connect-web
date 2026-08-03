@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CampaignCarousel } from "@/components/site/campaign-carousel";
 import { HeroSlider } from "@/components/site/hero-slider";
 import { PhotoGallery } from "@/components/site/photo-gallery";
+import { QuickDonateBar } from "@/components/site/quick-donate-bar";
 import { getCampaigns, getGalleryPhotos, getHeroSlides } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
@@ -26,18 +27,20 @@ export default async function Home() {
     <>
       <HeroSlider slides={heroSlides} totalRaisedCents={totalRaisedCents} stats={stats} />
 
-      {/* Featured campaigns */}
+      <QuickDonateBar campaigns={featured} />
+
+      {/* Featured appeals */}
       <section className="pt-section">
         <div className="pt-container">
-          <h2 className="pt-section-title">Featured Campaigns</h2>
+          <h2 className="pt-section-title">Featured Appeals</h2>
           <p className="pt-section-subtitle">
-            Take direct action. Donate to our current, high-priority fundraising drives and help
-            change lives today.
+            Take direct action. Donate to our current, high-priority appeals — including
+            emergency flood response across Bangladesh — and help change lives today.
           </p>
 
           {featured.length === 0 ? (
             <p style={{ textAlign: "center", color: "var(--pt-text-muted)" }}>
-              No active campaigns yet — check back soon.
+              No active appeals yet — check back soon.
             </p>
           ) : (
             <CampaignCarousel campaigns={featured} />
@@ -45,19 +48,57 @@ export default async function Home() {
 
           <div style={{ marginTop: 50, textAlign: "center" }}>
             <Link href="/campaigns" className="pt-btn pt-btn-secondary">
-              View All Active Campaigns <i className="fa-solid fa-arrow-right" style={{ marginLeft: 6 }} />
+              View All Active Appeals <i className="fa-solid fa-arrow-right" style={{ marginLeft: 6 }} />
             </Link>
           </div>
         </div>
       </section>
 
-      <PhotoGallery photos={galleryPhotos} />
-
-      {/* Mission */}
+      {/* Why choose us */}
       <section
         className="pt-section"
         style={{ background: "var(--pt-border-light)", borderTop: "1px solid var(--pt-border)", borderBottom: "1px solid var(--pt-border)" }}
       >
+        <div className="pt-container">
+          <h2 className="pt-section-title">Why Choose Us</h2>
+          <p className="pt-section-subtitle">
+            Every taka you give is tracked from your pocket to the field — here&apos;s how we
+            earn that trust.
+          </p>
+          <div className="pt-grid pt-grid-3">
+            {[
+              { icon: "fa-bullseye", title: "Direct Giving Model", desc: "95% of donated funds flow straight to community contractors. No bloated operations." },
+              { icon: "fa-square-poll-vertical", title: "Dynamic Reports", desc: "We publish audit reports quarterly showing project completions and geo-location details." },
+              { icon: "fa-shield-halved", title: "Safe Payment System", desc: "All donation receipts are encrypted, and a digital receipt is available from your dashboard." },
+            ].map((item) => (
+              <div key={item.title} className="pt-card" style={{ padding: 32, alignItems: "center", textAlign: "center" }}>
+                <div
+                  style={{
+                    width: 56,
+                    height: 56,
+                    borderRadius: "50%",
+                    background: "var(--pt-primary-alpha)",
+                    color: "var(--pt-primary)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                    fontSize: "1.4rem",
+                    marginBottom: 18,
+                  }}
+                >
+                  <i className={`fa-solid ${item.icon}`} />
+                </div>
+                <h4 style={{ marginBottom: 8 }}>{item.title}</h4>
+                <p style={{ fontSize: "0.9rem", color: "var(--pt-text-muted)" }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mission */}
+      <section className="pt-section">
         <div className="pt-container">
           <div className="pt-grid pt-grid-2" style={{ alignItems: "center", gap: 60 }}>
             <div>
@@ -65,46 +106,21 @@ export default async function Home() {
                 Our Vision, Mission &amp; Goals
               </h2>
               <p style={{ marginBottom: 20, color: "var(--pt-text-muted)" }}>
-                Founded in 2020, AICT Global Charity aims to remove structural wealth inequities and
+                Founded in 2020, AICT Global Bangladesh aims to remove structural wealth inequities and
                 logistics bottlenecks in social aid delivery. We believe that direct, transparent
-                fundraising changes the dynamic of giving.
+                fundraising changes the dynamic of giving — and right now, that means getting
+                emergency relief to flood-affected families across Bangladesh as fast as possible.
               </p>
-              <div style={{ display: "flex", flexDirection: "column", gap: 15 }}>
-                {[
-                  { icon: "fa-bullseye", title: "Direct Giving Model", desc: "95% of donated funds flow straight to community contractors. No bloated operations." },
-                  { icon: "fa-square-poll-vertical", title: "Dynamic Reports", desc: "We publish audit reports quarterly showing project completions and geo-location details." },
-                  { icon: "fa-shield-halved", title: "Safe payment system", desc: "All donation receipts are encrypted and tax-deductible for donors." },
-                ].map((item) => (
-                  <div key={item.title} style={{ display: "flex", gap: 15, alignItems: "flex-start" }}>
-                    <div
-                      style={{
-                        width: 42,
-                        height: 42,
-                        borderRadius: "50%",
-                        background: "var(--pt-primary-alpha)",
-                        color: "var(--pt-primary)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0,
-                      }}
-                    >
-                      <i className={`fa-solid ${item.icon}`} />
-                    </div>
-                    <div>
-                      <h4 style={{ marginBottom: 4 }}>{item.title}</h4>
-                      <p style={{ fontSize: "0.9rem", color: "var(--pt-text-muted)" }}>{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <Link href="/campaigns" className="pt-btn pt-btn-primary">
+                See Our Emergency Appeals <i className="fa-solid fa-arrow-right" style={{ marginLeft: 6 }} />
+              </Link>
             </div>
             <div>
               <div style={{ position: "relative", borderRadius: "var(--pt-radius-lg)", overflow: "hidden", boxShadow: "var(--pt-shadow-lg)" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&auto=format&fit=crop&q=80"
-                  alt="Volunteers in action"
+                  alt="Relief volunteers distributing aid"
                   style={{ width: "100%", display: "block", objectFit: "cover", height: 450 }}
                 />
                 <div
@@ -122,10 +138,11 @@ export default async function Home() {
                   }}
                 >
                   <h4 style={{ color: "var(--pt-primary-dark)", marginBottom: 6, fontWeight: 700 }}>
-                    &ldquo;They brought clean drinking water right outside my school door.&rdquo;
+                    &ldquo;When the flood took everything, they were the first to reach us with
+                    food and shelter.&rdquo;
                   </h4>
                   <p style={{ fontSize: "0.85rem", color: "var(--pt-text-muted)" }}>
-                    - Amina, Grade 5 student, Rural Kenya
+                    - Rahima, flood-affected mother, Sunamganj
                   </p>
                 </div>
               </div>
@@ -134,12 +151,14 @@ export default async function Home() {
         </div>
       </section>
 
+      <PhotoGallery photos={galleryPhotos} />
+
       {/* CTA */}
       <section
         className="pt-section"
         style={{
           background:
-            "linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 118, 110, 0.9)), url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1600&auto=format&fit=crop&q=80')",
+            "linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(45, 123, 194, 0.85)), url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1600&auto=format&fit=crop&q=80')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "white",
@@ -152,7 +171,7 @@ export default async function Home() {
           </h2>
           <p style={{ fontSize: "1.1rem", opacity: 0.9, marginBottom: 30, lineHeight: 1.6 }}>
             Your physical support is just as powerful as financial contributions. Register to
-            join our upcoming disaster relief operations or local community meal prep projects.
+            join our flood emergency-response operations or local community relief efforts.
           </p>
           <Link href="/volunteer" className="pt-btn pt-btn-accent pt-btn-lg">
             Apply as a Volunteer

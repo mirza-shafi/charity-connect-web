@@ -6,11 +6,9 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { useBasket } from "@/components/site/basket-context";
-import { useCurrency } from "@/components/site/currency-context";
+import { CurrencyPicker } from "@/components/site/currency-picker";
 import { NavMegaMenu } from "@/components/site/nav-mega-menu";
-import { CURRENCIES, type CurrencyCode } from "@/lib/currency";
-import { formatDate } from "@/lib/format";
-import type { Campaign, EventItem, BlogPost } from "@/lib/types";
+import type { Campaign } from "@/lib/types";
 
 const PLAIN_LINKS = [
   { href: "/volunteer", label: "Volunteer" },
@@ -18,20 +16,11 @@ const PLAIN_LINKS = [
   { href: "/contact", label: "Contact" },
 ];
 
-export function SiteHeader({
-  campaigns,
-  events,
-  posts,
-}: {
-  campaigns: Campaign[];
-  events: EventItem[];
-  posts: BlogPost[];
-}) {
+export function SiteHeader({ campaigns }: { campaigns: Campaign[] }) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { items, openBasket } = useBasket();
-  const { currency, setCurrency } = useCurrency();
   const basketCount = items.reduce((sum, i) => sum + i.quantity, 0);
 
   // Only the homepage has a full-screen hero directly under the header, so
@@ -56,40 +45,18 @@ export function SiteHeader({
     <header className={`pt-header${isOverlay ? " pt-header-overlay" : ""}`}>
       <div className="pt-header-container">
         <Link href="/" className="pt-logo">
-          <Image src="/logo.jpg" alt="AICT Global Charity" width={38} height={38} className="pt-logo-img" priority />
+          <Image src="/logo.jpg" alt="AICT Global Bangladesh" width={38} height={38} className="pt-logo-img" priority />
         </Link>
 
         <nav>
           <ul className={`pt-nav-menu${mobileOpen ? " pt-nav-open" : ""}`}>
             <NavMegaMenu
-              label="Campaigns"
+              label="Appeals"
               href="/campaigns"
               active={pathname === "/campaigns"}
               viewAllHref="/campaigns"
-              viewAllLabel="View All Campaigns"
+              viewAllLabel="View All Appeals"
               items={campaigns.map((c) => ({ href: `/campaigns/${c.slug}`, title: c.title, subtitle: c.category }))}
-            />
-
-            <NavMegaMenu
-              label="Events"
-              href="/events"
-              active={pathname === "/events"}
-              viewAllHref="/events"
-              viewAllLabel="View All Events"
-              items={events.map((e) => ({
-                href: `/events/${e.slug}`,
-                title: e.title,
-                subtitle: formatDate(e.date, { month: "short", day: "numeric", year: "numeric" }),
-              }))}
-            />
-
-            <NavMegaMenu
-              label="News"
-              href="/blog"
-              active={pathname === "/blog"}
-              viewAllHref="/blog"
-              viewAllLabel="View All News"
-              items={posts.map((p) => ({ href: `/blog/${p.slug}`, title: p.title, subtitle: p.category }))}
             />
 
             {PLAIN_LINKS.map((link) => (
@@ -107,18 +74,7 @@ export function SiteHeader({
         </nav>
 
         <div className="pt-header-actions">
-          <select
-            className="pt-currency-select pt-header-desktop-only"
-            value={currency}
-            onChange={(e) => setCurrency(e.target.value as CurrencyCode)}
-            aria-label="Select display currency"
-          >
-            {Object.values(CURRENCIES).map((c) => (
-              <option key={c.code} value={c.code}>
-                {c.code}
-              </option>
-            ))}
-          </select>
+          <CurrencyPicker className="pt-header-desktop-only" />
 
           <button
             type="button"

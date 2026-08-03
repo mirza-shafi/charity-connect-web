@@ -1,6 +1,6 @@
 import { AuthForm } from "@/components/site/auth-form";
 
-export const metadata = { title: "Sign In | AICT Global Charity" };
+export const metadata = { title: "Sign In | AICT Global Bangladesh" };
 
 export default function LoginPage() {
   return (

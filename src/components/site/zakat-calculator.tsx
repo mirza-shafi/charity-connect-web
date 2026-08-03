@@ -1,6 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
+
+import { useCurrency } from "@/components/site/currency-context";
+import { CURRENCIES } from "@/lib/currency";
 
 const ASSET_FIELDS = [
   { id: "cash", label: "Cash & Bank Accounts", icon: "fa-wallet", helper: "Total cash in hand, savings, checking, and current accounts." },
@@ -21,13 +25,16 @@ type FieldState = Record<string, number>;
 
 const ZAKAT_RATE = 0.025;
 
-function formatNum(n: number) {
-  return n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+function formatNum(n: number, fractionDigits: number) {
+  return n.toLocaleString(undefined, { minimumFractionDigits: fractionDigits, maximumFractionDigits: fractionDigits });
 }
 
 export function ZakatCalculator({ nisab }: { nisab: number }) {
   const [assets, setAssets] = useState<FieldState>({});
   const [liabilities, setLiabilities] = useState<FieldState>({});
+  const { currency } = useCurrency();
+  const { symbol, fractionDigits } = CURRENCIES[currency];
+  const placeholder = fractionDigits > 0 ? "0.00" : "0";
 
   const { totalAssets, totalLiabilities, netWealth, zakatDue, zakatAmount, progress } =
     useMemo(() => {
@@ -62,12 +69,12 @@ export function ZakatCalculator({ nisab }: { nisab: number }) {
               </label>
               <div className="zakat-field-helper">{f.helper}</div>
               <div className="zakat-input-wrap">
-                <span className="currency-symbol">$</span>
+                <span className="currency-symbol">{symbol}</span>
                 <input
                   id={`asset-${f.id}`}
                   type="number"
                   className="zakat-input"
-                  placeholder="0.00"
+                  placeholder={placeholder}
                   min={0}
                   step="any"
                   onChange={(e) => setAssets((prev) => ({ ...prev, [f.id]: Number(e.target.value) || 0 }))}
@@ -92,12 +99,12 @@ export function ZakatCalculator({ nisab }: { nisab: number }) {
               </label>
               <div className="zakat-field-helper">{f.helper}</div>
               <div className="zakat-input-wrap">
-                <span className="currency-symbol">$</span>
+                <span className="currency-symbol">{symbol}</span>
                 <input
                   id={`liab-${f.id}`}
                   type="number"
                   className="zakat-input"
-                  placeholder="0.00"
+                  placeholder={placeholder}
                   min={0}
                   step="any"
                   onChange={(e) => setLiabilities((prev) => ({ ...prev, [f.id]: Number(e.target.value) || 0 }))}
@@ -112,26 +119,26 @@ export function ZakatCalculator({ nisab }: { nisab: number }) {
         <div className="zakat-results-card">
           <div className="zakat-results-header">
             <h3><i className="fa-solid fa-calculator" style={{ marginRight: 8 }} /> Zakat Summary</h3>
-            <p>Nisab: ${nisab.toLocaleString()}</p>
+            <p>Nisab: {symbol}{formatNum(nisab, fractionDigits)}</p>
           </div>
           <div className="zakat-results-body">
             <div className="zakat-result-row">
               <span className="label">Total Assets</span>
-              <span className="value positive">${formatNum(totalAssets)}</span>
+              <span className="value positive">{symbol}{formatNum(totalAssets, fractionDigits)}</span>
             </div>
             <div className="zakat-result-row">
               <span className="label">Total Liabilities</span>
-              <span className="value negative">−${formatNum(totalLiabilities)}</span>
+              <span className="value negative">−{symbol}{formatNum(totalLiabilities, fractionDigits)}</span>
             </div>
             <div className="zakat-result-row" style={{ borderBottom: "2px solid var(--pt-border)", paddingBottom: 16 }}>
               <span className="label" style={{ fontWeight: 700, color: "var(--pt-text)" }}>Net Zakatable Wealth</span>
-              <span className="value" style={{ fontSize: "1.1rem" }}>${formatNum(netWealth)}</span>
+              <span className="value" style={{ fontSize: "1.1rem" }}>{symbol}{formatNum(netWealth, fractionDigits)}</span>
             </div>
 
             <div className="zakat-nisab-section">
               <div className="zakat-nisab-labels">
                 <span>Your Wealth</span>
-                <span>Nisab: ${formatNum(nisab)}</span>
+                <span>Nisab: {symbol}{formatNum(nisab, fractionDigits)}</span>
               </div>
               <div className="zakat-progress-track">
                 <div className="zakat-progress-fill" style={{ width: `${progress}%`, background: progressColor }} />
@@ -148,7 +155,7 @@ export function ZakatCalculator({ nisab }: { nisab: number }) {
             {zakatDue ? (
               <div className="zakat-amount-display">
                 <div className="label-small">Your Zakat Due</div>
-                <div className="big-amount">${formatNum(zakatAmount)}</div>
+                <div className="big-amount">{symbol}{formatNum(zakatAmount, fractionDigits)}</div>
                 <div className="rate-note">2.5% of net zakatable wealth</div>
               </div>
             ) : (
@@ -158,9 +165,15 @@ export function ZakatCalculator({ nisab }: { nisab: number }) {
               </div>
             )}
 
-            <button type="button" className={`zakat-donate-btn ${zakatDue ? "active" : "disabled"}`} disabled={!zakatDue}>
-              <i className="fa-solid fa-hand-holding-heart" /> Donate My Zakat Now
-            </button>
+            {zakatDue ? (
+              <Link href="/donate" className="zakat-donate-btn active">
+                <i className="fa-solid fa-hand-holding-heart" /> Donate My Zakat Now
+              </Link>
+            ) : (
+              <button type="button" className="zakat-donate-btn disabled" disabled>
+                <i className="fa-solid fa-hand-holding-heart" /> Donate My Zakat Now
+              </button>
+            )}
           </div>
         </div>
       </div>

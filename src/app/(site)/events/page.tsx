@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getEvents } from "@/lib/data";
 import { splitDateBadge } from "@/lib/format";
 
-export const metadata = { title: "Events | AICT Global Charity" };
+export const metadata = { title: "Events | AICT Global Bangladesh" };
 export const dynamic = "force-dynamic";
 
 export default async function EventsPage() {

@@ -7,7 +7,7 @@ import { useCurrency } from "@/components/site/currency-context";
 import { CURRENCIES } from "@/lib/currency";
 import type { Campaign, DonationFrequency } from "@/lib/types";
 
-const PRESETS: Record<DonationFrequency, number[]> = {
+export const DONATION_PRESETS: Record<DonationFrequency, number[]> = {
   one_time: [2500, 5000, 10000, 25000],
   monthly: [500, 1000, 2500, 5000],
 };
@@ -22,10 +22,10 @@ export function DonationCard({
   const { addItem } = useBasket();
   const { currency, format } = useCurrency();
   const [frequency, setFrequency] = useState<DonationFrequency>("one_time");
-  const [selected, setSelected] = useState<number>(PRESETS.one_time[1]);
+  const [selected, setSelected] = useState<number>(DONATION_PRESETS.one_time[1]);
   const [customAmount, setCustomAmount] = useState("");
 
-  const presets = PRESETS[frequency];
+  const presets = DONATION_PRESETS[frequency];
   // Basket amounts are always stored as USD cents (that's what Stripe actually
   // charges), so a typed amount in a non-USD currency has to be converted back.
   const customCents = customAmount
@@ -35,7 +35,7 @@ export function DonationCard({
 
   const switchFrequency = (next: DonationFrequency) => {
     setFrequency(next);
-    setSelected(PRESETS[next][1]);
+    setSelected(DONATION_PRESETS[next][1]);
     setCustomAmount("");
   };
 

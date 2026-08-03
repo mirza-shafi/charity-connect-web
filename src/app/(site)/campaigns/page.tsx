@@ -1,7 +1,7 @@
 import { CampaignCard } from "@/components/site/campaign-card";
 import { getCampaigns } from "@/lib/data";
 
-export const metadata = { title: "Campaigns | AICT Global Charity" };
+export const metadata = { title: "Campaigns | AICT Global Bangladesh" };
 
 const CATEGORIES = ["Environment", "Education", "Humanitarian"];
 

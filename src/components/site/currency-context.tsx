@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
-import { formatCurrency, type CurrencyCode } from "@/lib/currency";
+import { CURRENCIES, formatCurrency, type CurrencyCode } from "@/lib/currency";
 
 interface CurrencyContextValue {
   currency: CurrencyCode;
@@ -14,15 +14,15 @@ const CurrencyContext = createContext<CurrencyContextValue | null>(null);
 const STORAGE_KEY = "charity_connect_currency";
 
 export function CurrencyProvider({ children }: { children: React.ReactNode }) {
-  const [currency, setCurrencyState] = useState<CurrencyCode>("USD");
+  const [currency, setCurrencyState] = useState<CurrencyCode>("BDT");
 
   useEffect(() => {
-    // State has to start as USD on both server and client to avoid a
+    // State has to start as BDT on both server and client to avoid a
     // hydration mismatch, so picking up a saved currency can only happen
     // here, after mount, rather than via a lazy initial state.
     const stored = localStorage.getItem(STORAGE_KEY);
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (stored === "USD" || stored === "BDT") setCurrencyState(stored);
+    if (stored && stored in CURRENCIES) setCurrencyState(stored as CurrencyCode);
   }, []);
 
   const setCurrency = (next: CurrencyCode) => {

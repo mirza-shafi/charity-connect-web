@@ -5,6 +5,23 @@ import Link from "next/link";
 
 import { useToast } from "@/components/site/toast-provider";
 
+const QUICK_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/campaigns", label: "Appeals" },
+  { href: "/events", label: "Community Events" },
+  { href: "/blog", label: "News" },
+  { href: "#", label: "Privacy Policy" },
+  { href: "#", label: "Terms & Conditions" },
+];
+
+const GET_INVOLVED_LINKS = [
+  { href: "/volunteer", label: "Volunteer With Us" },
+  { href: "/zakat", label: "Zakat Calculator" },
+  { href: "/donate", label: "Donate Now" },
+];
+
+const PAYMENT_ICONS = ["fa-cc-visa", "fa-cc-mastercard", "fa-cc-amex", "fa-cc-paypal"];
+
 export function SiteFooter() {
   const showToast = useToast();
 
@@ -24,16 +41,20 @@ export function SiteFooter() {
 
   return (
     <footer className="pt-footer">
-      <div className="pt-container">
-        <div className="pt-footer-grid">
-          <div className="pt-footer-col">
-            <Link href="/" className="pt-logo" style={{ marginBottom: 20 }}>
-              <Image src="/logo.jpg" alt="AICT Global Charity logo" width={38} height={38} className="pt-logo-img" />
-              <span>AICT Global Charity</span>
+      <div className="pt-footer-main">
+        <div className="pt-container pt-footer-grid">
+          <div>
+            <Link href="/" style={{ display: "inline-block", marginBottom: 12 }}>
+              <Image
+                src="/logo-white.png"
+                alt="AICT Global Bangladesh logo"
+                width={92}
+                height={92}
+              />
             </Link>
-            <p style={{ marginBottom: 20, fontSize: "0.9rem" }}>
-              We are dedicated to building sustainable, self-sufficient communities. Your small
-              contribution drives monumental local progress.
+            <p style={{ marginBottom: 10, fontSize: "0.85rem", lineHeight: 1.5 }}>
+              AICT Global Bangladesh delivers emergency relief, sustainable development, and
+              community empowerment across Bangladesh.
             </p>
             <div className="pt-social-links">
               <a href="https://www.facebook.com/aictglobal/" target="_blank" rel="noopener noreferrer" className="pt-social-btn" aria-label="Facebook">
@@ -52,38 +73,49 @@ export function SiteFooter() {
           </div>
 
           <div className="pt-footer-col">
-            <h4>Quick Links</h4>
-            <ul className="pt-footer-links">
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/campaigns">Fundraising Campaigns</Link></li>
-              <li><Link href="/events">Community Events</Link></li>
-              <li><Link href="/blog">Latest News &amp; Blogs</Link></li>
-              <li><Link href="/volunteer">Volunteer Registry</Link></li>
+            <h3>Quick Links</h3>
+            <ul className="pt-footer-links-dot">
+              {QUICK_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href}>{link.label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div className="pt-footer-col">
-            <h4>Contact Info</h4>
-            <ul className="pt-footer-links" style={{ pointerEvents: "none" }}>
-              <li style={{ marginBottom: 12, display: "flex", alignItems: "flex-start", gap: 10 }}>
-                <i className="fa-solid fa-location-dot" style={{ color: "var(--pt-accent)", marginTop: 4 }} />
-                <span>120 Pine Street, Suite 400<br />San Francisco, CA 94111</span>
+            <h3>Get Involved</h3>
+            <ul className="pt-footer-links-dot">
+              {GET_INVOLVED_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href}>{link.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="pt-footer-col">
+            <h3>Get In Touch</h3>
+            <ul className="pt-footer-contact">
+              <li>
+                <i className="fa-solid fa-location-dot" />
+                <span>House/Road TBD, Dhanmondi<br />Dhaka 1209, Bangladesh</span>
               </li>
-              <li style={{ marginBottom: 12, display: "flex", alignItems: "center", gap: 10 }}>
-                <i className="fa-solid fa-phone" style={{ color: "var(--pt-accent)" }} />
-                <span>+880 1841-180037</span>
+              <li>
+                <i className="fa-solid fa-phone" />
+                <a href="tel:+8801841180037">+880 1841-180037</a>
               </li>
-              <li style={{ marginBottom: 12, display: "flex", alignItems: "center", gap: 10 }}>
-                <i className="fa-solid fa-envelope" style={{ color: "var(--pt-accent)" }} />
-                <span>connect@aictglobal.org</span>
+              <li>
+                <i className="fa-solid fa-envelope" />
+                <a href="mailto:connect@aictglobal.org">connect@aictglobal.org</a>
               </li>
             </ul>
           </div>
 
           <div className="pt-footer-col">
-            <h4>Stay Updated</h4>
-            <p style={{ fontSize: "0.85rem", marginBottom: 16 }}>
-              Subscribe to our monthly impact reports and emergency response announcements.
+            <h3>Stay Connected</h3>
+            <p style={{ fontSize: "0.85rem", color: "var(--pt-footer-text-muted)" }}>
+              Get inspiring stories and impact updates delivered to your inbox.
             </p>
             <form className="pt-newsletter-form" onSubmit={handleNewsletter}>
               <input
@@ -94,22 +126,31 @@ export function SiteFooter() {
                 className="pt-newsletter-input"
                 aria-label="Email address"
               />
-              <button type="submit" className="pt-btn pt-btn-primary pt-btn-sm" style={{ padding: "10px 14px" }}>
-                <i className="fa-solid fa-paper-plane" />
+              <button type="submit" className="pt-newsletter-submit">
+                Subscribe <i className="fa-solid fa-arrow-right" />
               </button>
             </form>
           </div>
         </div>
+      </div>
 
-        <div className="pt-footer-bottom">
-          <p>
-            &copy; {new Date().getFullYear()} AICT Global Charity. Created for social impact. All rights reserved.
-            {" · "}
-            Made by NexaForce Solutions
-          </p>
-          <div style={{ display: "flex", gap: 20 }}>
-            <a href="#" style={{ color: "var(--pt-text-light)", fontSize: "0.8rem" }}>Privacy Policy</a>
-            <a href="#" style={{ color: "var(--pt-text-light)", fontSize: "0.8rem" }}>Terms of Service</a>
+      <div className="pt-footer-subbar">
+        <div className="pt-container">
+          <p className="pt-footer-credit">Made by NexaForce Solutions</p>
+          <div className="pt-footer-payments">
+            {PAYMENT_ICONS.map((icon) => (
+              <i key={icon} className={`fa-brands ${icon}`} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="pt-footer-bottom">
+        <div className="pt-container">
+          <p>&copy; {new Date().getFullYear()} AICT Global Bangladesh. All rights reserved.</p>
+          <div className="pt-footer-legal">
+            <Link href="#">Privacy Policy</Link>
+            <Link href="#">Terms &amp; Conditions</Link>
           </div>
         </div>
       </div>

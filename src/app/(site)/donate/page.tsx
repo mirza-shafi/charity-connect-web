@@ -2,7 +2,7 @@ import { DonationCard } from "@/components/site/donation-card";
 import { getCampaigns } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Donate Now | AICT Global Charity" };
+export const metadata = { title: "Donate Now | AICT Global Bangladesh" };
 
 export default async function DonatePage() {
   const campaigns = await getCampaigns();

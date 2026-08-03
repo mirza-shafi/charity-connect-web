@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BlogCard } from "@/components/site/blog-card";
 import { getBlogPosts } from "@/lib/data";
 
-export const metadata = { title: "News | AICT Global Charity" };
+export const metadata = { title: "News | AICT Global Bangladesh" };
 
 const CATEGORIES = ["Announcements", "Stories", "Impact Reports"];
 
