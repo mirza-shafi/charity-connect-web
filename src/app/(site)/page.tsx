@@ -32,7 +32,11 @@ export default async function Home() {
       {/* Featured appeals */}
       <section className="pt-section">
         <div className="pt-container">
-          <h2 className="pt-section-title">Featured Appeals</h2>
+          <h2 className="pt-section-title">
+            <span>
+              Featured <span style={{ color: "var(--pt-accent)" }}>Appeals</span>
+            </span>
+          </h2>
           <p className="pt-section-subtitle">
             Take direct action. Donate to our current, high-priority appeals — including
             emergency flood response across Bangladesh — and help change lives today.
@@ -46,7 +50,7 @@ export default async function Home() {
             <CampaignCarousel campaigns={featured} />
           )}
 
-          <div style={{ marginTop: 50, textAlign: "center" }}>
+          <div style={{ marginTop: 32, textAlign: "center" }}>
             <Link href="/campaigns" className="pt-btn pt-btn-secondary">
               View All Active Appeals <i className="fa-solid fa-arrow-right" style={{ marginLeft: 6 }} />
             </Link>

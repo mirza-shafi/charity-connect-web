@@ -195,17 +195,17 @@ body.dark-mode {
 }
 
 .pt-section {
-  padding: 80px 0;
+  padding: 56px 0;
 }
 
 .pt-section-title {
   font-size: 2.5rem;
   margin-bottom: 12px;
-  text-align: center;
+  text-align: left;
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .pt-section-title::after {
@@ -219,10 +219,10 @@ body.dark-mode {
 }
 
 .pt-section-subtitle {
-  text-align: center;
+  text-align: left;
   color: var(--pt-text-muted);
   max-width: 600px;
-  margin: 0 auto 50px auto;
+  margin: 0 0 50px 0;
   font-size: 1.1rem;
 }
 
@@ -239,7 +239,7 @@ body.dark-mode {
   .pt-grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
-  .pt-section { padding: 50px 0; }
+  .pt-section { padding: 40px 0; }
   .pt-section-title { font-size: 2rem; }
   .pt-grid-3, .pt-grid-2, .pt-grid-4, .pt-campaign-hero-grid { grid-template-columns: 1fr; }
 }
