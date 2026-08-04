@@ -35,7 +35,9 @@ export function ImageUploadField({
 
     setUploading(true);
     try {
-      const { upload_url, public_url } = await getUploadUrl(file.type);
+      const result = await getUploadUrl(file.type);
+      if (!result.ok) throw new Error(result.message);
+      const { upload_url, public_url } = result.data;
 
       const putRes = await fetch(upload_url, {
         method: "PUT",

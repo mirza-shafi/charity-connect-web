@@ -28,16 +28,33 @@ interface PresignResponse {
   object_key: string;
 }
 
+type PresignResult =
+  | { ok: true; data: PresignResponse }
+  | { ok: false; message: string };
+
 /** Called client-side before uploading a file: returns a short-lived presigned
  * PUT URL. The actual file bytes go straight from the browser to the bucket —
- * this action (and the API behind it) never sees them. */
-export async function getUploadUrl(contentType: string): Promise<PresignResponse> {
+ * this action (and the API behind it) never sees them.
+ *
+ * Errors are returned rather than thrown: a thrown error crosses the Server
+ * Action boundary uncaught and Next.js replaces the message with an opaque
+ * "Server Components render" + digest string, hiding the real cause (e.g. an
+ * expired admin session) from the user. */
+export async function getUploadUrl(contentType: string): Promise<PresignResult> {
   const token = await requireToken();
-  return apiFetch<PresignResponse>("/api/v1/uploads/presign", {
-    method: "POST",
-    token,
-    body: { content_type: contentType },
-  });
+  try {
+    const data = await apiFetch<PresignResponse>("/api/v1/uploads/presign", {
+      method: "POST",
+      token,
+      body: { content_type: contentType },
+    });
+    return { ok: true, data };
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 401) {
+      return { ok: false, message: "Your session has expired. Please log in again." };
+    }
+    return { ok: false, message: error instanceof ApiError ? error.message : "Upload failed." };
+  }
 }
 
 // ---------- Campaigns ----------
