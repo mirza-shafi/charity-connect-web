@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { ImagePlus, Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { getUploadUrl } from "@/lib/admin-actions";
 
@@ -102,6 +103,15 @@ export function ImageUploadField({
           />
         </div>
       </div>
+
+      {/* Fallback while object storage isn't configured: paste a hosted
+       * image URL directly (same mechanism the seed data used). */}
+      <Input
+        value={imageUrl}
+        onChange={(e) => setImageUrl(e.target.value)}
+        placeholder="Or paste an image URL (e.g. an Unsplash link)"
+        disabled={uploading}
+      />
     </div>
   );
 }
