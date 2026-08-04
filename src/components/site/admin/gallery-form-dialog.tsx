@@ -60,7 +60,7 @@ function GalleryPhotoForm({
         </Tabs>
 
         {mode === "existing" ? (
-          <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+          <Select value={selectedCategory} onValueChange={(value) => setSelectedCategory(value ?? "")}>
             <SelectTrigger className="w-full">
               <SelectValue />
             </SelectTrigger>
