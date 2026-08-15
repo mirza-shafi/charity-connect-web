@@ -27,7 +27,7 @@ export default async function Home() {
     <>
       <HeroSlider slides={heroSlides} totalRaisedCents={totalRaisedCents} stats={stats} />
 
-      <QuickDonateBar campaigns={featured} />
+      <QuickDonateBar />
 
       {/* Featured appeals */}
       <section className="pt-section">

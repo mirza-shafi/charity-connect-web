@@ -6,18 +6,27 @@ import { DONATION_PRESETS } from "@/components/site/donation-card";
 import { useBasket } from "@/components/site/basket-context";
 import { useCurrency } from "@/components/site/currency-context";
 import { CURRENCIES } from "@/lib/currency";
-import type { Campaign, DonationFrequency } from "@/lib/types";
+import type { DonationFrequency } from "@/lib/types";
 
-export function QuickDonateBar({ campaigns }: { campaigns: Campaign[] }) {
+const QUICK_DONATE_APPEALS: { id: string; title: string; image_key: string | null }[] = [
+  { id: "aqua-aid", title: "Aqua Aid", image_key: null },
+  { id: "sustain-now", title: "Sustain Now", image_key: null },
+  { id: "rebuild-hope", title: "Rebuild Hope", image_key: null },
+  { id: "bright-futures", title: "Bright Futures", image_key: null },
+  { id: "emergency-aid", title: "Emergency Aid", image_key: null },
+  { id: "share-meals", title: "Share Meals", image_key: null },
+  { id: "medi-help", title: "Medi Help", image_key: null },
+];
+
+export function QuickDonateBar() {
   const { addItem } = useBasket();
   const { currency, format } = useCurrency();
   const [frequency, setFrequency] = useState<DonationFrequency>("one_time");
-  const [campaignId, setCampaignId] = useState(campaigns[0]?.id ?? "");
+  const [campaignId, setCampaignId] = useState(QUICK_DONATE_APPEALS[0].id);
   const [selected, setSelected] = useState<number>(DONATION_PRESETS.one_time[0]);
   const [customAmount, setCustomAmount] = useState("");
 
-  if (campaigns.length === 0) return null;
-
+  const campaigns = QUICK_DONATE_APPEALS;
   const presets = DONATION_PRESETS[frequency];
   const customCents = customAmount
     ? Math.round((parseFloat(customAmount) / CURRENCIES[currency].rateFromUsd) * 100)
