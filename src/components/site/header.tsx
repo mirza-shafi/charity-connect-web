@@ -7,12 +7,19 @@ import { useEffect, useState } from "react";
 
 import { useBasket } from "@/components/site/basket-context";
 import { CurrencyPicker } from "@/components/site/currency-picker";
+import { LiveClock } from "@/components/site/live-clock";
 import { NavMegaMenu } from "@/components/site/nav-mega-menu";
 import type { Campaign } from "@/lib/types";
 
+const ABOUT_MENU_ITEMS = [
+  { href: "/about", title: "About Us", subtitle: "Who we are & our story" },
+  { href: "/about/mission", title: "Our Mission", subtitle: "What drives everything we do" },
+  { href: "/about/values", title: "Our Values", subtitle: "The principles behind our work" },
+];
+
 const PLAIN_LINKS = [
+  { href: "/what-we-do", label: "What We Do" },
   { href: "/volunteer", label: "Volunteer" },
-  { href: "/zakat", label: "Zakat Calculator" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -51,6 +58,15 @@ export function SiteHeader({ campaigns }: { campaigns: Campaign[] }) {
         <nav>
           <ul className={`pt-nav-menu${mobileOpen ? " pt-nav-open" : ""}`}>
             <NavMegaMenu
+              label="About Us"
+              href="/about"
+              active={pathname === "/about"}
+              viewAllHref="/about"
+              viewAllLabel="Learn More About Us"
+              items={ABOUT_MENU_ITEMS}
+            />
+
+            <NavMegaMenu
               label="Appeals"
               href="/campaigns"
               active={pathname === "/campaigns"}
@@ -74,6 +90,8 @@ export function SiteHeader({ campaigns }: { campaigns: Campaign[] }) {
         </nav>
 
         <div className="pt-header-actions">
+          <LiveClock />
+
           <CurrencyPicker className="pt-header-desktop-only" />
 
           <button
@@ -85,6 +103,10 @@ export function SiteHeader({ campaigns }: { campaigns: Campaign[] }) {
             <i className="fa-solid fa-moon pt-icon-moon" />
             <i className="fa-solid fa-sun pt-icon-sun" />
           </button>
+
+          <Link href="/zakat" className="pt-theme-toggle" aria-label="Zakat Calculator" title="Zakat Calculator">
+            <i className="fa-solid fa-calculator" />
+          </Link>
 
           <Link href="/donate" className="pt-btn pt-btn-accent pt-btn-sm pt-header-desktop-only">
             Donate Now

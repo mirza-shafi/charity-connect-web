@@ -7,6 +7,8 @@ import { useToast } from "@/components/site/toast-provider";
 
 const QUICK_LINKS = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About Us" },
+  { href: "/what-we-do", label: "What We Do" },
   { href: "/campaigns", label: "Appeals" },
   { href: "/events", label: "Community Events" },
   { href: "/privacy-policy", label: "Privacy Policy" },

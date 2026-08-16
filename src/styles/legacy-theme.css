@@ -282,7 +282,8 @@ body.dark-mode {
 .pt-header.pt-header-overlay .pt-logo,
 .pt-header.pt-header-overlay .pt-theme-toggle,
 .pt-header.pt-header-overlay .pt-currency-select,
-.pt-header.pt-header-overlay .pt-mobile-toggle {
+.pt-header.pt-header-overlay .pt-mobile-toggle,
+.pt-header.pt-header-overlay .pt-live-clock {
   color: #fff;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
 }
@@ -413,6 +414,17 @@ body.dark-mode {
 }
 
 .pt-currency-select:hover, .pt-currency-select:focus { border-color: var(--pt-primary); color: var(--pt-primary); outline: none; }
+
+.pt-live-clock {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--pt-text-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
 
 /* ---------- Currency picker (custom dropdown) ---------- */
 .pt-currency-picker { position: relative; }
