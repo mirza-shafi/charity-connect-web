@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { CampaignProgress } from "@/components/site/campaign-progress";
+import { DonationCard } from "@/components/site/donation-card";
 import { APPEALS, getAppeal } from "@/lib/appeals-data";
+import { getCampaign } from "@/lib/data";
 
 export function generateStaticParams() {
   return APPEALS.map((appeal) => ({ slug: appeal.slug }));
@@ -22,6 +25,13 @@ export default async function AppealDetailPage({
   const appeal = getAppeal(slug);
 
   if (!appeal) notFound();
+
+  // Appeals are static marketing content, not DB rows — but when an admin
+  // creates a real campaign with the same title, its auto-generated slug
+  // matches the appeal's slug exactly. If that campaign exists, donations
+  // against it can be tracked/charged for real, so show the full donate
+  // card instead of the generic "Donate Now" link.
+  const campaign = await getCampaign(slug);
 
   return (
     <section className="pt-section">
@@ -61,12 +71,25 @@ export default async function AppealDetailPage({
               gap: 16,
             }}
           >
-            <p style={{ color: "var(--pt-text-muted)" }}>
-              Every contribution to this appeal goes straight toward {appeal.title.toLowerCase()}.
-            </p>
-            <Link href="/donate" className="pt-btn pt-btn-primary pt-btn-pill" style={{ justifyContent: "center" }}>
-              <i className="fa-solid fa-heart" /> Donate Now
-            </Link>
+            {campaign ? (
+              <>
+                <CampaignProgress raised={campaign.raised} goal={campaign.goal} goalMarginBottom={16} />
+                <DonationCard campaign={campaign} variant="compact" />
+              </>
+            ) : (
+              <>
+                <p style={{ color: "var(--pt-text-muted)" }}>
+                  Every contribution to this appeal goes straight toward {appeal.title.toLowerCase()}.
+                </p>
+                <Link
+                  href="/donate"
+                  className="pt-btn pt-btn-primary pt-btn-pill"
+                  style={{ justifyContent: "center" }}
+                >
+                  <i className="fa-solid fa-heart" /> Donate Now
+                </Link>
+              </>
+            )}
           </div>
         </div>
 
