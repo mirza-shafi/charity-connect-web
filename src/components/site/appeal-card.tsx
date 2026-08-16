@@ -18,7 +18,7 @@ export function AppealCard({ appeal }: { appeal: Appeal }) {
         <Link href="/donate" className="pt-btn pt-btn-primary pt-btn-pill">
           <i className="fa-solid fa-heart" /> Donate
         </Link>
-        <Link href="/donate" className="pt-btn pt-btn-outline pt-btn-pill">
+        <Link href={`/appeals/${appeal.slug}`} className="pt-btn pt-btn-outline pt-btn-pill">
           Learn More <i className="fa-solid fa-arrow-right" />
         </Link>
       </div>
