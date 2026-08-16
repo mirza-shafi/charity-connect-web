@@ -71,24 +71,24 @@ export default function AboutPage() {
         <div className="pt-container">
           <h1 className="pt-section-title">About Us</h1>
           <p className="pt-section-subtitle">
-            AICT Global empowers underserved communities through our Emergency Response
-            Programme and long-term development programmes, so that families can survive
-            crisis today and thrive tomorrow.
+            A non-profit humanitarian organization empowering underserved communities worldwide.
           </p>
 
           <div className="pt-grid pt-grid-2" style={{ alignItems: "center", gap: 60, marginTop: 20 }}>
             <div>
               <h2 style={{ fontSize: "1.75rem", marginBottom: 16, textAlign: "left" }}>Who We Are</h2>
               <p style={{ marginBottom: 16, color: "var(--pt-text-muted)" }}>
-                AICT Global is a non-profit humanitarian organisation headquartered in the
+                AICT Global is a non-profit humanitarian organization headquartered in the
                 United Kingdom, with registered offices in the UAE, India, Malaysia, Indonesia,
-                Canada, and beyond. That&apos;s how we do the impossible together.
+                Canada, etc. We empower underserved communities through Emergency Response
+                Programme and long-term development programmes, so that families can survive
+                crisis today and thrive tomorrow. That&apos;s how we do the impossible together.
               </p>
               <p style={{ color: "var(--pt-text-muted)" }}>
-                We serve humanity with compassion, courage, and accountability — acting swiftly
-                in times of crisis, restoring dignity after hardship, and building just,
-                sustainable systems of health, education, and livelihoods, so that individuals
-                and communities rise with hope and self-resilience.
+                We serve humanity with compassion, courage, and accountability by acting
+                swiftly in times of crisis, restoring dignity after hardship, and building
+                just, sustainable systems of health, education, and livelihoods, so that
+                individuals and communities rise with hope and self-resilience.
               </p>
             </div>
             <div className="pt-grid pt-grid-2" style={{ gap: 20 }}>
