@@ -120,7 +120,7 @@ export default async function Home() {
               <div style={{ position: "relative", borderRadius: "var(--pt-radius-lg)", overflow: "hidden", boxShadow: "var(--pt-shadow-lg)" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&auto=format&fit=crop&q=80"
+                  src="/mission.jpeg"
                   alt="Relief volunteers distributing aid"
                   style={{ width: "100%", display: "block", objectFit: "cover", height: 450 }}
                 />
