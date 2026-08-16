@@ -62,12 +62,6 @@ const EXPLORE_LINKS = [
     title: "What We Do",
     desc: "Emergency relief, sustainable development, and community empowerment.",
   },
-  {
-    href: "/about/core-values",
-    icon: "fa-book-quran",
-    title: "Core Values Statement",
-    desc: "Guided by Qur’ān and Sunnah — the principles behind every promise we keep.",
-  },
 ];
 
 export default function AboutPage() {
@@ -170,7 +164,7 @@ export default function AboutPage() {
           <h2 className="pt-section-title">Get to Know Us</h2>
           <p className="pt-section-subtitle">Explore our mission, our values, and the work behind every appeal.</p>
 
-          <div className="pt-grid pt-grid-2">
+          <div className="pt-grid pt-grid-3">
             {EXPLORE_LINKS.map((item) => (
               <Link
                 key={item.href}
