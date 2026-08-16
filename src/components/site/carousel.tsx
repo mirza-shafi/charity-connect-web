@@ -1,14 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-
-import { CampaignCard } from "@/components/site/campaign-card";
-import type { Campaign } from "@/lib/types";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 
 const EDGE_TOLERANCE_PX = 4;
 const AUTOPLAY_MS = 4500;
 
-export function CampaignCarousel({ campaigns }: { campaigns: Campaign[] }) {
+export function Carousel({ items }: { items: { key: string; content: ReactNode }[] }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
@@ -30,7 +27,7 @@ export function CampaignCarousel({ campaigns }: { campaigns: Campaign[] }) {
       track.removeEventListener("scroll", updateEdges);
       window.removeEventListener("resize", updateEdges);
     };
-  }, [campaigns.length]);
+  }, [items.length]);
 
   const scrollByOneCard = useCallback((direction: 1 | -1) => {
     const track = trackRef.current;
@@ -46,7 +43,7 @@ export function CampaignCarousel({ campaigns }: { campaigns: Campaign[] }) {
   // manual click or a mid-scroll swipe. Loops back to the start at the end
   // instead of stalling there.
   useEffect(() => {
-    if (campaigns.length <= 1 || paused) return;
+    if (items.length <= 1 || paused) return;
     const timer = setInterval(() => {
       const track = trackRef.current;
       if (!track) return;
@@ -58,9 +55,9 @@ export function CampaignCarousel({ campaigns }: { campaigns: Campaign[] }) {
       }
     }, AUTOPLAY_MS);
     return () => clearInterval(timer);
-  }, [campaigns.length, paused, scrollByOneCard]);
+  }, [items.length, paused, scrollByOneCard]);
 
-  if (campaigns.length === 0) return null;
+  if (items.length === 0) return null;
 
   return (
     <div
@@ -69,18 +66,18 @@ export function CampaignCarousel({ campaigns }: { campaigns: Campaign[] }) {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="pt-carousel-track" ref={trackRef}>
-        {campaigns.map((campaign) => (
-          <div key={campaign.id} className="pt-carousel-item">
-            <CampaignCard campaign={campaign} />
+        {items.map((item) => (
+          <div key={item.key} className="pt-carousel-item">
+            {item.content}
           </div>
         ))}
       </div>
 
-      {campaigns.length > 1 && (
+      {items.length > 1 && (
         <div className="pt-carousel-controls">
           <button
             type="button"
-            aria-label="Previous campaign"
+            aria-label="Previous"
             className="pt-carousel-arrow"
             disabled={atStart}
             onClick={() => scrollByOneCard(-1)}
@@ -89,7 +86,7 @@ export function CampaignCarousel({ campaigns }: { campaigns: Campaign[] }) {
           </button>
           <button
             type="button"
-            aria-label="Next campaign"
+            aria-label="Next"
             className="pt-carousel-arrow pt-carousel-arrow-primary"
             disabled={atEnd}
             onClick={() => scrollByOneCard(1)}

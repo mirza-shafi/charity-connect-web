@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { AppealCard } from "@/components/site/appeal-card";
+import { Carousel } from "@/components/site/carousel";
 import { HeroSlider } from "@/components/site/hero-slider";
 import { PhotoGallery } from "@/components/site/photo-gallery";
 import { QuickDonateBar } from "@/components/site/quick-donate-bar";
@@ -42,10 +43,14 @@ export default async function Home() {
             emergency flood response across Bangladesh — and help change lives today.
           </p>
 
-          <div className="pt-grid pt-grid-3">
-            {APPEALS.map((appeal) => (
-              <AppealCard key={appeal.title} appeal={appeal} />
-            ))}
+          <Carousel
+            items={APPEALS.map((appeal) => ({ key: appeal.title, content: <AppealCard appeal={appeal} /> }))}
+          />
+
+          <div style={{ marginTop: 32, textAlign: "center" }}>
+            <Link href="/campaigns" className="pt-btn pt-btn-secondary">
+              View All Active Appeals <i className="fa-solid fa-arrow-right" style={{ marginLeft: 6 }} />
+            </Link>
           </div>
         </div>
       </section>
