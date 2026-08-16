@@ -45,6 +45,12 @@ const IMPACT_AREAS = [
 
 const EXPLORE_LINKS = [
   {
+    href: "/about/vision",
+    icon: "fa-eye",
+    title: "Our Vision",
+    desc: "A world where even the most forgotten lives are restored with dignity and hope.",
+  },
+  {
     href: "/about/mission",
     icon: "fa-bullseye",
     title: "Our Mission",
@@ -159,7 +165,7 @@ export default function AboutPage() {
           <h2 className="pt-section-title">Get to Know Us</h2>
           <p className="pt-section-subtitle">Explore our mission, our values, and the work behind every appeal.</p>
 
-          <div className="pt-grid pt-grid-3">
+          <div className="pt-grid pt-grid-2">
             {EXPLORE_LINKS.map((item) => (
               <Link
                 key={item.href}
