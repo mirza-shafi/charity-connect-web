@@ -18,11 +18,23 @@ const ABOUT_MENU_ITEMS = [
   { href: "/about/vision", title: "Our Vision", subtitle: "The world we're working toward" },
 ];
 
-const PLAIN_LINKS = [
-  { href: "/what-we-do", label: "What We Do" },
-  { href: "/volunteer", label: "Volunteer" },
-  { href: "/contact", label: "Contact" },
-];
+const NavPlainLink = ({
+  href,
+  label,
+  pathname,
+  onClick,
+}: {
+  href: string;
+  label: string;
+  pathname: string;
+  onClick: () => void;
+}) => (
+  <li>
+    <Link href={href} onClick={onClick} className={`pt-nav-link${pathname === href ? " active" : ""}`}>
+      {label}
+    </Link>
+  </li>
+);
 
 export function SiteHeader({ campaigns }: { campaigns: Campaign[] }) {
   const pathname = usePathname();
@@ -59,15 +71,6 @@ export function SiteHeader({ campaigns }: { campaigns: Campaign[] }) {
         <nav>
           <ul className={`pt-nav-menu${mobileOpen ? " pt-nav-open" : ""}`}>
             <NavMegaMenu
-              label="About Us"
-              href="/about"
-              active={pathname === "/about"}
-              viewAllHref="/about"
-              viewAllLabel="Learn More About Us"
-              items={ABOUT_MENU_ITEMS}
-            />
-
-            <NavMegaMenu
               label="Appeals"
               href="/campaigns"
               active={pathname === "/campaigns"}
@@ -76,17 +79,20 @@ export function SiteHeader({ campaigns }: { campaigns: Campaign[] }) {
               items={campaigns.map((c) => ({ href: `/campaigns/${c.slug}`, title: c.title, subtitle: c.category }))}
             />
 
-            {PLAIN_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`pt-nav-link${pathname === link.href ? " active" : ""}`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            <NavPlainLink href="/volunteer" label="Volunteer" pathname={pathname} onClick={() => setMobileOpen(false)} />
+
+            <NavMegaMenu
+              label="About Us"
+              href="/about"
+              active={pathname === "/about"}
+              viewAllHref="/about"
+              viewAllLabel="Learn More About Us"
+              items={ABOUT_MENU_ITEMS}
+            />
+
+            <NavPlainLink href="/what-we-do" label="What We Do" pathname={pathname} onClick={() => setMobileOpen(false)} />
+
+            <NavPlainLink href="/contact" label="Contact" pathname={pathname} onClick={() => setMobileOpen(false)} />
           </ul>
         </nav>
 
