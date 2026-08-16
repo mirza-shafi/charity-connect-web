@@ -1548,8 +1548,8 @@ body.dark-mode .pt-card-badge { color: #fff; }
 .pt-quickdonate-amounts .pt-amount-btn { white-space: nowrap; padding: 9px 10px; font-size: 0.85rem; }
 .pt-quickdonate-amounts .pt-amount-btn.active { background: var(--pt-accent); border-color: var(--pt-accent); }
 
-.pt-quickdonate-custom { width: 90px; flex: 0 0 auto; }
-.pt-quickdonate-custom input { padding: 9px 10px 9px 24px; font-size: 0.85rem; }
+.pt-quickdonate-custom { width: 110px; flex: 0 0 auto; }
+.pt-quickdonate-custom input { padding: 9px 8px 9px 24px; font-size: 0.85rem; }
 .pt-quickdonate-custom .pt-currency-prefix { left: 10px; font-size: 0.85rem; }
 
 .pt-quickdonate-add { flex-shrink: 0; white-space: nowrap; padding: 10px 18px; }
@@ -1630,6 +1630,12 @@ body.dark-mode .pt-card-badge { color: #fff; }
   color: var(--pt-text);
 }
 .pt-donate-custom-wrap input:focus { outline: none; border-color: var(--pt-primary); box-shadow: 0 0 0 3px var(--pt-primary-alpha); }
+.pt-donate-custom-wrap input[type="number"] { -moz-appearance: textfield; }
+.pt-donate-custom-wrap input::-webkit-outer-spin-button,
+.pt-donate-custom-wrap input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 /* ---------- Cart icon ---------- */
 .pt-cart-btn { position: relative; background: none; border: none; cursor: pointer; color: var(--pt-text); font-size: 1.2rem; padding: 6px; }
