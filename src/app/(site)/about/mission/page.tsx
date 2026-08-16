@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const metadata = { title: "Our Mission | AICT Global Bangladesh" };
+export const metadata = { title: "Our Mission | AICT Global" };
 
 const GOALS = [
   {
@@ -30,16 +30,15 @@ export default function MissionPage() {
         <div className="pt-grid pt-grid-2" style={{ alignItems: "center", gap: 60 }}>
           <div>
             <p style={{ marginBottom: 16, color: "var(--pt-text-muted)", fontSize: "1.05rem" }}>
-              Founded in 2020, AICT Global Bangladesh aims to remove structural wealth
-              inequities and logistics bottlenecks in social aid delivery. We believe that
-              direct, transparent fundraising changes the dynamic of giving — and right now,
-              that means getting emergency relief to flood-affected families across Bangladesh
-              as fast as possible.
+              We serve humanity with compassion, courage, and accountability — acting swiftly in
+              times of crisis, restoring dignity after hardship, and building just, sustainable
+              systems of health, education, and livelihoods, so that individuals and communities
+              rise with hope and self-resilience.
             </p>
             <p style={{ color: "var(--pt-text-muted)" }}>
-              Every taka given is tracked from your pocket to the field. We keep our operating
-              footprint small so donations reach communities directly, not administrative
-              overhead.
+              Under our 100% Donation Policy, every public donation goes directly to projects —
+              core operating costs are covered separately through Gift Aid, institutional
+              grants, and dedicated administrative sponsorships.
             </p>
             <Link href="/donate" className="pt-btn pt-btn-primary" style={{ marginTop: 24 }}>
               Support Our Mission <i className="fa-solid fa-arrow-right" style={{ marginLeft: 6 }} />
@@ -49,7 +48,7 @@ export default function MissionPage() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/mission.jpeg"
-              alt="AICT Global Bangladesh team on the ground"
+              alt="AICT Global team on the ground"
               style={{
                 width: "100%",
                 height: 420,

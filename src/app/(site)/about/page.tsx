@@ -1,12 +1,46 @@
 import Link from "next/link";
 
-export const metadata = { title: "About Us | AICT Global Bangladesh" };
+export const metadata = { title: "About Us | AICT Global" };
 
 const STATS = [
-  { value: "2020", label: "Founded" },
-  { value: "120+", label: "Global Donors Force" },
-  { value: "45+", label: "Completed Projects" },
-  { value: "9,200+", label: "Families Impacted" },
+  { value: "UK", label: "Headquartered" },
+  { value: "6+", label: "Countries With Offices" },
+  { value: "100%", label: "Public Donations to Projects" },
+  { value: "2", label: "Core Programme Areas" },
+];
+
+const APPROACH = [
+  {
+    icon: "fa-people-roof",
+    title: "Communities at the Centre",
+    desc: "We co-design interventions with local communities and programme participants, running continuous feedback loops and upholding accountability to affected people.",
+  },
+  {
+    icon: "fa-hand-holding-heart",
+    title: "100% Donation Policy",
+    desc: "Every public donation goes directly to projects. Core operating costs are covered separately through Gift Aid, institutional grants, and dedicated administrative sponsorships.",
+  },
+  {
+    icon: "fa-square-poll-vertical",
+    title: "Accountable",
+    desc: "Transparent reporting, independent oversight, and responsible use of every pound.",
+  },
+  {
+    icon: "fa-seedling",
+    title: "Sustainable",
+    desc: "We link urgent relief to long-term recovery and self-reliance for lasting impact.",
+  },
+];
+
+const IMPACT_AREAS = [
+  "Reach vulnerable children and their caregivers with essential services",
+  "Restore access to clean water, education and basic healthcare",
+  "Keep learning going when schools are disrupted",
+  "Build pathways out of poverty through skills and dignified work",
+  "Save lives and stabilise families in crisis",
+  "Reduce death and disease in isolated communities",
+  "Restore sight to reduce suffering and renew independence",
+  "Provide immediate safety and security through emergency shelter",
 ];
 
 const EXPLORE_LINKS = [
@@ -37,23 +71,24 @@ export default function AboutPage() {
         <div className="pt-container">
           <h1 className="pt-section-title">About Us</h1>
           <p className="pt-section-subtitle">
-            AICT Global Bangladesh delivers emergency relief, sustainable development, and
-            community empowerment across Bangladesh.
+            AICT Global empowers underserved communities through our Emergency Response
+            Programme and long-term development programmes, so that families can survive
+            crisis today and thrive tomorrow.
           </p>
 
           <div className="pt-grid pt-grid-2" style={{ alignItems: "center", gap: 60, marginTop: 20 }}>
             <div>
-              <h2 style={{ fontSize: "1.75rem", marginBottom: 16, textAlign: "left" }}>Our Story</h2>
+              <h2 style={{ fontSize: "1.75rem", marginBottom: 16, textAlign: "left" }}>Who We Are</h2>
               <p style={{ marginBottom: 16, color: "var(--pt-text-muted)" }}>
-                Founded in 2020, AICT Global Bangladesh aims to remove structural wealth
-                inequities and logistics bottlenecks in social aid delivery. We believe that
-                direct, transparent fundraising changes the dynamic of giving.
+                AICT Global is a non-profit humanitarian organisation headquartered in the
+                United Kingdom, with registered offices in the UAE, India, Malaysia, Indonesia,
+                Canada, and beyond. That&apos;s how we do the impossible together.
               </p>
               <p style={{ color: "var(--pt-text-muted)" }}>
-                From flood-affected families in Sunamganj to underserved communities across the
-                country, our teams work directly on the ground — turning donations into food,
-                clean water, medical care, and shelter as fast as possible, with every taka
-                tracked from your pocket to the field.
+                We serve humanity with compassion, courage, and accountability — acting swiftly
+                in times of crisis, restoring dignity after hardship, and building just,
+                sustainable systems of health, education, and livelihoods, so that individuals
+                and communities rise with hope and self-resilience.
               </p>
             </div>
             <div className="pt-grid pt-grid-2" style={{ gap: 20 }}>
@@ -64,6 +99,54 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="pt-section" style={{ paddingTop: 0 }}>
+        <div className="pt-container">
+          <h2 className="pt-section-title" style={{ fontSize: "1.75rem" }}>Our Approach</h2>
+          <div className="pt-grid pt-grid-2">
+            {APPROACH.map((item) => (
+              <div key={item.title} className="pt-card" style={{ padding: 28 }}>
+                <div
+                  style={{
+                    width: 48,
+                    height: 48,
+                    borderRadius: "50%",
+                    background: "var(--pt-primary-alpha)",
+                    color: "var(--pt-primary)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                    fontSize: "1.2rem",
+                    marginBottom: 14,
+                  }}
+                >
+                  <i className={`fa-solid ${item.icon}`} />
+                </div>
+                <h4 style={{ marginBottom: 8 }}>{item.title}</h4>
+                <p style={{ fontSize: "0.9rem", color: "var(--pt-text-muted)" }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pt-section" style={{ paddingTop: 0 }}>
+        <div className="pt-container">
+          <h2 className="pt-section-title" style={{ fontSize: "1.75rem" }}>How We Create Impact</h2>
+          <div className="pt-grid pt-grid-2" style={{ gap: "12px 32px" }}>
+            {IMPACT_AREAS.map((item) => (
+              <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+                <i
+                  className="fa-solid fa-circle-check"
+                  style={{ color: "var(--pt-primary)", marginTop: 4, flexShrink: 0 }}
+                />
+                <span style={{ color: "var(--pt-text-muted)" }}>{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>

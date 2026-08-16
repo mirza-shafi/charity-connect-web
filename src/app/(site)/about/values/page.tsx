@@ -1,35 +1,35 @@
-export const metadata = { title: "Our Values | AICT Global Bangladesh" };
+export const metadata = { title: "Our Values | AICT Global" };
 
 const VALUES = [
   {
-    icon: "fa-bullseye",
-    title: "Direct Giving",
-    desc: "95% of donated funds flow straight to community contractors. No bloated operations.",
-  },
-  {
-    icon: "fa-square-poll-vertical",
-    title: "Transparency",
-    desc: "We publish audit reports quarterly showing project completions and geo-location details.",
-  },
-  {
-    icon: "fa-shield-halved",
-    title: "Trust & Security",
-    desc: "All donation receipts are encrypted, and a digital receipt is available from your dashboard.",
+    icon: "fa-people-roof",
+    title: "Community-Led",
+    desc: "We co-design interventions with local communities and programme participants, and run continuous feedback loops to stay accountable to affected people.",
   },
   {
     icon: "fa-hand-holding-heart",
-    title: "Compassion",
-    desc: "Every family we serve is treated with dignity — aid is delivered as we'd want it delivered to our own.",
+    title: "100% Donation Policy",
+    desc: "Every public donation goes directly to projects; core operating costs are covered through Gift Aid, institutional grants, and dedicated administrative sponsorships.",
+  },
+  {
+    icon: "fa-square-poll-vertical",
+    title: "Accountable",
+    desc: "Transparent reporting, independent oversight, and responsible use of every pound.",
+  },
+  {
+    icon: "fa-seedling",
+    title: "Sustainable",
+    desc: "We link urgent relief to long-term recovery and self-reliance for lasting impact.",
+  },
+  {
+    icon: "fa-shield-halved",
+    title: "Compassion & Courage",
+    desc: "We act swiftly in times of crisis and restore dignity after hardship, serving humanity with compassion and courage.",
   },
   {
     icon: "fa-scale-balanced",
     title: "Integrity",
     desc: "We hold ourselves accountable to donors and beneficiaries alike, in how funds are raised and spent.",
-  },
-  {
-    icon: "fa-people-roof",
-    title: "Community-Led",
-    desc: "We work alongside local communities so recovery and development are locally owned, not imposed.",
   },
 ];
 
