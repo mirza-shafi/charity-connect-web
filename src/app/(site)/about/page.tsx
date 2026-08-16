@@ -78,22 +78,17 @@ export default function AboutPage() {
             <div>
               <h2 style={{ fontSize: "1.75rem", marginBottom: 16, textAlign: "left" }}>Who We Are</h2>
               <p style={{ marginBottom: 16, color: "var(--pt-text-muted)" }}>
-                AICT Global is a non-profit humanitarian organization headquartered in the
-                United Kingdom, with registered offices in the UAE, India, Malaysia, Indonesia,
-                Canada, etc. We empower underserved communities through Emergency Response
-                Programme and long-term development programmes, so that families can survive
-                crisis today and thrive tomorrow. That&apos;s how we do the impossible together.
+                AICT is a non-profit humanitarian organization headquartered in Dhaka with
+                offices in Cox&apos;s Bazar, Kurigram, Cumilla, Chittagong etc. We empower
+                underserved communities through Emergency Response Programme and long-term
+                development programmes, so that families can survive crisis today and thrive
+                tomorrow. That&apos;s how we do the impossible together.
               </p>
-              <p style={{ marginBottom: 16, color: "var(--pt-text-muted)" }}>
+              <p style={{ color: "var(--pt-text-muted)" }}>
                 We serve humanity with compassion, courage, and accountability by acting
                 swiftly in times of crisis, restoring dignity after hardship, and building
                 just, sustainable systems of health, education, and livelihoods, so that
                 individuals and communities rise with hope and self-resilience.
-              </p>
-              <p style={{ color: "var(--pt-text-muted)" }}>
-                <strong style={{ color: "var(--pt-text)" }}>AICT Bangladesh</strong> is
-                headquartered in Dhaka, with offices in Cox&apos;s Bazar, Kurigram, Cumilla, and
-                Chittagong.
               </p>
             </div>
             <div className="pt-grid pt-grid-2" style={{ gap: 20 }}>
