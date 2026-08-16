@@ -1,9 +1,10 @@
 import Link from "next/link";
 
-import { CampaignCarousel } from "@/components/site/campaign-carousel";
+import { AppealCard } from "@/components/site/appeal-card";
 import { HeroSlider } from "@/components/site/hero-slider";
 import { PhotoGallery } from "@/components/site/photo-gallery";
 import { QuickDonateBar } from "@/components/site/quick-donate-bar";
+import { APPEALS } from "@/lib/appeals-data";
 import { getCampaigns, getGalleryPhotos, getHeroSlides } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
@@ -14,7 +15,6 @@ export default async function Home() {
     getHeroSlides(),
     getGalleryPhotos(),
   ]);
-  const featured = campaigns.slice(0, 9);
   const totalRaisedCents = Math.round(campaigns.reduce((sum, c) => sum + c.raised, 0) * 100);
 
   const stats = [
@@ -42,18 +42,10 @@ export default async function Home() {
             emergency flood response across Bangladesh — and help change lives today.
           </p>
 
-          {featured.length === 0 ? (
-            <p style={{ textAlign: "center", color: "var(--pt-text-muted)" }}>
-              No active appeals yet — check back soon.
-            </p>
-          ) : (
-            <CampaignCarousel campaigns={featured} />
-          )}
-
-          <div style={{ marginTop: 32, textAlign: "center" }}>
-            <Link href="/campaigns" className="pt-btn pt-btn-secondary">
-              View All Active Appeals <i className="fa-solid fa-arrow-right" style={{ marginLeft: 6 }} />
-            </Link>
+          <div className="pt-grid pt-grid-3">
+            {APPEALS.map((appeal) => (
+              <AppealCard key={appeal.title} appeal={appeal} />
+            ))}
           </div>
         </div>
       </section>
