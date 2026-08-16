@@ -15,6 +15,7 @@ const ABOUT_MENU_ITEMS = [
   { href: "/about", title: "About Us", subtitle: "Who we are & our story" },
   { href: "/about/mission", title: "Our Mission", subtitle: "What drives everything we do" },
   { href: "/about/values", title: "Our Values", subtitle: "The principles behind our work" },
+  { href: "/about/vision", title: "Our Vision", subtitle: "The world we're working toward" },
 ];
 
 const PLAIN_LINKS = [
