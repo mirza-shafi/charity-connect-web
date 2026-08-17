@@ -45,18 +45,6 @@ const IMPACT_AREAS = [
 
 const EXPLORE_LINKS = [
   {
-    href: "/about/vision",
-    icon: "fa-eye",
-    title: "Our Vision",
-    desc: "A world where even the most forgotten lives are restored with dignity and hope.",
-  },
-  {
-    href: "/about/mission",
-    icon: "fa-bullseye",
-    title: "Our Mission",
-    desc: "What drives everything we do, from first response to long-term recovery.",
-  },
-  {
     href: "/about/values",
     icon: "fa-heart",
     title: "Our Values",
