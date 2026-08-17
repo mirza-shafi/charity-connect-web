@@ -398,14 +398,28 @@ body.dark-mode {
 .pt-topbar .pt-theme-toggle { font-size: 1rem; padding: 6px; }
 .pt-header .pt-topbar .pt-theme-toggle:hover { background: rgba(255, 255, 255, 0.18); color: #fff; }
 
-/* Without this the picker's default hover turns the label brand-blue — i.e.
-   blue text on the blue strip. */
-.pt-topbar .pt-currency-select { border-color: rgba(255, 255, 255, 0.45); }
-.pt-header .pt-topbar .pt-currency-select:hover,
-.pt-header .pt-topbar .pt-currency-select:focus {
-  border-color: #fff;
+/* No pill outline in the strip — it read as a stray ring next to the plain
+   text items. `transparent` rather than `border: none` so the 1.5px border box
+   still occupies space and the label doesn't shift by a pixel.
+   Hover matches the other strip items (a slight fade) instead of a bordered
+   pill, and the picker's default hover is overridden because it turns the label
+   brand-blue — i.e. blue text on the blue strip. */
+.pt-topbar .pt-currency-select { border-color: transparent; }
+.pt-header .pt-topbar .pt-currency-select:hover {
+  border-color: transparent;
+  background: transparent;
   color: #fff;
-  background: rgba(255, 255, 255, 0.15);
+  opacity: 0.75;
+}
+
+/* The base rule kills the outline on :focus, which would leave keyboard users
+   with no indicator at all once the border is gone. :focus-visible restores a
+   real ring for keyboard focus only, without showing it on mouse clicks. */
+.pt-header .pt-topbar .pt-currency-select:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  border-color: transparent;
+  background: transparent;
 }
 
 .pt-logo {
