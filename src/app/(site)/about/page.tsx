@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ScrollReveal } from "@/components/site/scroll-reveal";
 
 export const metadata = { title: "About Us | AICT Global" };
 
@@ -64,7 +65,7 @@ export default function AboutPage() {
       <section className="pt-section">
         <div className="pt-container">
           <div className="pt-grid pt-grid-2" style={{ alignItems: "center", gap: 60, marginTop: 20 }}>
-            <div>
+            <ScrollReveal>
               <h1 className="pt-section-title" style={{ fontSize: "1.75rem", marginBottom: 16, textAlign: "left" }}>Who We Are</h1>
               <p style={{ marginBottom: 16, color: "var(--pt-text-muted)" }}>
                 AICT is a non-profit humanitarian organization headquartered in Dhaka with
@@ -79,22 +80,22 @@ export default function AboutPage() {
                 just, sustainable systems of health, education, and livelihoods, so that
                 individuals and communities rise with hope and self-resilience.
               </p>
-            </div>
-            <div className="pt-grid pt-grid-2" style={{ gap: 20 }}>
+            </ScrollReveal>
+            <ScrollReveal stagger delay={0.15} className="pt-grid pt-grid-2" style={{ gap: 20 }}>
               {STATS.map((stat) => (
                 <div key={stat.label} className="pt-card" style={{ padding: 24, alignItems: "center", textAlign: "center" }}>
                   <div style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--pt-primary)" }}>{stat.value}</div>
                   <div style={{ fontSize: "0.85rem", color: "var(--pt-text-muted)", marginTop: 4 }}>{stat.label}</div>
                 </div>
               ))}
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       <section className="pt-section" style={{ paddingTop: 0 }}>
         <div className="pt-container">
-          <div className="pt-grid pt-grid-2" style={{ gap: 28 }}>
+          <ScrollReveal stagger className="pt-grid pt-grid-2" style={{ gap: 28 }}>
             <Link
               href="/about/mission"
               className="pt-card"
@@ -167,14 +168,14 @@ export default function AboutPage() {
                 Read Our Vision <i className="fa-solid fa-arrow-right" style={{ marginLeft: 6 }} />
               </span>
             </Link>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className="pt-section" style={{ paddingTop: 0 }}>
         <div className="pt-container">
-          <h2 className="pt-section-title" style={{ fontSize: "1.75rem" }}>Our Approach</h2>
-          <div className="pt-grid pt-grid-2">
+          <ScrollReveal as="h2" className="pt-section-title" style={{ fontSize: "1.75rem" }}>Our Approach</ScrollReveal>
+          <ScrollReveal stagger className="pt-grid pt-grid-2">
             {APPROACH.map((item) => (
               <div key={item.title} className="pt-card" style={{ padding: 28 }}>
                 <div
@@ -198,14 +199,14 @@ export default function AboutPage() {
                 <p style={{ fontSize: "0.9rem", color: "var(--pt-text-muted)" }}>{item.desc}</p>
               </div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className="pt-section" style={{ paddingTop: 0 }}>
         <div className="pt-container">
-          <h2 className="pt-section-title" style={{ fontSize: "1.75rem" }}>How We Create Impact</h2>
-          <div className="pt-grid pt-grid-2" style={{ gap: "12px 32px" }}>
+          <ScrollReveal as="h2" className="pt-section-title" style={{ fontSize: "1.75rem" }}>How We Create Impact</ScrollReveal>
+          <ScrollReveal stagger className="pt-grid pt-grid-2" style={{ gap: "12px 32px" }}>
             {IMPACT_AREAS.map((item) => (
               <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
                 <i
@@ -215,7 +216,7 @@ export default function AboutPage() {
                 <span style={{ color: "var(--pt-text-muted)" }}>{item}</span>
               </div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -224,10 +225,12 @@ export default function AboutPage() {
         style={{ background: "var(--pt-border-light)", borderTop: "1px solid var(--pt-border)", borderBottom: "1px solid var(--pt-border)" }}
       >
         <div className="pt-container">
-          <h2 className="pt-section-title">Get to Know Us</h2>
-          <p className="pt-section-subtitle">Explore our mission, our values, and the work behind every appeal.</p>
+          <ScrollReveal>
+            <h2 className="pt-section-title">Get to Know Us</h2>
+            <p className="pt-section-subtitle">Explore our mission, our values, and the work behind every appeal.</p>
+          </ScrollReveal>
 
-          <div className="pt-grid pt-grid-2">
+          <ScrollReveal stagger delay={0.1} className="pt-grid pt-grid-2">
             {EXPLORE_LINKS.map((item) => (
               <Link
                 key={item.href}
@@ -256,13 +259,13 @@ export default function AboutPage() {
                 <p style={{ fontSize: "0.9rem", color: "var(--pt-text-muted)" }}>{item.desc}</p>
               </Link>
             ))}
-          </div>
+          </ScrollReveal>
 
-          <div style={{ marginTop: 32, textAlign: "center" }}>
+          <ScrollReveal delay={0.2} style={{ marginTop: 32, textAlign: "center" }}>
             <Link href="/campaigns" className="pt-btn pt-btn-primary">
               See Our Emergency Appeals <i className="fa-solid fa-arrow-right" style={{ marginLeft: 6 }} />
             </Link>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </>
