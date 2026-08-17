@@ -52,7 +52,13 @@
   --pt-font-display: var(--font-outfit), sans-serif;
   --pt-font-body: var(--font-plus-jakarta), sans-serif;
 
-  --pt-header-height: 80px;
+  /* The header is two stacked rows: a utility strip and the main nav row.
+     --pt-header-height stays the single source of truth for the header's total
+     height because the hero's negative offset, .pt-app-content's top margin,
+     the mobile menu's `top`, and sticky sidebars are all derived from it. */
+  --pt-topbar-height: 40px;
+  --pt-navbar-height: 72px;
+  --pt-header-height: calc(var(--pt-topbar-height) + var(--pt-navbar-height));
   --pt-container-width: 1280px;
   --pt-radius-sm: 8px;
   --pt-radius-md: 14px;
@@ -251,6 +257,8 @@ body.dark-mode {
   left: 0;
   width: 100%;
   height: var(--pt-header-height);
+  display: flex;
+  flex-direction: column;
   background: var(--pt-glass-bg);
   backdrop-filter: var(--pt-glass-blur);
   -webkit-backdrop-filter: var(--pt-glass-blur);
@@ -279,18 +287,15 @@ body.dark-mode {
    — outranks a plain ".pt-header-overlay .pt-logo" (0,2,0) regardless of
    source order, silently forcing the teal link color back on and defeating
    this override. Chaining ".pt-header.pt-header-overlay" (0,3,0) beats it. */
+/* Only the main nav row goes transparent. The utility strip above keeps its
+   solid brand-blue background even over the hero (matching the reference), so
+   the theme toggle / currency picker / clock that live up there are coloured by
+   the .pt-topbar rules instead of here. */
 .pt-header.pt-header-overlay .pt-logo,
-.pt-header.pt-header-overlay .pt-theme-toggle,
-.pt-header.pt-header-overlay .pt-currency-select,
 .pt-header.pt-header-overlay .pt-mobile-toggle,
-.pt-header.pt-header-overlay .pt-live-clock {
+.pt-header.pt-header-overlay .pt-cart-btn {
   color: #fff;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
-}
-
-.pt-header.pt-header-overlay .pt-theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: var(--pt-accent);
 }
 
 @media (min-width: 769px) {
@@ -310,13 +315,98 @@ body.dark-mode {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  /* Explicit, not height:100% — the header is now a two-row flex column, so
+     100% would resolve to the full two-row height and overflow. */
+  height: var(--pt-navbar-height);
+  flex-shrink: 0;
+  width: 100%;
   padding: 0 24px;
   max-width: var(--pt-container-width);
   margin: 0 auto;
 }
 
 .pt-header .pt-logo { margin-left: 16px; }
+
+/* ---------- Header utility strip (top row) ---------- */
+.pt-topbar {
+  height: var(--pt-topbar-height);
+  flex-shrink: 0;
+  background: var(--pt-primary);
+  color: #fff;
+}
+
+.pt-topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 100%;
+  width: 100%;
+  padding: 0 24px;
+  max-width: var(--pt-container-width);
+  margin: 0 auto;
+}
+
+.pt-topbar-group { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.pt-topbar-socials { display: flex; align-items: center; gap: 2px; }
+.pt-topbar-divider { width: 1px; height: 18px; background: rgba(255, 255, 255, 0.35); flex-shrink: 0; }
+.pt-topbar-email,
+.pt-topbar-clock { display: flex; align-items: center; gap: 12px; min-width: 0; }
+
+/* The strip holds ~810px of content, so between the 768px mobile cutoff and
+   roughly 1080px it runs out of room and the email collides with the clock.
+   Drop the decorative pieces first, in priority order, so the functional
+   controls (currency, Zakat Calculator, theme) always keep their space. */
+@media (max-width: 1080px) {
+  .pt-topbar-clock { display: none; }
+}
+
+@media (max-width: 940px) {
+  .pt-topbar-email { display: none; }
+}
+
+.pt-topbar-item,
+.pt-topbar-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border-radius: var(--pt-radius-sm);
+  transition: opacity var(--pt-transition-fast);
+}
+
+.pt-topbar-social { justify-content: center; width: 30px; height: 30px; font-size: 0.9rem; }
+.pt-topbar-item { padding: 4px 6px; }
+
+/* Everything in this strip sits on the solid brand blue, so it must be white.
+   `.pt-root a:not(.pt-btn)` is (0,2,1) and forces the brand blue back onto any
+   anchor, so these overrides are written to (0,3,1) to outrank it outright
+   rather than relying on source order — the same cascade fight that has
+   already caused several bugs in this file. */
+.pt-header .pt-topbar a:not(.pt-btn),
+.pt-header .pt-topbar .pt-live-clock,
+.pt-header .pt-topbar .pt-theme-toggle,
+.pt-header .pt-topbar .pt-currency-select {
+  color: #fff;
+}
+
+.pt-header .pt-topbar a:not(.pt-btn):hover { color: #fff; opacity: 0.75; }
+.pt-topbar .pt-live-clock { font-size: 0.82rem; }
+
+.pt-topbar .pt-theme-toggle { font-size: 1rem; padding: 6px; }
+.pt-header .pt-topbar .pt-theme-toggle:hover { background: rgba(255, 255, 255, 0.18); color: #fff; }
+
+/* Without this the picker's default hover turns the label brand-blue — i.e.
+   blue text on the blue strip. */
+.pt-topbar .pt-currency-select { border-color: rgba(255, 255, 255, 0.45); }
+.pt-header .pt-topbar .pt-currency-select:hover,
+.pt-header .pt-topbar .pt-currency-select:focus {
+  border-color: #fff;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+}
 
 .pt-logo {
   display: flex;
@@ -1009,6 +1099,11 @@ body.dark-mode .pt-card-badge { color: #fff; }
   transition: color var(--pt-transition-normal), text-shadow var(--pt-transition-normal);
 }
 
+/* Shown only inside the mobile dropdown, where the utility strip is hidden.
+   Declared before the max-width block below so that block's `display: block`
+   wins on source order instead of being cancelled by this base rule. */
+.pt-nav-mobile-only { display: none; }
+
 @media (max-width: 768px) {
   .pt-nav-menu {
     display: none;
@@ -1027,6 +1122,13 @@ body.dark-mode .pt-card-badge { color: #fff; }
   .pt-nav-menu.pt-nav-open { display: flex; }
   .pt-mobile-toggle { display: block; }
   .pt-header-desktop-only { display: none; }
+
+  /* The utility strip can't fit at this width. Zeroing the variable (rather
+     than only hiding the element) keeps --pt-header-height honest, so the hero
+     offset, content margin and the mobile menu's own `top` all stay aligned. */
+  :root { --pt-topbar-height: 0px; }
+  .pt-topbar { display: none; }
+  .pt-nav-mobile-only { display: block; }
 }
 
 /* ---------- Zakat calculator ---------- */
