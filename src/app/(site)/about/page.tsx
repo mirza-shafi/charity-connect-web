@@ -106,6 +106,85 @@ export default function AboutPage() {
 
       <section className="pt-section" style={{ paddingTop: 0 }}>
         <div className="pt-container">
+          <div className="pt-grid pt-grid-2" style={{ gap: 28 }}>
+            <Link
+              href="/about/mission"
+              className="pt-card"
+              style={{
+                padding: 36,
+                color: "inherit",
+                background: "var(--pt-primary-alpha)",
+                borderLeft: "4px solid var(--pt-primary)",
+              }}
+            >
+              <div
+                style={{
+                  width: 64,
+                  height: 64,
+                  borderRadius: "50%",
+                  background: "var(--pt-primary)",
+                  color: "#fff",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                  fontSize: "1.5rem",
+                  marginBottom: 20,
+                }}
+              >
+                <i className="fa-solid fa-bullseye" />
+              </div>
+              <h2 style={{ fontSize: "1.5rem", marginBottom: 12 }}>Our Mission</h2>
+              <p style={{ color: "var(--pt-text-muted)", marginBottom: 18 }}>
+                A lived responsibility rooted in amānah, compassion, and disciplined action.
+              </p>
+              <span style={{ color: "var(--pt-primary)", fontWeight: 600 }}>
+                Read Our Mission <i className="fa-solid fa-arrow-right" style={{ marginLeft: 6 }} />
+              </span>
+            </Link>
+
+            <Link
+              href="/about/vision"
+              className="pt-card"
+              style={{
+                padding: 36,
+                color: "inherit",
+                background: "var(--pt-accent-alpha)",
+                borderLeft: "4px solid var(--pt-accent)",
+              }}
+            >
+              <div
+                style={{
+                  width: 64,
+                  height: 64,
+                  borderRadius: "50%",
+                  background: "var(--pt-accent)",
+                  color: "#fff",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                  fontSize: "1.5rem",
+                  marginBottom: 20,
+                }}
+              >
+                <i className="fa-solid fa-eye" />
+              </div>
+              <h2 style={{ fontSize: "1.5rem", marginBottom: 12 }}>Our Vision</h2>
+              <p style={{ color: "var(--pt-text-muted)", marginBottom: 18 }}>
+                A world where even the most forgotten lives are restored with dignity, hope, and
+                opportunity — so that every person has the courage to dream again.
+              </p>
+              <span style={{ color: "var(--pt-accent)", fontWeight: 600 }}>
+                Read Our Vision <i className="fa-solid fa-arrow-right" style={{ marginLeft: 6 }} />
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="pt-section" style={{ paddingTop: 0 }}>
+        <div className="pt-container">
           <h2 className="pt-section-title" style={{ fontSize: "1.75rem" }}>Our Approach</h2>
           <div className="pt-grid pt-grid-2">
             {APPROACH.map((item) => (
