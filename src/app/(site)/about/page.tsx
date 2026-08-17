@@ -75,14 +75,9 @@ export default function AboutPage() {
     <>
       <section className="pt-section">
         <div className="pt-container">
-          <h1 className="pt-section-title">About Us</h1>
-          <p className="pt-section-subtitle">
-            A non-profit humanitarian organization empowering underserved communities worldwide.
-          </p>
-
           <div className="pt-grid pt-grid-2" style={{ alignItems: "center", gap: 60, marginTop: 20 }}>
             <div>
-              <h2 style={{ fontSize: "1.75rem", marginBottom: 16, textAlign: "left" }}>Who We Are</h2>
+              <h1 className="pt-section-title" style={{ fontSize: "1.75rem", marginBottom: 16, textAlign: "left" }}>Who We Are</h1>
               <p style={{ marginBottom: 16, color: "var(--pt-text-muted)" }}>
                 AICT is a non-profit humanitarian organization headquartered in Dhaka with
                 offices in Cox&apos;s Bazar, Kurigram, Cumilla, Chittagong etc. We empower
