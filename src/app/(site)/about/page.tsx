@@ -4,9 +4,9 @@ export const metadata = { title: "About Us | AICT Global" };
 
 const STATS = [
   { value: "UK", label: "Headquartered" },
-  { value: "6+", label: "Countries With Offices" },
+  { value: "17+", label: "Countries" },
   { value: "100%", label: "Public Donations to Projects" },
-  { value: "2", label: "Core Programme Areas" },
+  { value: "15", label: "Core Programme Areas" },
 ];
 
 const APPROACH = [
