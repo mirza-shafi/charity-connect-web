@@ -544,12 +544,19 @@ body.dark-mode {
 .pt-currency-panel {
   position: absolute;
   top: calc(100% + 10px);
-  left: 0;
+  /* Anchored to the trigger's right edge, not its left: the picker always sits
+     at the right end of the utility strip, so opening leftward is the only
+     direction with room. With `left: 0` the 280px panel ran off the right of
+     the viewport on phones and clipped the currency names. */
+  right: 0;
+  left: auto;
   background: var(--pt-card-bg);
   border: 1px solid var(--pt-border);
   border-radius: var(--pt-radius-md);
   box-shadow: var(--pt-shadow-lg);
   min-width: 280px;
+  /* Never wider than the screen, whatever the trigger's position. */
+  max-width: calc(100vw - 24px);
   max-height: 380px;
   overflow-y: auto;
   padding: 8px;
