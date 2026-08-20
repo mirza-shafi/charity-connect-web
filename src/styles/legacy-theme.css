@@ -1406,7 +1406,8 @@ body.dark-mode .pt-card-badge { color: #fff; }
   display: flex;
   justify-content: flex-end;
   gap: 14px;
-  margin-top: 28px;
+  /* Renders above the track now, so the spacing belongs underneath. */
+  margin-bottom: 20px;
 }
 
 .pt-carousel-arrow {

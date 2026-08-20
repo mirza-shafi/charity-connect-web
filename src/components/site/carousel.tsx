@@ -65,14 +65,9 @@ export function Carousel({ items }: { items: { key: string; content: ReactNode }
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="pt-carousel-track" ref={trackRef}>
-        {items.map((item) => (
-          <div key={item.key} className="pt-carousel-item">
-            {item.content}
-          </div>
-        ))}
-      </div>
-
+      {/* Above the track, not below it: the arrows sit top-right in the gap
+          under the section heading. Kept in normal flow (rather than absolutely
+          positioned) so they can't overlap the cards at any width. */}
       {items.length > 1 && (
         <div className="pt-carousel-controls">
           <button
@@ -95,6 +90,14 @@ export function Carousel({ items }: { items: { key: string; content: ReactNode }
           </button>
         </div>
       )}
+
+      <div className="pt-carousel-track" ref={trackRef}>
+        {items.map((item) => (
+          <div key={item.key} className="pt-carousel-item">
+            {item.content}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
