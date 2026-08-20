@@ -701,14 +701,29 @@ body.dark-mode .pt-btn-primary:hover { box-shadow: 0 4px 14px hsla(var(--pt-prim
 .pt-btn-full { width: 100%; }
 .pt-btn-pill { border-radius: var(--pt-radius-full); }
 
-.pt-card-cta-row { display: flex; gap: 10px; }
-.pt-card-cta-row .pt-btn { flex: 1; white-space: nowrap; }
+.pt-card-cta-row { display: flex; gap: 8px; }
+
+/* Deliberately tighter than the base .pt-btn (12px/24px, 0.95rem): inside a
+   card these two sit side by side and stretch to fill, so the default padding
+   made them read as oversized slabs. (0,2,0) beats the base rule's (0,1,0).
+   Height still lands near 40px so they stay comfortable to tap. */
+.pt-card-cta-row .pt-btn {
+  flex: 1;
+  white-space: nowrap;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  gap: 6px;
+  /* The inherited body line-height (1.6) added ~9px of dead space inside the
+     button and kept it at 46px tall however much the padding came down. */
+  line-height: 1.25;
+}
+.pt-card-cta-row .pt-btn i { font-size: 0.85em; }
 
 @media (max-width: 480px) {
-  .pt-card-cta-row { gap: 8px; }
+  .pt-card-cta-row { gap: 6px; }
   .pt-card-cta-row .pt-btn {
-    padding: 10px 12px;
-    font-size: 0.8rem;
+    padding: 10px 10px;
+    font-size: 0.78rem;
     gap: 4px;
   }
 }
