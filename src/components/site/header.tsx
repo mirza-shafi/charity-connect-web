@@ -76,8 +76,11 @@ export function SiteHeader({ campaigns }: { campaigns: Campaign[] }) {
   return (
     <header className={`pt-header${isOverlay ? " pt-header-overlay" : ""}`}>
       {/* Utility strip. Everything here used to sit in the main nav row, which
-          left that row too crowded to read. Hidden below 768px (where it can't
-          fit) — its still-needed links are repeated in the mobile menu. */}
+          left that row too crowded to read. It stays on mobile (matching
+          aictglobal.org) but sheds the decorative pieces and collapses its
+          labels to icons — the currency picker in particular has no other home,
+          so hiding the strip outright would leave phone visitors unable to
+          switch currency at all. */}
       <div className="pt-topbar">
         <div className="pt-topbar-inner">
           <div className="pt-topbar-group">
@@ -96,13 +99,12 @@ export function SiteHeader({ campaigns }: { campaigns: Campaign[] }) {
               ))}
             </div>
 
-            {/* Dropped first as the strip tightens — the address is also in the
-                footer and on /contact, so nothing becomes unreachable. */}
             <span className="pt-topbar-email">
               <span className="pt-topbar-divider" aria-hidden="true" />
-              <a href={`mailto:${CONTACT_EMAIL}`} className="pt-topbar-item">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="pt-topbar-item" aria-label="Email us">
                 <i className="fa-regular fa-envelope" aria-hidden="true" />
-                <span>{CONTACT_EMAIL}</span>
+                {/* Collapses to the envelope alone once the strip runs out of room. */}
+                <span className="pt-topbar-label">{CONTACT_EMAIL}</span>
               </a>
             </span>
           </div>
@@ -116,9 +118,9 @@ export function SiteHeader({ campaigns }: { campaigns: Campaign[] }) {
 
             <CurrencyPicker />
 
-            <Link href="/zakat" className="pt-topbar-item">
+            <Link href="/zakat" className="pt-topbar-item" aria-label="Zakat Calculator">
               <i className="fa-solid fa-calculator" aria-hidden="true" />
-              <span>Zakat Calculator</span>
+              <span className="pt-topbar-label">Zakat Calculator</span>
             </Link>
 
             <button type="button" className="pt-theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
@@ -159,17 +161,6 @@ export function SiteHeader({ campaigns }: { campaigns: Campaign[] }) {
             <NavPlainLink href="/what-we-do" label="What We Do" pathname={pathname} onClick={closeMobile} />
 
             <NavPlainLink href="/contact" label="Contact" pathname={pathname} onClick={closeMobile} />
-
-            {/* Repeated from the utility strip, which is hidden at this width. */}
-            <li className="pt-nav-mobile-only">
-              <Link
-                href="/zakat"
-                onClick={closeMobile}
-                className={`pt-nav-link${pathname === "/zakat" ? " active" : ""}`}
-              >
-                Zakat Calculator
-              </Link>
-            </li>
           </ul>
         </nav>
 

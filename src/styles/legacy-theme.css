@@ -361,8 +361,12 @@ body.dark-mode {
   .pt-topbar-clock { display: none; }
 }
 
+/* Labels collapse to their icons rather than the items disappearing — the
+   envelope and calculator stay reachable all the way down to phones, which is
+   how aictglobal.org handles the same strip. */
 @media (max-width: 940px) {
-  .pt-topbar-email { display: none; }
+  .pt-topbar-label { display: none; }
+  .pt-topbar-item { padding: 4px 8px; font-size: 1rem; }
 }
 
 .pt-topbar-item,
@@ -1113,11 +1117,6 @@ body.dark-mode .pt-card-badge { color: #fff; }
   transition: color var(--pt-transition-normal), text-shadow var(--pt-transition-normal);
 }
 
-/* Shown only inside the mobile dropdown, where the utility strip is hidden.
-   Declared before the max-width block below so that block's `display: block`
-   wins on source order instead of being cancelled by this base rule. */
-.pt-nav-mobile-only { display: none; }
-
 @media (max-width: 768px) {
   .pt-nav-menu {
     display: none;
@@ -1137,12 +1136,28 @@ body.dark-mode .pt-card-badge { color: #fff; }
   .pt-mobile-toggle { display: block; }
   .pt-header-desktop-only { display: none; }
 
-  /* The utility strip can't fit at this width. Zeroing the variable (rather
-     than only hiding the element) keeps --pt-header-height honest, so the hero
-     offset, content margin and the mobile menu's own `top` all stay aligned. */
-  :root { --pt-topbar-height: 0px; }
-  .pt-topbar { display: none; }
-  .pt-nav-mobile-only { display: block; }
+  /* The strip stays on phones (matching aictglobal.org) but drops to a
+     condensed row: socials and the theme toggle go, and the remaining labels
+     collapse to their icons. Keeping it matters functionally — the currency
+     picker lives here and has nowhere else to go. The variable is re-declared
+     rather than zeroed so --pt-header-height stays honest and the hero offset,
+     content margin and mobile menu `top` all remain aligned. */
+  :root { --pt-topbar-height: 44px; }
+  .pt-topbar-socials,
+  .pt-topbar .pt-theme-toggle,
+  .pt-topbar-label { display: none; }
+  .pt-topbar-email .pt-topbar-divider { display: none; }
+  .pt-topbar-inner { padding: 0 16px; gap: 10px; }
+  .pt-topbar-group { gap: 8px; }
+  /* Icon-only now, so give them a proper tap target. */
+  .pt-topbar-item {
+    min-width: 40px;
+    min-height: 40px;
+    justify-content: center;
+    padding: 4px 8px;
+    font-size: 1rem;
+  }
+  .pt-header-container { padding: 0 16px; }
 }
 
 /* ---------- Zakat calculator ---------- */
@@ -1596,20 +1611,47 @@ body.dark-mode .pt-card-badge { color: #fff; }
 }
 
 @media (max-width: 768px) {
-  .pt-hero-slide-content {
-    padding-bottom: 240px;
+  /* A full 100vh hero leaves a cavern of empty photo between the CTA and the
+     stats on a phone, and pushes everything below it off-screen. Shorter and
+     capped, closer to how aictglobal.org handles its mobile hero. */
+  .pt-hero-slider {
+    height: 78vh;
+    min-height: 480px;
+    max-height: 680px;
   }
 
-  .pt-hero-slide-headline {
-    font-size: 2.2rem;
+  .pt-hero-slide-content {
+    padding-bottom: 200px;
+    gap: 14px;
+  }
+
+  /* Must be prefixed with .pt-hero-slide-content to match the base rule's
+     (0,2,0) specificity — as a bare class this override silently lost and the
+     headline stayed at the desktop 3.2rem on phones, wrapping to four lines and
+     colliding with the stats overlay. */
+  .pt-hero-slide-content .pt-hero-slide-headline {
+    font-size: 1.9rem;
+    line-height: 1.15;
   }
 
   .pt-hero-stats {
-    gap: 28px;
+    gap: 10px 20px;
+    padding-bottom: 16px;
+    margin-bottom: 14px;
+  }
+
+  /* Two per row instead of wrapping unevenly across four. */
+  .pt-hero-stats > * {
+    flex: 0 0 calc(50% - 10px);
   }
 
   .pt-hero-stats-value {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
+  }
+
+  .pt-hero-stats-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.3px;
   }
 }
 .pt-tab-btn.active { color: #fff; background: var(--pt-primary); }
