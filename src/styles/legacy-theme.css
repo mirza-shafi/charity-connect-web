@@ -1866,6 +1866,41 @@ body.dark-mode .pt-card-badge { color: #fff; }
 .pt-order-summary-row-sub { font-size: 0.78rem; color: var(--pt-text-muted); }
 .pt-order-summary-total { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.15rem; margin-top: 12px; }
 
+/* ---------- Page hero banner ---------- */
+/* Full-width brand banner for section landing pages, following the same
+   proportions as .zakat-hero. The blue is a deepened brand blue rather than
+   --pt-primary itself: the two-tone heading puts the magenta accent word on
+   this background, and --pt-accent over --pt-primary measures 1.05:1 — all but
+   invisible. Against this deeper blue the same accent family clears 3:1 for
+   large text while staying saturated (measured: white 6.76:1, accent 3.11:1,
+   subtitle 5.36:1 against the lightest end of the gradient). */
+.pt-page-hero {
+  background: linear-gradient(135deg, hsl(var(--pt-primary-h), var(--pt-primary-s), 36%) 0%, hsl(var(--pt-primary-h), var(--pt-primary-s), 26%) 100%);
+  padding: 72px 0 64px;
+  text-align: center;
+  color: #fff;
+}
+.pt-page-hero h1 {
+  font-family: var(--pt-font-display);
+  font-size: 2.75rem;
+  font-weight: 800;
+  margin: 0 0 14px;
+  color: #fff;
+}
+.pt-page-hero-accent { color: hsl(var(--pt-accent-h), 58%, 74%); }
+.pt-page-hero p {
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: hsl(var(--pt-primary-h), 30%, 90%);
+}
+@media (max-width: 768px) {
+  .pt-page-hero { padding: 52px 0 46px; }
+  .pt-page-hero h1 { font-size: 2rem; }
+  .pt-page-hero p { font-size: 1rem; }
+}
+
 /* ---------- Scroll-reveal entrance animation ---------- */
 /* Applied by the ScrollReveal component (never server-rendered), so content is
    fully visible without JS. Both rules set `transition` explicitly because
