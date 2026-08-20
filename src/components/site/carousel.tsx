@@ -5,7 +5,14 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 const EDGE_TOLERANCE_PX = 4;
 const AUTOPLAY_MS = 4500;
 
-export function Carousel({ items }: { items: { key: string; content: ReactNode }[] }) {
+export function Carousel({
+  items,
+  header,
+}: {
+  items: { key: string; content: ReactNode }[];
+  /** Section heading rendered on the same row as the arrows, to their left. */
+  header?: ReactNode;
+}) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
@@ -65,31 +72,35 @@ export function Carousel({ items }: { items: { key: string; content: ReactNode }
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Above the track, not below it: the arrows sit top-right in the gap
-          under the section heading. Kept in normal flow (rather than absolutely
-          positioned) so they can't overlap the cards at any width. */}
-      {items.length > 1 && (
-        <div className="pt-carousel-controls">
-          <button
-            type="button"
-            aria-label="Previous"
-            className="pt-carousel-arrow"
-            disabled={atStart}
-            onClick={() => scrollByOneCard(-1)}
-          >
-            <i className="fa-solid fa-chevron-left" />
-          </button>
-          <button
-            type="button"
-            aria-label="Next"
-            className="pt-carousel-arrow pt-carousel-arrow-primary"
-            disabled={atEnd}
-            onClick={() => scrollByOneCard(1)}
-          >
-            <i className="fa-solid fa-chevron-right" />
-          </button>
-        </div>
-      )}
+      {/* Heading and arrows share one row above the track, so the arrows line up
+          on the right against the section text rather than sitting in a band of
+          their own. Normal flow (not absolute) so nothing can overlap the cards. */}
+      <div className="pt-carousel-head">
+        {header && <div className="pt-carousel-head-text">{header}</div>}
+
+        {items.length > 1 && (
+          <div className="pt-carousel-controls">
+            <button
+              type="button"
+              aria-label="Previous"
+              className="pt-carousel-arrow"
+              disabled={atStart}
+              onClick={() => scrollByOneCard(-1)}
+            >
+              <i className="fa-solid fa-chevron-left" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next"
+              className="pt-carousel-arrow pt-carousel-arrow-primary"
+              disabled={atEnd}
+              onClick={() => scrollByOneCard(1)}
+            >
+              <i className="fa-solid fa-chevron-right" />
+            </button>
+          </div>
+        )}
+      </div>
 
       <div className="pt-carousel-track" ref={trackRef}>
         {items.map((item) => (

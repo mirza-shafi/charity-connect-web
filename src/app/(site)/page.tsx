@@ -35,17 +35,20 @@ export default async function Home() {
       {/* Featured appeals */}
       <section className="pt-section">
         <div className="pt-container">
-          <h2 className="pt-section-title">
-            <span>
-              Featured <span style={{ color: "var(--pt-accent)" }}>Appeals</span>
-            </span>
-          </h2>
-          <p className="pt-section-subtitle">
-            Take direct action. Donate to our current, high-priority appeals — including
-            emergency flood response across Bangladesh — and help change lives today.
-          </p>
-
           <Carousel
+            header={
+              <>
+                <h2 className="pt-section-title">
+                  <span>
+                    Featured <span style={{ color: "var(--pt-accent)" }}>Appeals</span>
+                  </span>
+                </h2>
+                <p className="pt-section-subtitle">
+                  Take direct action. Donate to our current, high-priority appeals — including
+                  emergency flood response across Bangladesh — and help change lives today.
+                </p>
+              </>
+            }
             items={APPEALS.map((appeal) => ({ key: appeal.title, content: <AppealCard appeal={appeal} /> }))}
           />
 

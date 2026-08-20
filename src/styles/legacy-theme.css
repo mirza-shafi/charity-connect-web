@@ -1402,12 +1402,37 @@ body.dark-mode .pt-card-badge { color: #fff; }
   }
 }
 
+/* Section heading on the left, arrows on the right, sharing a baseline. */
+.pt-carousel-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.pt-carousel-head-text { min-width: 0; }
+
+/* .pt-section-subtitle carries a 50px bottom margin for normal stacked
+   sections; inside this row it would push the arrows far below the text. */
+.pt-carousel-head-text .pt-section-subtitle { margin-bottom: 0; }
+
 .pt-carousel-controls {
   display: flex;
   justify-content: flex-end;
   gap: 14px;
-  /* Renders above the track now, so the spacing belongs underneath. */
-  margin-bottom: 20px;
+  /* Keeps the arrows right-aligned even when no header is passed. */
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Side by side gets cramped once the subtitle wraps hard, so stack them. */
+@media (max-width: 640px) {
+  .pt-carousel-head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
 }
 
 .pt-carousel-arrow {
