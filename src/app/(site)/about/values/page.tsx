@@ -1,9 +1,11 @@
+import { OchaIcon, type OchaIconName } from "@/components/site/ocha-icon";
+
 export const metadata = { title: "Our Values | AICT Global" };
 
 const CORE_VALUES = [
   {
     number: "1",
-    icon: "fa-scale-balanced",
+    icon: "reporting",
     title: "Accountability",
     arabic: "إِنَّ اللَّهَ يَأْمُرُكُمْ أَنْ تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا",
     translation: "“Verily, Allah commands you to render trusts to whom they are due…”",
@@ -18,7 +20,7 @@ const CORE_VALUES = [
   },
   {
     number: "2",
-    icon: "fa-shield-halved",
+    icon: "protection",
     title: "Integrity",
     arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَكُونُوا مَعَ الصَّادِقِينَ",
     translation: "“O you who believe! Fear Allah and speak the truth.”",
@@ -33,7 +35,7 @@ const CORE_VALUES = [
   },
   {
     number: "3",
-    icon: "fa-hand-fist",
+    icon: "advocacy",
     title: "Courage",
     arabic: "وَمَنْ يَتَّقِ اللَّهَ يَجْعَلْ لَهُ مَخْرَجًا",
     translation: "“And whoever fears Allah, He will make for him a way out…”",
@@ -48,7 +50,7 @@ const CORE_VALUES = [
   },
   {
     number: "4",
-    icon: "fa-eye",
+    icon: "analysis",
     title: "Transparency",
     arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ بِالْقِسْطِ شُهَدَاءَ لِلَّهِ",
     translation: "“O you who believe! Be persistently standing firm in justice, witnesses for Allah…”",
@@ -60,7 +62,7 @@ const CORE_VALUES = [
       "Errors are announced before they are asked about.",
     ],
   },
-];
+] satisfies { icon: OchaIconName; [k: string]: unknown }[];
 
 const PROMISE_POINTS = [
   { term: "Truthfulness", arabic: "ṣidq" },
@@ -105,7 +107,7 @@ export default function ValuesPage() {
                     fontSize: "1.2rem",
                   }}
                 >
-                  <i className={`fa-solid ${value.icon}`} />
+                  <OchaIcon name={value.icon} size={24} />
                 </div>
                 <h2 style={{ fontSize: "1.5rem", margin: 0 }}>
                   {value.number}. {value.title}

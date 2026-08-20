@@ -1,11 +1,13 @@
 import Link from "next/link";
 
+import { OchaIcon, type OchaIconName } from "@/components/site/ocha-icon";
+
 export const metadata = { title: "Our Mission | AICT Global" };
 
 const SECTIONS = [
   {
     number: "1",
-    icon: "fa-scroll",
+    icon: "policy",
     title: "Mission Note (Institutional Statement)",
     paragraphs: [
       "AICT Global’s mission is not an abstract aspiration; it is a lived responsibility rooted in amānah (trust), compassion, and disciplined action. We exist to respond where human suffering is greatest and where systems have failed, acting with urgency in crisis, restoring dignity after hardship, and building just, sustainable systems that allow people to reclaim control over their lives.",
@@ -14,7 +16,7 @@ const SECTIONS = [
   },
   {
     number: "2",
-    icon: "fa-route",
+    icon: "early-recovery",
     title: "How We Live the Mission",
     paragraphs: [
       "AICT Global puts its mission into action through a continuum of response that moves from emergency to recovery to resilience.",
@@ -25,7 +27,7 @@ const SECTIONS = [
   },
   {
     number: "3",
-    icon: "fa-compass",
+    icon: "humanitarian-programme-cycle",
     title: "Why This Mission Exists",
     paragraphs: [
       "This mission exists because too many lives remain unseen, unheard, and underserved — not due to lack of resources, but due to lack of courage, accountability, and long-term commitment. AICT Global was founded on the conviction that humanitarian work must be both compassionate and uncompromising in ethics.",
@@ -33,7 +35,7 @@ const SECTIONS = [
       "AICT Global exists to prove that it is possible to act swiftly without recklessness, to be faith-guided without exclusion, and to do what others call impossible with discipline, transparency, and trust in Allah. This mission is our response to suffering and our commitment to restore dignity, hope, and self-reliance wherever humanity is in need.",
     ],
   },
-];
+] satisfies { icon: OchaIconName; [k: string]: unknown }[];
 
 export default function MissionPage() {
   return (
@@ -75,7 +77,7 @@ export default function MissionPage() {
                     fontSize: "1.2rem",
                   }}
                 >
-                  <i className={`fa-solid ${section.icon}`} />
+                  <OchaIcon name={section.icon} size={24} />
                 </div>
                 <h2 style={{ fontSize: "1.5rem", margin: 0 }}>
                   {section.number}. {section.title}

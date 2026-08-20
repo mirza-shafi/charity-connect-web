@@ -8,6 +8,8 @@ import { QuickDonateBar } from "@/components/site/quick-donate-bar";
 import { APPEALS } from "@/lib/appeals-data";
 import { getCampaigns, getGalleryPhotos, getHeroSlides } from "@/lib/data";
 
+import { OchaIcon, type OchaIconName } from "@/components/site/ocha-icon";
+
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
@@ -67,11 +69,11 @@ export default async function Home() {
             earn that trust.
           </p>
           <div className="pt-grid pt-grid-3">
-            {[
-              { icon: "fa-bullseye", title: "Direct Giving Model", desc: "95% of donated funds flow straight to community contractors. No bloated operations." },
-              { icon: "fa-square-poll-vertical", title: "Dynamic Reports", desc: "We publish audit reports quarterly showing project completions and geo-location details." },
-              { icon: "fa-shield-halved", title: "Safe Payment System", desc: "All donation receipts are encrypted, and a digital receipt is available from your dashboard." },
-            ].map((item) => (
+            {([
+              { icon: "financing", title: "Direct Giving Model", desc: "95% of donated funds flow straight to community contractors. No bloated operations." },
+              { icon: "reporting", title: "Dynamic Reports", desc: "We publish audit reports quarterly showing project completions and geo-location details." },
+              { icon: "protection", title: "Safe Payment System", desc: "All donation receipts are encrypted, and a digital receipt is available from your dashboard." },
+            ] satisfies { icon: OchaIconName; title: string; desc: string }[]).map((item) => (
               <div key={item.title} className="pt-card" style={{ padding: 32, alignItems: "center", textAlign: "center" }}>
                 <div
                   style={{
@@ -88,7 +90,7 @@ export default async function Home() {
                     marginBottom: 18,
                   }}
                 >
-                  <i className={`fa-solid ${item.icon}`} />
+                  <OchaIcon name={item.icon} size={24} />
                 </div>
                 <h4 style={{ marginBottom: 8 }}>{item.title}</h4>
                 <p style={{ fontSize: "0.9rem", color: "var(--pt-text-muted)" }}>{item.desc}</p>

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ScrollReveal } from "@/components/site/scroll-reveal";
 
+import { OchaIcon, type OchaIconName } from "@/components/site/ocha-icon";
+
 export const metadata = { title: "About Us | AICT Global" };
 
 const STATS = [
@@ -12,26 +14,26 @@ const STATS = [
 
 const APPROACH = [
   {
-    icon: "fa-people-roof",
+    icon: "affected-population",
     title: "Communities at the Centre",
     desc: "We co-design interventions with local communities and programme participants, running continuous feedback loops and upholding accountability to affected people.",
   },
   {
-    icon: "fa-hand-holding-heart",
+    icon: "financing",
     title: "100% Donation Policy",
     desc: "Every public donation goes directly to projects. Core operating costs are covered separately through Gift Aid, institutional grants, and dedicated administrative sponsorships.",
   },
   {
-    icon: "fa-square-poll-vertical",
+    icon: "reporting",
     title: "Accountable",
     desc: "Transparent reporting, independent oversight, and responsible use of every pound.",
   },
   {
-    icon: "fa-seedling",
+    icon: "environment",
     title: "Sustainable",
     desc: "We link urgent relief to long-term recovery and self-reliance for lasting impact.",
   },
-];
+] satisfies { icon: OchaIconName; [k: string]: unknown }[];
 
 const IMPACT_AREAS = [
   "Reach vulnerable children and their caregivers with essential services",
@@ -47,17 +49,17 @@ const IMPACT_AREAS = [
 const EXPLORE_LINKS = [
   {
     href: "/about/values",
-    icon: "fa-heart",
+    icon: "rule-of-law-and-justice",
     title: "Our Values",
     desc: "The principles that shape how we work with donors and communities alike.",
   },
   {
     href: "/what-we-do",
-    icon: "fa-hands-holding-child",
+    icon: "humanitarian-programme-cycle",
     title: "What We Do",
     desc: "Emergency relief, sustainable development, and community empowerment.",
   },
-];
+] satisfies { icon: OchaIconName; [k: string]: unknown }[];
 
 export default function AboutPage() {
   return (
@@ -121,7 +123,7 @@ export default function AboutPage() {
                   marginBottom: 20,
                 }}
               >
-                <i className="fa-solid fa-bullseye" />
+                <OchaIcon name="response" size={30} />
               </div>
               <h2 style={{ fontSize: "1.5rem", marginBottom: 12 }}>Our Mission</h2>
               <p style={{ color: "var(--pt-text-muted)", marginBottom: 18 }}>
@@ -160,7 +162,7 @@ export default function AboutPage() {
                   marginBottom: 20,
                 }}
               >
-                <i className="fa-solid fa-eye" />
+                <OchaIcon name="innovation" size={30} />
               </div>
               <h2 style={{ fontSize: "1.5rem", marginBottom: 12 }}>Our Vision</h2>
               <p style={{ color: "var(--pt-text-muted)", marginBottom: 18 }}>
@@ -196,7 +198,7 @@ export default function AboutPage() {
                     marginBottom: 14,
                   }}
                 >
-                  <i className={`fa-solid ${item.icon}`} />
+                  <OchaIcon name={item.icon} size={24} />
                 </div>
                 <h4 style={{ marginBottom: 8 }}>{item.title}</h4>
                 <p style={{ fontSize: "0.9rem", color: "var(--pt-text-muted)" }}>{item.desc}</p>
@@ -256,7 +258,7 @@ export default function AboutPage() {
                     marginBottom: 18,
                   }}
                 >
-                  <i className={`fa-solid ${item.icon}`} />
+                  <OchaIcon name={item.icon} size={24} />
                 </div>
                 <h4 style={{ marginBottom: 8 }}>{item.title}</h4>
                 <p style={{ fontSize: "0.9rem", color: "var(--pt-text-muted)" }}>{item.desc}</p>

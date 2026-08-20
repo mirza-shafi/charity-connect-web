@@ -1,92 +1,94 @@
 import Link from "next/link";
 
+import { OchaIcon, type OchaIconName } from "@/components/site/ocha-icon";
+
 export const metadata = { title: "What We Do | AICT Global" };
 
 const DEVELOPMENT_PROGRAMME = [
   {
-    icon: "fa-graduation-cap",
+    icon: "education",
     title: "Education",
     desc: "Expanding access to quality learning and scholarship through schooling support, learning materials, and accredited courses.",
   },
   {
-    icon: "fa-heart-pulse",
+    icon: "health",
     title: "Health",
     desc: "Delivering affordable care, from hospital services and sight-restoring interventions to patient support and medical outreach.",
   },
   {
-    icon: "fa-droplet",
+    icon: "water-sanitation-and-hygiene",
     title: "WASH (Water, Sanitation & Hygiene)",
     desc: "Securing safe water, sanitation, and hygiene through water-aid projects, hygiene promotion, and new/rehabilitated handpumps.",
   },
   {
-    icon: "fa-seedling",
+    icon: "livelihood",
     title: "Food Security & Livelihoods",
     desc: "Building income security via skills training, asset grants (e-rickshaws, e-vegetable carts, etc.), and small-business start-up support alongside targeted food assistance where needed.",
   },
-];
+] satisfies { icon: OchaIconName; [k: string]: unknown }[];
 
 const EMERGENCY_PROGRAMME = [
   {
-    icon: "fa-bowl-food",
+    icon: "nutrition",
     title: "Food Security & Nutrition",
     desc: "Rapid assistance to reduce hunger and malnutrition for families in crisis.",
   },
   {
-    icon: "fa-truck-medical",
+    icon: "mobile-clinic",
     title: "Essential Health Services",
     desc: "Life-saving primary care and screenings — mobile clinics, health check-ups — delivered at the doorstep during emergencies.",
   },
   {
-    icon: "fa-hands-bubbles",
+    icon: "potable-water",
     title: "WASH in Emergencies",
     desc: "Immediate hygiene kit distribution and fast restoration of safe water points.",
   },
   {
-    icon: "fa-house-chimney",
+    icon: "shelter",
     title: "Emergency Shelter",
     desc: "Safe, dignified temporary shelter solutions that protect households and speed early recovery.",
   },
-];
+] satisfies { icon: OchaIconName; [k: string]: unknown }[];
 
 const SEASONAL_PROGRAMME = [
   {
-    icon: "fa-moon",
+    icon: "mosque",
     title: "Ramadan Food Assistance",
     desc: "Supporting vulnerable families with nutritious food packs designed to meet essential household needs throughout the month of Ramadan.",
   },
   {
-    icon: "fa-utensils",
+    icon: "kitchen-set",
     title: "Iftar and Suhoor Support",
     desc: "Providing cooked meals, community iftars, and suhoor assistance to fasting individuals, travellers, students, displaced people, and families facing food insecurity.",
   },
   {
-    icon: "fa-hand-holding-heart",
+    icon: "fund",
     title: "Zakat and Fitrana Assistance",
     desc: "Delivering Shariah-compliant, needs-based support to eligible individuals and households through transparent beneficiary selection, fund segregation, distribution, and reporting.",
   },
   {
-    icon: "fa-gift",
+    icon: "relief-goods",
     title: "Eid Support",
     desc: "Helping children, orphans, and vulnerable families celebrate Eid with dignity through Eid gifts, clothing, food assistance, and other essential household support.",
   },
   {
-    icon: "fa-drumstick-bite",
+    icon: "livestock",
     title: "Qurbani/Udhiyah Programme",
     desc: "Facilitating the ethical and Shariah-compliant procurement, slaughter, processing, and distribution of fresh meat to vulnerable households during Eid al-Adha.",
   },
   {
-    icon: "fa-mitten",
+    icon: "blanket",
     title: "Winter Assistance",
     desc: "Protecting vulnerable families during the colder months through the distribution of blankets, warm clothing, heating support, and other essential winter items.",
   },
   {
-    icon: "fa-scale-balanced",
+    icon: "reporting",
     title: "Islamic Giving and Donor Stewardship",
     desc: "Managing seasonal donations in accordance with donor intentions and Islamic principles, supported by clear documentation, beneficiary verification, monitoring, and timely reporting.",
   },
-];
+] satisfies { icon: OchaIconName; [k: string]: unknown }[];
 
-function ProgrammeCard({ icon, title, desc }: { icon: string; title: string; desc: string }) {
+function ProgrammeCard({ icon, title, desc }: { icon: OchaIconName; title: string; desc: string }) {
   return (
     <div className="pt-card" style={{ padding: 28 }}>
       <div
@@ -100,11 +102,10 @@ function ProgrammeCard({ icon, title, desc }: { icon: string; title: string; des
           alignItems: "center",
           justifyContent: "center",
           flexShrink: 0,
-          fontSize: "1.2rem",
           marginBottom: 14,
         }}
       >
-        <i className={`fa-solid ${icon}`} />
+        <OchaIcon name={icon} size={26} />
       </div>
       <h4 style={{ marginBottom: 8 }}>{title}</h4>
       <p style={{ fontSize: "0.9rem", color: "var(--pt-text-muted)" }}>{desc}</p>

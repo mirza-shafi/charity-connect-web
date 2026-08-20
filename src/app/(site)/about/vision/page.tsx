@@ -1,35 +1,37 @@
+import { OchaIcon, type OchaIconName } from "@/components/site/ocha-icon";
+
 const HOW_WE_ACT = [
   {
     number: "1",
-    icon: "fa-magnifying-glass-location",
+    icon: "analysis",
     title: "Reaching the Forgotten First",
     body: "We prioritise communities that are often invisible to systems of power and aid — remote rural populations, conflict-affected families, displaced communities, widows, orphans, and those living at the margins of poverty. Our work begins where neglect is deepest and need is greatest, ensuring that no life is considered too small, too difficult, or too forgotten.",
   },
   {
     number: "2",
-    icon: "fa-bolt",
+    icon: "response",
     title: "Acting Swiftly to Protect Life and Dignity",
     body: "In moments of crisis such as natural disasters, conflict, displacement, or acute deprivation, AICT acts swiftly to save lives through food assistance, medical care, shelter, and clean water. Speed is paired with responsibility, guided by rapid needs assessments, local partnerships, and transparent use of resources. Immediate relief is delivered with dignity, not charity optics.",
   },
   {
     number: "3",
-    icon: "fa-hand-holding-heart",
+    icon: "partnership",
     title: "Restoring Hope After Hardship",
     body: "Once urgent needs are met, AICT focuses on restoring stability and hope. This includes rebuilding homes, restoring access to healthcare and education, supporting widows and orphans, and strengthening psychosocial and community support systems. Restoration is not temporary aid; it is a bridge from survival to renewed possibility.",
   },
   {
     number: "4",
-    icon: "fa-seedling",
+    icon: "environment",
     title: "Creating Opportunity Through Sustainable Systems",
     body: "To ensure lasting impact, AICT invests in just and sustainable systems — clinics and hospitals, schools and training centres, livelihood pathways, water and sanitation infrastructure, and community-based enterprises. These systems are designed to empower people with skills, income, and access to essential services so they can shape their own futures.",
   },
   {
     number: "5",
-    icon: "fa-star",
+    icon: "innovation",
     title: "Empowering Communities to Dream Again",
     body: "Our ultimate measure of success is not the volume of aid delivered, but whether individuals and communities emerge stronger, self-reliant, and confident in their ability to dream and plan for their future. AICT walks alongside communities until they no longer depend on aid, but stand with dignity, resilience, and hope.",
   },
-];
+] satisfies { icon: OchaIconName; [k: string]: unknown }[];
 
 const IN_PRACTICE = [
   "Relief that saves lives without compromising dignity",
@@ -86,7 +88,7 @@ export default function VisionPage() {
                     fontSize: "1.2rem",
                   }}
                 >
-                  <i className={`fa-solid ${step.icon}`} />
+                  <OchaIcon name={step.icon} size={24} />
                 </div>
                 <h3 style={{ fontSize: "1.25rem", margin: 0 }}>
                   {step.number}. {step.title}

@@ -1,6 +1,8 @@
 import { ZakatCalculator } from "@/components/site/zakat-calculator";
 import { getZakatSetting } from "@/lib/data";
 
+import { OchaIcon } from "@/components/site/ocha-icon";
+
 export const metadata = { title: "Zakat Calculator | AICT Global Bangladesh" };
 export const dynamic = "force-dynamic";
 
@@ -45,7 +47,7 @@ export default async function ZakatPage() {
           </div>
           <div className="zakat-edu-card">
             <div className="zakat-edu-card-icon" style={{ background: "rgba(99,102,241,.1)", color: "#6366f1" }}>
-              <i className="fa-solid fa-user-check" />
+              <OchaIcon name="affected-population" size={22} />
             </div>
             <h4>Who Must Pay?</h4>
             <p>
@@ -56,7 +58,7 @@ export default async function ZakatPage() {
           </div>
           <div className="zakat-edu-card">
             <div className="zakat-edu-card-icon" style={{ background: "rgba(245,158,11,.1)", color: "#f59e0b" }}>
-              <i className="fa-solid fa-scale-balanced" />
+              <OchaIcon name="rule-of-law-and-justice" size={22} />
             </div>
             <h4>Nisab Explained</h4>
             <p>

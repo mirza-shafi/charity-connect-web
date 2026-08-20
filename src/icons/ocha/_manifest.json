@@ -1,0 +1,1946 @@
+[
+ {
+  "name": "camp-coordination-and-camp",
+  "label": "Camp Coordination and Camp",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "early-recovery",
+  "label": "Early Recovery",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "education",
+  "label": "Education",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "emergency-telecommunications",
+  "label": "Emergency Telecommunications",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "health",
+  "label": "Health",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "food-security",
+  "label": "Food Security",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "protection",
+  "label": "Protection",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "water-sanitation-and-hygiene",
+  "label": "Water, Sanitation and Hygiene",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "shelter",
+  "label": "Shelter",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "logistics",
+  "label": "Logistics",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "nutrition",
+  "label": "Nutrition",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "environment",
+  "label": "Environment",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "agriculture",
+  "label": "Agriculture",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "fishery",
+  "label": "Fishery",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "rule-of-law-and-justice",
+  "label": "Rule of law and justice",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "multi-cluster-sector",
+  "label": "Multi-cluster/sector",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "safety-and-security",
+  "label": "Safety and security",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "coordination",
+  "label": "Coordination",
+  "page": 1,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "landslide-mudslide",
+  "label": "Landslide/mudslide",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "snow-avalanche",
+  "label": "Snow avalanche",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "storm",
+  "label": "Storm",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "locust-infestation",
+  "label": "Locust infestation",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "storm-surge",
+  "label": "Storm surge",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "technological-disaster",
+  "label": "Technological disaster",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "tornado",
+  "label": "Tornado",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "snowfall",
+  "label": "Snowfall",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "tsunami",
+  "label": "Tsunami",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "violent-wind",
+  "label": "Violent wind",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "volcano",
+  "label": "Volcano",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "insect-infestation",
+  "label": "Insect infestation",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "earthquake",
+  "label": "Earthquake",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "fire",
+  "label": "Fire",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "flash-flood",
+  "label": "Flash flood",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "epidemic",
+  "label": "Epidemic",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "flood",
+  "label": "Flood",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "heavy-rain",
+  "label": "Heavy rain",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "heatwave",
+  "label": "Heatwave",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "conflict",
+  "label": "Conflict",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "humanitarian-access",
+  "label": "Humanitarian access",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "population-displacement",
+  "label": "Population displacement",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "population-return",
+  "label": "Population return",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "cold-wave",
+  "label": "Cold wave",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "cyclone",
+  "label": "Cyclone",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "drought",
+  "label": "Drought",
+  "page": 2,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "drowned",
+  "label": "Drowned",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "dead",
+  "label": "Dead",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "peacekeeping-force",
+  "label": "Peacekeeping force",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "child-combatant",
+  "label": "Child combatant",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "missing",
+  "label": "Missing",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "affected-population",
+  "label": "Affected population",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "rebel",
+  "label": "Rebel",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "national-army",
+  "label": "National army",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "children",
+  "label": "Children",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "woman",
+  "label": "Woman",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "man",
+  "label": "Man",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "injured",
+  "label": "Injured",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "elderly",
+  "label": "Elderly",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "pregnant",
+  "label": "Pregnant",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "infant",
+  "label": "Infant",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "people-with-physical",
+  "label": "People with physical",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "rural",
+  "label": "Rural",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "urban-rural",
+  "label": "Urban/rural",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "urban",
+  "label": "Urban",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "trade-and-market",
+  "label": "Trade and market",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "reconstruction",
+  "label": "Reconstruction",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "rural-exodus",
+  "label": "Rural exodus",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "debris-management",
+  "label": "Debris management",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "livelihood",
+  "label": "Livelihood",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "livestock",
+  "label": "Livestock",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "population-growth",
+  "label": "Population growth",
+  "page": 3,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "training",
+  "label": "Training",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "analysis",
+  "label": "Analysis",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "reporting",
+  "label": "Reporting",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "policy",
+  "label": "Policy",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "needs-assessment",
+  "label": "Needs assessment",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "deployment",
+  "label": "Deployment",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "preparedness",
+  "label": "Preparedness",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "partnership",
+  "label": "Partnership",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "coordinated-assessment",
+  "label": "Coordinated assessment",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "assessment",
+  "label": "Assessment",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "meeting",
+  "label": "Meeting",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "response",
+  "label": "Response",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "learning",
+  "label": "Learning",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "innovation",
+  "label": "Innovation",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "staff-management",
+  "label": "Staff management",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "scale-up-down-operation",
+  "label": "Scale up/down operation",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "services-and-tools",
+  "label": "Services and tools",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "leadership",
+  "label": "Leadership",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "humanitarian-programme-cycle",
+  "label": "Humanitarian programme cycle",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "gap-analysis",
+  "label": "Gap analysis",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "information-technology",
+  "label": "Information technology",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "information-management",
+  "label": "Information management",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "financing",
+  "label": "Financing",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "advocacy",
+  "label": "Advocacy",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "public-information",
+  "label": "Public information",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "civil-military-coordination",
+  "label": "Civil-military coordination",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "fund",
+  "label": "Fund",
+  "page": 4,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "table",
+  "label": "Table",
+  "page": 5,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "report",
+  "label": "Report",
+  "page": 5,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "calendar",
+  "label": "Calendar",
+  "page": 5,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "photo",
+  "label": "Photo",
+  "page": 5,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "map",
+  "label": "Map",
+  "page": 5,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "film",
+  "label": "Film",
+  "page": 5,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "document",
+  "label": "Document",
+  "page": 5,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "data",
+  "label": "Data",
+  "page": 5,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "chart",
+  "label": "Chart",
+  "page": 5,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "detergent",
+  "label": "Detergent",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "bucket-jerry-can",
+  "label": "Bucket/jerry can",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "rice",
+  "label": "Rice",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "relief-goods",
+  "label": "Relief goods",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "bottled-water",
+  "label": "Bottled water",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "blanket",
+  "label": "Blanket",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "vaccine",
+  "label": "Vaccine",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "tent",
+  "label": "Tent",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "tarpaulin",
+  "label": "Tarpaulin",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "soap",
+  "label": "Soap",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "stove",
+  "label": "Stove",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "sugar",
+  "label": "Sugar",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "plastic-sheeting",
+  "label": "Plastic sheeting",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "salt",
+  "label": "Salt",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "oil",
+  "label": "Oil",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "non-food-items",
+  "label": "Non-food items",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "infant-formula",
+  "label": "Infant formula",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "food",
+  "label": "Food",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "flour",
+  "label": "Flour",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "clothing",
+  "label": "Clothing",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "kitchen-set",
+  "label": "Kitchen set",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "mattress",
+  "label": "Mattress",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "mosquito-net",
+  "label": "Mosquito net",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "medical-supply",
+  "label": "Medical supply",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "medicine",
+  "label": "Medicine",
+  "page": 6,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "permanent-camp",
+  "label": "Permanent camp",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "spontaneous-site",
+  "label": "Spontaneous site",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "registration",
+  "label": "Registration",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "transition-site",
+  "label": "Transition site",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "temporary-camp",
+  "label": "Temporary  camp",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "idp-refugee-camp",
+  "label": "IDP/refugee camp",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "potable-water",
+  "label": "Potable water",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "shower",
+  "label": "Shower",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "latrine-cabin",
+  "label": "Latrine cabin",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "communal-latrine",
+  "label": "Communal latrine",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "sanitation",
+  "label": "Sanitation",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "potable-water-source",
+  "label": "Potable water source",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "water-source",
+  "label": "Water source",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "submersible-pump",
+  "label": "Submersible pump",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "spring-water",
+  "label": "Spring water",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "well",
+  "label": "Well",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "water-trucking",
+  "label": "Water trucking",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "solid-waste",
+  "label": "Solid waste",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "toilet",
+  "label": "Toilet",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "borehole",
+  "label": "Borehole",
+  "page": 7,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "road-barrier",
+  "label": "Road barrier",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "physical-closure",
+  "label": "Physical closure",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "observation-tower",
+  "label": "Observation tower",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "roadblock",
+  "label": "Roadblock",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "earthmound",
+  "label": "Earthmound",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "checkpoint",
+  "label": "Checkpoint",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "border-crossing",
+  "label": "Border crossing",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "military-gate",
+  "label": "Military gate",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "carjacking",
+  "label": "Carjacking",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "assault",
+  "label": "Assault",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "murder",
+  "label": "Murder",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "mine",
+  "label": "Mine",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "house-burned",
+  "label": "House burned",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "arrest-detention",
+  "label": "Arrest/detention",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "abduction-kidnapping",
+  "label": "Abduction/kidnapping",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "harassment-intimidation",
+  "label": "Harassment/intimidation",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "robbery",
+  "label": "Robbery",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "forced-recruitment",
+  "label": "Forced recruitment",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "forced-entry",
+  "label": "Forced entry",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "dangerous-area",
+  "label": "Dangerous area",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "attack",
+  "label": "Attack",
+  "page": 8,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "road-destroyed",
+  "label": "Road destroyed",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "road-affected",
+  "label": "Road affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "port-not-affected",
+  "label": "Port not affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "port-destroyed",
+  "label": "Port destroyed",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "port-affected",
+  "label": "Port affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "house-not-affected",
+  "label": "House not affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "house-destroyed",
+  "label": "House destroyed",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "house-affected",
+  "label": "House affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "school-not-affected",
+  "label": "School not affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "school-destroyed",
+  "label": "School destroyed",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "school-affected",
+  "label": "School affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "road-not-affected",
+  "label": "Road not affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "building-not-affected",
+  "label": "Building not affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "building-destroyed",
+  "label": "Building destroyed",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "building-affected",
+  "label": "Building affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "bridge-not-affected",
+  "label": "Bridge not affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "bridge-destroyed",
+  "label": "Bridge destroyed",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "bridge-affected",
+  "label": "Bridge affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "airport-not-affected",
+  "label": "Airport not affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "airport-destroyed",
+  "label": "Airport destroyed",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "airport-affected",
+  "label": "Airport affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "not-affected",
+  "label": "Not affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "destroyed",
+  "label": "Destroyed",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "damaged-affected",
+  "label": "Damaged/Affected",
+  "page": 9,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "assembly-point",
+  "label": "Assembly point",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "university",
+  "label": "University",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "mobile-clinic",
+  "label": "Mobile clinic",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "infrastructure",
+  "label": "Infrastructure",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "police-station",
+  "label": "Police station",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "ngo-office",
+  "label": "NGO office",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "un-compound-office",
+  "label": "UN compound/office",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "school",
+  "label": "School",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "mosque",
+  "label": "Mosque",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "government",
+  "label": "Government",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "food-warehouse",
+  "label": "Food warehouse",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "building",
+  "label": "Building",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "buddhist-temple",
+  "label": "Buddhist temple",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "community-building",
+  "label": "Community building",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "clinic",
+  "label": "Clinic",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "house",
+  "label": "House",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "hotel",
+  "label": "Hotel",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "hospital",
+  "label": "Hospital",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "distribution-site",
+  "label": "Distribution site",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "diplomatic-mission",
+  "label": "Diplomatic mission",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "church",
+  "label": "Church",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "hindu-temple",
+  "label": "Hindu temple",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "health-post",
+  "label": "Health post",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "health-facility",
+  "label": "Health facility",
+  "page": 10,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "mobile-phone",
+  "label": "Mobile phone",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "walkie-talkie",
+  "label": "Walkie talkie",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "radio",
+  "label": "Radio",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "computer",
+  "label": "Computer",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "internet",
+  "label": "Internet",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "fax",
+  "label": "Fax",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "e-mail",
+  "label": "E-mail",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "port",
+  "label": "Port",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "helipad",
+  "label": "Helipad",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "helicopter",
+  "label": "Helicopter",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "ship",
+  "label": "Ship",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "tunnel",
+  "label": "Tunnel",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "truck",
+  "label": "Truck",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "train",
+  "label": "Train",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "road",
+  "label": "Road",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "boat",
+  "label": "Boat",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "airport-military",
+  "label": "Airport military",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "airport",
+  "label": "Airport",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "car",
+  "label": "Car",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "bus",
+  "label": "Bus",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "gas-station",
+  "label": "Gas station",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "ferry",
+  "label": "Ferry",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ },
+ {
+  "name": "bridge",
+  "label": "Bridge",
+  "page": 11,
+  "w": 20.0,
+  "h": 20.0,
+  "paths": 1
+ }
+]
