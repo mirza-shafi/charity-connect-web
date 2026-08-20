@@ -104,13 +104,22 @@ export default async function Home() {
           <div className="pt-grid pt-grid-2" style={{ alignItems: "center", gap: 60 }}>
             <div>
               <h2 style={{ fontSize: "2.25rem", marginBottom: 20, textAlign: "left" }}>
-                Our Vision, Mission &amp; Goals
+                Our Vision, Mission &amp; Commitment
               </h2>
+              <p style={{ marginBottom: 16, color: "var(--pt-text-muted)" }}>
+                AICT Global envisions a world where even the most forgotten lives are restored with
+                dignity, hope and opportunity, so that every person has the courage to dream again.
+              </p>
+              <p style={{ marginBottom: 16, color: "var(--pt-text-muted)" }}>
+                In Bangladesh, we bring this vision to life by serving communities with compassion,
+                courage and accountability. We act swiftly when crisis strikes, help families recover
+                with dignity, and invest in sustainable solutions in health, education, livelihoods,
+                food security, water and community resilience.
+              </p>
               <p style={{ marginBottom: 20, color: "var(--pt-text-muted)" }}>
-                Founded in 2020, AICT Global Bangladesh aims to remove structural wealth inequities and
-                logistics bottlenecks in social aid delivery. We believe that direct, transparent
-                fundraising changes the dynamic of giving — and right now, that means getting
-                emergency relief to flood-affected families across Bangladesh as fast as possible.
+                Our aim is not simply to deliver aid, but to walk alongside communities from relief to
+                recovery and from recovery to self-reliance, creating opportunities for people to
+                rebuild their lives with confidence and hope.
               </p>
               <Link href="/campaigns" className="pt-btn pt-btn-primary">
                 See Our Emergency Appeals <i className="fa-solid fa-arrow-right" style={{ marginLeft: 6 }} />
