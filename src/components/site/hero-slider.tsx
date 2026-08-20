@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 
 import { useCurrency } from "@/components/site/currency-context";
 import type { HeroSlide } from "@/lib/types";
@@ -40,13 +39,13 @@ export function HeroSlider({
           <img src={slide.image_key} alt="" className="pt-hero-slide-img" />
           <div className="pt-hero-slide-overlay" />
           <div className="pt-container pt-hero-slide-content">
+            {/* Headline only — the slide's badge and CTA button used to sit here
+                too, but three stacked pills over the photo were visually noisy.
+                Donation entry points remain right below the hero (Quick Donate)
+                and in the header / floating button, so nothing is unreachable.
+                `badge_text`, `cta_label` and `cta_href` are still stored and
+                editable in the admin; they're simply not rendered. */}
             <h1 className="pt-hero-slide-headline">{slide.headline}</h1>
-            <span className="pt-hero-slide-badge">{slide.badge_text}</span>
-            <div>
-              <Link href={slide.cta_href} className="pt-btn pt-btn-accent pt-btn-lg pt-btn-pill">
-                {slide.cta_label}
-              </Link>
-            </div>
           </div>
         </div>
       ))}
