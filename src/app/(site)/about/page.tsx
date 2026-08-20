@@ -125,7 +125,10 @@ export default function AboutPage() {
               </div>
               <h2 style={{ fontSize: "1.5rem", marginBottom: 12 }}>Our Mission</h2>
               <p style={{ color: "var(--pt-text-muted)", marginBottom: 18 }}>
-                A lived responsibility rooted in amānah, compassion, and disciplined action.
+                To serve humanity with compassion, courage, and accountability by acting swiftly
+                in times of crisis, restoring dignity after hardship, and building just,
+                sustainable systems of health, education, and livelihoods, so that individuals
+                and communities rise with hope and self-resilience.
               </p>
               <span style={{ color: "var(--pt-primary)", fontWeight: 600 }}>
                 Read Our Mission <i className="fa-solid fa-arrow-right" style={{ marginLeft: 6 }} />
