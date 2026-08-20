@@ -42,7 +42,10 @@ export default function MissionPage() {
         <div className="pt-container">
           <h1 className="pt-section-title">Our Mission</h1>
           <p className="pt-section-subtitle">
-            A lived responsibility rooted in amānah, compassion, and disciplined action.
+            To serve humanity with compassion, courage, and accountability by acting swiftly in
+            times of crisis, restoring dignity after hardship, and building just, sustainable
+            systems of health, education, and livelihoods, so that individuals and communities
+            rise with hope and self-resilience.
           </p>
         </div>
       </section>
