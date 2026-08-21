@@ -4,6 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { useToast } from "@/components/site/toast-provider";
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  CONTACT_PHONE_TEL,
+  OFFICE_ADDRESS_LINES,
+  OFFICE_MAP_URL,
+  SOCIAL_LINKS,
+} from "@/lib/site-contact";
 
 const QUICK_LINKS = [
   { href: "/", label: "Home" },
@@ -59,18 +67,18 @@ export function SiteFooter() {
               community empowerment across Bangladesh.
             </p>
             <div className="pt-social-links">
-              <a href="https://www.facebook.com/aictglobal/" target="_blank" rel="noopener noreferrer" className="pt-social-btn" aria-label="Facebook">
-                <i className="fa-brands fa-facebook-f" />
-              </a>
-              <a href="https://x.com/aictglobal" target="_blank" rel="noopener noreferrer" className="pt-social-btn" aria-label="Twitter">
-                <i className="fa-brands fa-x-twitter" />
-              </a>
-              <a href="https://www.instagram.com/aictglobal/" target="_blank" rel="noopener noreferrer" className="pt-social-btn" aria-label="Instagram">
-                <i className="fa-brands fa-instagram" />
-              </a>
-              <a href="https://www.youtube.com/@aictglobal2885" target="_blank" rel="noopener noreferrer" className="pt-social-btn" aria-label="YouTube">
-                <i className="fa-brands fa-youtube" />
-              </a>
+              {SOCIAL_LINKS.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pt-social-btn"
+                  aria-label={social.label}
+                >
+                  <i className={`fa-brands ${social.icon}`} />
+                </a>
+              ))}
             </div>
           </div>
 
@@ -101,15 +109,20 @@ export function SiteFooter() {
             <ul className="pt-footer-contact">
               <li>
                 <i className="fa-solid fa-location-dot" />
-                <span>House/Road TBD, Dhanmondi<br />Dhaka 1209, Bangladesh</span>
+                {/* Opens the office pin on Google Maps. */}
+                <a href={OFFICE_MAP_URL} target="_blank" rel="noopener noreferrer">
+                  {OFFICE_ADDRESS_LINES[0]}
+                  <br />
+                  {OFFICE_ADDRESS_LINES[1]}
+                </a>
               </li>
               <li>
                 <i className="fa-solid fa-phone" />
-                <a href="tel:+8801841180037">+880 1841-180037</a>
+                <a href={`tel:${CONTACT_PHONE_TEL}`}>{CONTACT_PHONE}</a>
               </li>
               <li>
                 <i className="fa-solid fa-envelope" />
-                <a href="mailto:connect@aictglobal.org">connect@aictglobal.org</a>
+                <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
               </li>
             </ul>
           </div>
@@ -138,7 +151,7 @@ export function SiteFooter() {
 
       <div className="pt-footer-subbar">
         <div className="pt-container">
-          <p className="pt-footer-credit">Made by NexaForce Solutions</p>
+          <p className="pt-footer-credit">Made by NexaForce Digital Solutions</p>
           <div className="pt-footer-payments">
             {PAYMENT_ICONS.map((icon) => (
               <i key={icon} className={`fa-brands ${icon}`} />

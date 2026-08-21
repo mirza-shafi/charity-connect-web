@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import { useBasket } from "@/components/site/basket-context";
 import { CurrencyPicker } from "@/components/site/currency-picker";
+import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/lib/site-contact";
 import { LiveClock } from "@/components/site/live-clock";
 import { NavMegaMenu } from "@/components/site/nav-mega-menu";
 import type { Campaign } from "@/lib/types";
@@ -17,16 +18,6 @@ const ABOUT_MENU_ITEMS = [
   { href: "/about/values", title: "Our Values", subtitle: "The principles behind our work" },
   { href: "/about/vision", title: "Our Vision", subtitle: "The world we're working toward" },
 ];
-
-// Same destinations as the footer's social row — kept in sync deliberately.
-const SOCIAL_LINKS = [
-  { href: "https://www.facebook.com/aictglobal/", label: "Facebook", icon: "fa-facebook-f" },
-  { href: "https://www.instagram.com/aictglobal/", label: "Instagram", icon: "fa-instagram" },
-  { href: "https://www.youtube.com/@aictglobal2885", label: "YouTube", icon: "fa-youtube" },
-  { href: "https://x.com/aictglobal", label: "X", icon: "fa-x-twitter" },
-];
-
-const CONTACT_EMAIL = "connect@aictglobal.org";
 
 const NavPlainLink = ({
   href,

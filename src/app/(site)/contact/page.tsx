@@ -1,5 +1,6 @@
 import { ContactForm } from "@/components/site/contact-form";
 import { FaqAccordion } from "@/components/site/faq-accordion";
+import { CONTACT_EMAIL, CONTACT_PHONE, OFFICE_ADDRESS, OFFICE_MAP_URL } from "@/lib/site-contact";
 
 export const metadata = { title: "Contact | AICT Global Bangladesh" };
 
@@ -57,7 +58,9 @@ export default function ContactPage() {
                   }}
                 >
                   <i className="fa-solid fa-location-pin" style={{ color: "var(--pt-danger)" }} />
-                  120 Pine Street, SF
+                  <a href={OFFICE_MAP_URL} target="_blank" rel="noopener noreferrer">
+                    {OFFICE_ADDRESS}
+                  </a>
                 </div>
               </div>
               <div style={{ padding: 24, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
@@ -66,7 +69,7 @@ export default function ContactPage() {
                     <i className="fa-solid fa-phone" style={{ color: "var(--pt-accent)", marginRight: 6 }} /> Call Us
                   </h4>
                   <p style={{ fontSize: "0.85rem", color: "var(--pt-text-muted)" }}>
-                    +880 1841-180037<br />Mon-Fri, 9AM - 5PM
+                    {CONTACT_PHONE}<br />Mon-Fri, 9AM - 5PM
                   </p>
                 </div>
                 <div>
@@ -74,7 +77,7 @@ export default function ContactPage() {
                     <i className="fa-solid fa-envelope" style={{ color: "var(--pt-accent)", marginRight: 6 }} /> Email Us
                   </h4>
                   <p style={{ fontSize: "0.85rem", color: "var(--pt-text-muted)" }}>
-                    connect@aictglobal.org<br />Average reply: 24 hours
+                    {CONTACT_EMAIL}<br />Average reply: 24 hours
                     <br />
                     <span style={{ fontSize: "0.8rem" }}>Organization: aictglobalbd@gmail.com</span>
                   </p>
