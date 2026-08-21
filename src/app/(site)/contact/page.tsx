@@ -1,6 +1,12 @@
 import { ContactForm } from "@/components/site/contact-form";
 import { FaqAccordion } from "@/components/site/faq-accordion";
-import { CONTACT_EMAIL, CONTACT_PHONE, OFFICE_ADDRESS, OFFICE_MAP_URL } from "@/lib/site-contact";
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  OFFICE_ADDRESS,
+  OFFICE_MAP_EMBED_URL,
+  OFFICE_MAP_URL,
+} from "@/lib/site-contact";
 
 export const metadata = { title: "Contact | AICT Global Bangladesh" };
 
@@ -27,41 +33,34 @@ export default function ContactPage() {
                 marginBottom: 30,
               }}
             >
+              {/* Real map, replacing the dotted placeholder that used to sit here.
+                  The address sits in its own bar underneath rather than floating
+                  over the map, where it would swallow clicks meant for it. */}
+              <iframe
+                src={OFFICE_MAP_EMBED_URL}
+                title="AICT Global Bangladesh office location on Google Maps"
+                width="100%"
+                height={250}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+                style={{ border: 0, display: "block" }}
+              />
               <div
                 style={{
-                  height: 250,
-                  backgroundColor: "#cbd5e1",
-                  backgroundImage:
-                    "radial-gradient(var(--pt-border) 15%, transparent 16%), radial-gradient(var(--pt-border) 15%, transparent 16%)",
-                  backgroundSize: "20px 20px",
-                  backgroundPosition: "0 0, 10px 10px",
                   display: "flex",
-                  flexDirection: "column",
                   alignItems: "center",
-                  justifyContent: "center",
-                  position: "relative",
+                  gap: 8,
+                  padding: "12px 20px",
+                  borderTop: "1px solid var(--pt-border)",
+                  fontSize: "0.82rem",
+                  fontWeight: 700,
                 }}
               >
-                <i className="fa-solid fa-map-location-dot" style={{ fontSize: "4rem", color: "var(--pt-primary-alpha)", marginBottom: 10 }} />
-                <div
-                  style={{
-                    background: "var(--pt-card-bg)",
-                    padding: "8px 16px",
-                    borderRadius: "var(--pt-radius-full)",
-                    border: "1px solid var(--pt-border)",
-                    fontSize: "0.8rem",
-                    fontWeight: 700,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 8,
-                    boxShadow: "var(--pt-shadow-md)",
-                  }}
-                >
-                  <i className="fa-solid fa-location-pin" style={{ color: "var(--pt-danger)" }} />
-                  <a href={OFFICE_MAP_URL} target="_blank" rel="noopener noreferrer">
-                    {OFFICE_ADDRESS}
-                  </a>
-                </div>
+                <i className="fa-solid fa-location-pin" style={{ color: "var(--pt-danger)", flexShrink: 0 }} />
+                <a href={OFFICE_MAP_URL} target="_blank" rel="noopener noreferrer">
+                  {OFFICE_ADDRESS}
+                </a>
               </div>
               <div style={{ padding: 24, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                 <div>

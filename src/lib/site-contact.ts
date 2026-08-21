@@ -18,6 +18,17 @@ export const OFFICE_ADDRESS = OFFICE_ADDRESS_LINES.join(", ");
 /** Google Maps pin for the office — opened from the address in the footer/contact page. */
 export const OFFICE_MAP_URL = "https://maps.app.goo.gl/VF4xbbkKYG6G3aaM9?g_st=ic";
 
+/**
+ * Embeddable form of the same pin, for the map on /contact.
+ *
+ * `maps.google.com/maps?...&output=embed` is the keyless embed endpoint — the
+ * Maps Embed API proper would need a billed API key. The query is the place
+ * name Google itself resolves OFFICE_MAP_URL to, so the marker lands on the
+ * organisation's own listing rather than a geocoded guess at the street.
+ */
+export const OFFICE_MAP_EMBED_URL =
+  "https://maps.google.com/maps?q=AICT+Global,+22+Road+No.+29A,+Dhaka+1216&z=16&output=embed";
+
 export interface SocialLink {
   href: string;
   label: string;
